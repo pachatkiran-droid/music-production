@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layers, Coffee, Wifi, Shield, Disc, ArrowRight, Mic, Sparkles } from 'lucide-react';
+import { Coffee, Wifi, Shield, Disc, Sparkles } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 import StudioGear from '../components/StudioGear';
 import BookingCTA from '../components/BookingCTA';
@@ -29,15 +29,15 @@ export default function StudiosPage() {
   ];
 
   return (
-    <div className="studios-page">
-      {/* 1. Page Header */}
-      <PageHeader
-        badge="ACOUSTIC ARCHITECTURE & GEAR"
-        title="WORLD-CLASS SUITES,"
-        highlight="LEGENDARY HARDWARE"
-        subtitle="Step inside our 4 decoupled recording environments and explore our curated arsenal of analog consoles, vintage tube microphones, and Dolby Atmos monitoring."
-        icon={Layers}
-      />
+    <div className="editorial-wrapper">
+      <div className="editorial-canvas">
+        {/* 1. Page Header */}
+        <PageHeader
+          badge="ACOUSTIC ARCHITECTURE & GEAR"
+          title="WORLD-CLASS SUITES,"
+          highlight="LEGENDARY HARDWARE"
+          subtitle="Step inside our 4 decoupled recording environments and explore our curated arsenal of analog consoles, vintage tube microphones, and Dolby Atmos monitoring."
+        />
 
       {/* 2. Studio Suites & Gear Component */}
       <StudioGear />
@@ -112,6 +112,7 @@ export default function StudiosPage() {
         title="SCHEDULE A PRIVATE STUDIO TOUR"
         subtitle="Come experience our acoustic monitoring and analog outboard consoles in person before booking your session."
       />
+      </div>
     </div>
   );
 }

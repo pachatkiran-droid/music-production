@@ -1,9 +1,8 @@
 import React from 'react';
-import { Sliders, Music2, Mic2, Disc3, Film, Sparkles, CheckCircle2, ArrowRight, Clock, Award, FileAudio, Layers } from 'lucide-react';
+import { Clock, FileAudio, CheckCircle2 } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 import Services from '../components/Services';
 import BookingCTA from '../components/BookingCTA';
-import { SERVICES } from '../data/services';
 
 export default function ServicesPage() {
   const workflowSteps = [
@@ -35,15 +34,15 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="services-page">
-      {/* 1. Page Header */}
-      <PageHeader
-        badge="PRODUCTION CAPABILITIES"
-        title="END-TO-END"
-        highlight="STUDIO SERVICES"
-        subtitle="Every sonic discipline under one acoustically tuned roof. From commercial film scoring to chart-topping Dolby Atmos mixes, we elevate your sound to international standards."
-        icon={Sliders}
-      />
+    <div className="editorial-wrapper">
+      <div className="editorial-canvas">
+        {/* 1. Page Header */}
+        <PageHeader
+          badge="PRODUCTION CAPABILITIES"
+          title="END-TO-END"
+          highlight="STUDIO SERVICES"
+          subtitle="Every sonic discipline under one acoustically tuned roof. From commercial film scoring to chart-topping Dolby Atmos mixes, we elevate your sound to international standards."
+        />
 
       {/* 2. All Services Grid */}
       <Services />
@@ -156,6 +155,7 @@ export default function ServicesPage() {
         title="READY TO BOOK A SERVICE SUITE?"
         subtitle="Select your preferred service and let our audio engineers craft the definitive sound for your music."
       />
+      </div>
     </div>
   );
 }

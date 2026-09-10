@@ -1,5 +1,5 @@
 import React from 'react';
-import { Compass, Waves, Disc3, Sparkles, Award, ShieldCheck, Heart, Radio } from 'lucide-react';
+import { Waves, Disc3, Sparkles, ShieldCheck } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 import Team from '../components/Team';
 import Testimonials from '../components/Testimonials';
@@ -38,15 +38,15 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="about-page">
-      {/* 1. Page Header */}
-      <PageHeader
-        badge="THE MALHAR PHILOSOPHY"
-        title="INSPIRED BY TRADITION,"
-        highlight="DEFINED BY MASTERY"
-        subtitle="In Indian classical music, Raga Malhar possesses the mythical power to summon torrential monsoons. We bring that same visceral, transformative passion to modern sound design and record production."
-        icon={Compass}
-      />
+    <div className="editorial-wrapper">
+      <div className="editorial-canvas">
+        {/* 1. Page Header */}
+        <PageHeader
+          badge="THE MALHAR PHILOSOPHY"
+          title="INSPIRED BY TRADITION,"
+          highlight="DEFINED BY MASTERY"
+          subtitle="In Indian classical music, Raga Malhar possesses the mythical power to summon torrential monsoons. We bring that same visceral, transformative passion to modern sound design and record production."
+        />
 
       {/* 2. Heritage Story & Studio Mission */}
       <section className="section-padding" style={{ position: 'relative' }}>
@@ -245,6 +245,7 @@ export default function AboutPage() {
         title="COLLABORATE WITH OUR PRODUCTION TEAM"
         subtitle="Book a session or schedule an in-person studio walkthrough to discuss your upcoming musical project."
       />
+      </div>
     </div>
   );
 }

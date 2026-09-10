@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUp, Music, Radio } from 'lucide-react';
+import { ArrowUp, ArrowUpRight } from 'lucide-react';
 import Logo from './Logo';
 
 export default function Footer() {
@@ -11,232 +11,222 @@ export default function Footer() {
   return (
     <footer
       style={{
-        backgroundColor: '#040406',
-        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-        paddingTop: '5rem',
-        paddingBottom: '2.5rem',
-        position: 'relative'
+        backgroundColor: '#0a0204',
+        borderTop: '1px solid rgba(186, 27, 35, 0.3)',
+        paddingTop: '6rem',
+        paddingBottom: '3rem',
+        position: 'relative',
+        color: '#ffffff',
+        overflow: 'hidden'
       }}
     >
-      <div className="container">
-        {/* Top Footer Grid */}
+      {/* Background Ambient Glow */}
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '700px',
+          height: '250px',
+          background: 'radial-gradient(ellipse at center, rgba(186, 27, 35, 0.25) 0%, transparent 70%)',
+          filter: 'blur(70px)',
+          pointerEvents: 'none'
+        }}
+      />
+
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+        {/* Top Artistic Headline & Asterisk */}
+        <div style={{ marginBottom: '4.5rem', borderBottom: '1px solid rgba(255, 255, 255, 0.08)', paddingBottom: '3.5rem' }}>
+          <div style={{ color: '#ba1b23', fontSize: '1.8rem', lineHeight: 1, marginBottom: '1rem' }}>✳</div>
+          <h2
+            style={{
+              fontFamily: "'Outfit', sans-serif",
+              fontSize: 'clamp(1.8rem, 4vw, 3.2rem)',
+              fontWeight: 800,
+              textTransform: 'uppercase',
+              letterSpacing: '-0.02em',
+              lineHeight: 1.15,
+              maxWidth: '850px',
+              color: '#ffffff'
+            }}
+          >
+            WHERE TIMELESS RAGA MEETS <br />
+            <span style={{ color: '#ba1b23' }}>MODERN ANALOG MASTERY.</span>
+          </h2>
+        </div>
+
+        {/* 4-Column Directory Grid */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
             gap: '3rem',
-            marginBottom: '4rem'
+            marginBottom: '4.5rem'
           }}
         >
           {/* Brand Col */}
-          <div style={{ maxWidth: '340px' }}>
+          <div>
             <div style={{ marginBottom: '1.25rem' }}>
               <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }} aria-label="Malhar Productions Home">
                 <Logo variant="full" color="white" size="md" />
               </Link>
             </div>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.7, marginBottom: '1.5rem' }}>
-              A world-class music production company, Dolby Atmos® spatial mixing facility, and analog recording sanctuary. Inspired by the soul of Raga Malhar.
+            <p style={{ color: 'rgba(255, 255, 255, 0.65)', fontSize: '0.88rem', lineHeight: 1.7, marginBottom: '1.5rem' }}>
+              Dolby Atmos® 7.1.4 certified spatial mixing, SSL 4000E analog summing, and decoupled tracking sanctuary in Mumbai.
             </p>
-            <div style={{ display: 'flex', gap: '0.75rem' }}>
-              <a
-                href="https://open.spotify.com"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Spotify"
-                style={{
-                  width: '38px',
-                  height: '38px',
-                  borderRadius: '10px',
-                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#FFFFFF',
-                  transition: 'all 0.2s ease'
-                }}
-              >
-                <Music size={18} />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Instagram"
-                style={{
-                  width: '38px',
-                  height: '38px',
-                  borderRadius: '10px',
-                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#FFFFFF',
-                  transition: 'all 0.2s ease'
-                }}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
-                </svg>
-              </a>
-              <a
-                href="https://youtube.com"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="YouTube"
-                style={{
-                  width: '38px',
-                  height: '38px',
-                  borderRadius: '10px',
-                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#FFFFFF',
-                  transition: 'all 0.2s ease'
-                }}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/>
-                  <polygon points="10 15 15 12 10 9 10 15" fill="currentColor"/>
-                </svg>
-              </a>
-              <a
-                href="https://soundcloud.com"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="SoundCloud"
-                style={{
-                  width: '38px',
-                  height: '38px',
-                  borderRadius: '10px',
-                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#FFFFFF',
-                  transition: 'all 0.2s ease'
-                }}
-              >
-                <Radio size={18} />
-              </a>
+            <div style={{ display: 'flex', gap: '0.6rem' }}>
+              {['Spotify', 'Instagram', 'YouTube', 'SoundCloud'].map((network, idx) => (
+                <a
+                  key={idx}
+                  href={`https://${network.toLowerCase()}.com`}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={network}
+                  style={{
+                    width: '36px',
+                    height: '36px',
+                    borderRadius: '50%',
+                    backgroundColor: 'rgba(255, 255, 255, 0.06)',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#FFFFFF',
+                    fontSize: '0.75rem',
+                    fontWeight: 700,
+                    textDecoration: 'none',
+                    transition: 'all 0.2s ease'
+                  }}
+                >
+                  {network[0]}
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Navigation Links */}
           <div>
-            <h4 style={{ fontSize: '1rem', color: '#FFFFFF', fontWeight: 700, marginBottom: '1.25rem', letterSpacing: '0.05em' }}>
+            <h4 style={{ fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255, 255, 255, 0.45)', fontWeight: 700, marginBottom: '1.5rem' }}>
               NAVIGATION
             </h4>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              <li>
-                <Link to="/" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.2s ease' }}>
-                  Studio Overview (Home)
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.9rem' }}>
-                  The Malhar Philosophy & Team
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.9rem' }}>
-                  Services & Production Suites
-                </Link>
-              </li>
-              <li>
-                <Link to="/studios" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.9rem' }}>
-                  Acoustic Rooms & Gear Arsenal
-                </Link>
-              </li>
-              <li>
-                <Link to="/releases" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.9rem' }}>
-                  Discography & Audio Showreel
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" style={{ color: 'var(--accent-scarlet)', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 600 }}>
-                  Book Studio Session →
-                </Link>
-              </li>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+              {[
+                { name: 'Studio Overview (Home)', to: '/' },
+                { name: 'The Malhar Story', to: '/about' },
+                { name: 'Production Suites', to: '/services' },
+                { name: 'Acoustic Rooms & Gear', to: '/studios' },
+                { name: 'Featured Discography', to: '/releases' },
+                { name: 'Book Studio Session', to: '/contact' }
+              ].map((link, idx) => (
+                <li key={idx}>
+                  <Link
+                    to={link.to}
+                    style={{
+                      color: link.to === '/contact' ? '#e62a34' : 'rgba(255, 255, 255, 0.75)',
+                      textDecoration: 'none',
+                      fontSize: '0.88rem',
+                      fontWeight: link.to === '/contact' ? 700 : 500,
+                      transition: 'color 0.2s ease'
+                    }}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Capabilities */}
           <div>
-            <h4 style={{ fontSize: '1rem', color: '#FFFFFF', fontWeight: 700, marginBottom: '1.25rem', letterSpacing: '0.05em' }}>
+            <h4 style={{ fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255, 255, 255, 0.45)', fontWeight: 700, marginBottom: '1.5rem' }}>
               CAPABILITIES
             </h4>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-              <li>Dolby Atmos® 7.1.4 Mixing</li>
-              <li>SSL 4000E Analog Summing</li>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.85rem', fontSize: '0.88rem', color: 'rgba(255, 255, 255, 0.75)' }}>
+              <li>Dolby Atmos® 7.1.4 Spatial Mixing</li>
+              <li>Solid State Logic 4000E Analog Summing</li>
               <li>Apple Digital Masters (MFiT)</li>
-              <li>Orchestral Live Tracking</li>
-              <li>Film & OTT Soundtrack Scoring</li>
-              <li>Sonic Branding Mnemonics</li>
+              <li>Orchestral & Band Live Tracking</li>
+              <li>Feature Film Scoring & OTT Post</li>
+              <li>Sonic Branding & Sound Design</li>
             </ul>
           </div>
 
-          {/* Newsletter / Producer Dispatch */}
+          {/* Studio Dispatch Newsletter */}
           <div>
-            <h4 style={{ fontSize: '1rem', color: '#FFFFFF', fontWeight: 700, marginBottom: '1.25rem', letterSpacing: '0.05em' }}>
+            <h4 style={{ fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255, 255, 255, 0.45)', fontWeight: 700, marginBottom: '1.5rem' }}>
               STUDIO DISPATCH
             </h4>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: 1.6, marginBottom: '1.25rem' }}>
-              Subscribe to receive studio opening slot announcements, sample pack drops, and behind-the-scenes mixing breakdowns.
+            <p style={{ color: 'rgba(255, 255, 255, 0.65)', fontSize: '0.86rem', lineHeight: 1.6, marginBottom: '1.25rem' }}>
+              Subscribe for open session slots, mixing stem breakdowns, and production masterclasses.
             </p>
-            <form onSubmit={(e) => { e.preventDefault(); alert('Subscribed to Malhar Productions Studio Dispatch!'); }}>
-              <div style={{ display: 'flex', gap: '0.5rem' }}>
+            <form onSubmit={(e) => { e.preventDefault(); alert('Subscribed to Malhaar Productions Studio Dispatch!'); }}>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  background: 'rgba(255, 255, 255, 0.06)',
+                  border: '1px solid rgba(255, 255, 255, 0.15)',
+                  borderRadius: '999px',
+                  padding: '0.3rem 0.4rem 0.3rem 1rem'
+                }}
+              >
                 <input
                   type="email"
                   required
-                  placeholder="Enter your email"
+                  placeholder="Your email address"
                   style={{
-                    flex: 1,
-                    padding: '0.7rem 0.9rem',
-                    borderRadius: '8px',
-                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid rgba(255, 255, 255, 0.12)',
-                    color: '#FFFFFF',
+                    background: 'transparent',
+                    border: 'none',
+                    outline: 'none',
+                    color: '#ffffff',
                     fontFamily: "'Outfit', sans-serif",
-                    fontSize: '0.85rem',
-                    outline: 'none'
+                    fontSize: '0.82rem',
+                    flex: 1
                   }}
                 />
                 <button
                   type="submit"
-                  className="btn btn-primary"
-                  style={{ padding: '0.7rem 1rem', fontSize: '0.85rem' }}
+                  style={{
+                    background: 'var(--primary-red)',
+                    color: '#ffffff',
+                    border: 'none',
+                    borderRadius: '999px',
+                    padding: '0.55rem 1rem',
+                    fontFamily: "'Outfit', sans-serif",
+                    fontSize: '0.78rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.04em',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.3rem'
+                  }}
                 >
-                  Join
+                  <span>Join</span>
+                  <ArrowUpRight size={13} />
                 </button>
               </div>
             </form>
           </div>
         </div>
 
-        {/* Bottom Bar & Copyright */}
+        {/* Bottom Copyright & Back to Top */}
         <div
           style={{
-            paddingTop: '2rem',
-            borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+            paddingTop: '2.5rem',
+            borderTop: '1px solid rgba(255, 255, 255, 0.08)',
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'space-between',
             alignItems: 'center',
-            gap: '1rem',
-            fontSize: '0.82rem',
-            color: 'var(--text-dim)'
+            gap: '1.25rem',
+            fontSize: '0.8rem',
+            color: 'rgba(255, 255, 255, 0.45)'
           }}
         >
           <div>
-            © {new Date().getFullYear()} <strong>MALHAAR PRODUCTIONS</strong>. All Rights Reserved. (Also known as Malhar Productions).
+            © {new Date().getFullYear()} <strong>MALHAAR PRODUCTIONS</strong>. All Rights Reserved. Mumbai, India.
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
@@ -248,16 +238,17 @@ export default function Footer() {
               onClick={scrollToTop}
               aria-label="Back to Top"
               style={{
-                background: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
+                background: 'rgba(255, 255, 255, 0.06)',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
                 color: '#FFFFFF',
                 borderRadius: '50%',
-                width: '36px',
-                height: '36px',
+                width: '38px',
+                height: '38px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                transition: 'all 0.2s ease'
               }}
             >
               <ArrowUp size={16} />

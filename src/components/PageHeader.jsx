@@ -1,93 +1,90 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, Home } from 'lucide-react';
+import { ChevronRight, ArrowUpRight } from 'lucide-react';
 
-export default function PageHeader({ badge, title, highlight, subtitle, icon: Icon }) {
+export default function PageHeader({ badge, title, highlight, subtitle }) {
   return (
     <div
       style={{
         position: 'relative',
         paddingTop: '8.5rem',
-        paddingBottom: '4rem',
+        paddingBottom: '4.5rem',
         overflow: 'hidden',
-        background: 'radial-gradient(ellipse at 50% 0%, rgba(186, 27, 35, 0.18) 0%, rgba(6, 6, 8, 0.95) 75%)',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
+        background: 'radial-gradient(ellipse at 50% 20%, rgba(186, 27, 35, 0.45) 0%, rgba(14, 3, 6, 0.95) 70%, #0a0204 100%)',
+        borderBottom: '1px solid rgba(186, 27, 35, 0.3)',
         marginBottom: '2rem'
       }}
     >
-      {/* Background glow */}
+      {/* Background Ambient Glow */}
       <div
         style={{
           position: 'absolute',
-          top: '-20%',
+          top: '10%',
           left: '50%',
           transform: 'translateX(-50%)',
-          width: '70vw',
-          maxWidth: '800px',
-          height: '300px',
-          background: 'radial-gradient(circle, rgba(186, 27, 35, 0.25) 0%, transparent 70%)',
-          filter: 'blur(70px)',
+          width: '650px',
+          height: '250px',
+          background: 'radial-gradient(circle, rgba(230, 42, 52, 0.35) 0%, transparent 70%)',
+          filter: 'blur(75px)',
           pointerEvents: 'none',
           zIndex: 0
         }}
       />
 
-      <div className="container" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
-        {/* Breadcrumb */}
-        <div
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-            fontSize: '0.82rem',
-            color: 'var(--text-dim)',
-            marginBottom: '1.25rem',
-            fontFamily: "'Outfit', sans-serif"
-          }}
-        >
-          <Link to="/" style={{ color: 'var(--text-muted)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-            <Home size={14} />
-            <span>Home</span>
-          </Link>
-          <ChevronRight size={13} />
-          <span style={{ color: 'var(--accent-scarlet)', fontWeight: 500 }}>{badge}</span>
-        </div>
-
-        {/* Badge */}
-        {badge && (
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.25rem' }}>
-            <div className="section-tag" style={{ background: 'rgba(186, 27, 35, 0.15)' }}>
-              {Icon && <Icon size={14} />}
-              <span>{badge}</span>
-            </div>
+      <div className="container" style={{ position: 'relative', zIndex: 1, textAlign: 'center', maxWidth: '900px' }}>
+        {/* Asterisk + Breadcrumb Tag */}
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1.25rem' }}>
+          <span style={{ color: '#ba1b23', fontSize: '1.4rem', lineHeight: 1 }}>✳</span>
+          <div
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.45rem',
+              fontSize: '0.72rem',
+              fontWeight: 700,
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              color: 'rgba(255, 255, 255, 0.55)',
+              backgroundColor: 'rgba(255, 255, 255, 0.06)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              padding: '0.3rem 0.75rem',
+              borderRadius: '999px'
+            }}
+          >
+            <Link to="/" style={{ color: '#ffffff', textDecoration: 'none' }}>
+              HOME
+            </Link>
+            <ChevronRight size={12} color="rgba(255, 255, 255, 0.4)" />
+            <span style={{ color: '#e62a34' }}>{badge}</span>
           </div>
-        )}
+        </div>
 
         {/* Title */}
         <h1
           style={{
-            fontSize: 'clamp(2.2rem, 5vw, 3.8rem)',
+            fontFamily: "'Outfit', sans-serif",
+            fontSize: 'clamp(2.4rem, 5.2vw, 4.2rem)',
             fontWeight: 800,
             textTransform: 'uppercase',
-            letterSpacing: '0.04em',
+            letterSpacing: '-0.025em',
             marginBottom: '1.25rem',
-            maxWidth: '900px',
-            marginInline: 'auto',
-            lineHeight: 1.15
+            lineHeight: 1.1,
+            color: '#ffffff'
           }}
         >
-          {title} {highlight && <span className="highlight">{highlight}</span>}
+          {title} {highlight && <span style={{ color: '#e62a34' }}>{highlight}</span>}
         </h1>
 
         {/* Subtitle */}
         {subtitle && (
           <p
             style={{
-              fontSize: 'clamp(1rem, 1.8vw, 1.18rem)',
-              color: 'var(--text-muted)',
-              maxWidth: '720px',
+              fontSize: 'clamp(0.95rem, 1.6vw, 1.12rem)',
+              color: 'rgba(255, 255, 255, 0.7)',
+              maxWidth: '680px',
               marginInline: 'auto',
-              lineHeight: 1.7
+              lineHeight: 1.7,
+              fontWeight: 400
             }}
           >
             {subtitle}
