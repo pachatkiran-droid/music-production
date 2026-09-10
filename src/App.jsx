@@ -1,89 +1,55 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
+
+// Layout & Utility Components
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import AudioPlayer from './components/AudioPlayer';
-import About from './components/About';
-import Services from './components/Services';
-import StudioGear from './components/StudioGear';
-import Discography from './components/Discography';
-import Team from './components/Team';
-import Testimonials from './components/Testimonials';
-import BookingForm from './components/BookingForm';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
+
+// Dedicated Page Components
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import ServicesPage from './pages/ServicesPage';
+import StudiosPage from './pages/StudiosPage';
+import ReleasesPage from './pages/ReleasesPage';
+import ContactPage from './pages/ContactPage';
 
 export default function App() {
-  const [selectedService, setSelectedService] = useState('');
-
-  const handleScrollToSection = (sectionId) => {
-    const el = document.getElementById(sectionId);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleBookSession = () => {
-    handleScrollToSection('contact');
-  };
-
-  const handlePlayShowreel = () => {
-    handleScrollToSection('showreel');
-  };
-
-  const handleSelectService = (serviceName) => {
-    setSelectedService(serviceName);
-    handleScrollToSection('contact');
-  };
-
   return (
-    <div className="app-container">
-      {/* Top Sticky Navigation */}
-      <Navbar onBookSessionClick={handleBookSession} />
+    <Router>
+      <div className="app-container">
+        {/* Automatic Scroll Reset on Page Change */}
+        <ScrollToTop />
 
-      <main>
-        {/* Hero Section */}
-        <Hero
-          onPlayShowreel={handlePlayShowreel}
-          onBookSession={handleBookSession}
-        />
+        {/* Global Persistent Sticky Navigation Bar */}
+        <Navbar />
 
-        {/* Interactive Audio Showreel & Web Audio Player */}
-        <AudioPlayer
-          onBookSession={handleBookSession}
-        />
+        {/* Multi-Page Routes */}
+        <main className="main-content">
+          <Routes>
+            {/* Primary Navigation Pages */}
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/studios" element={<StudiosPage />} />
+            <Route path="/releases" element={<ReleasesPage />} />
+            <Route path="/contact" element={<ContactPage />} />
 
-        {/* About & Studio Heritage */}
-        <About />
+            {/* Intuitive Route Aliases */}
+            <Route path="/gear" element={<Navigate to="/studios" replace />} />
+            <Route path="/showreel" element={<Navigate to="/releases" replace />} />
+            <Route path="/discography" element={<Navigate to="/releases" replace />} />
+            <Route path="/booking" element={<Navigate to="/contact" replace />} />
 
-        {/* Studio Services & Capabilities */}
-        <Services
-          onSelectService={handleSelectService}
-        />
+            {/* 404 Fallback to Home */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
 
-        {/* Studio Spaces & Technical Gear Arsenal */}
-        <StudioGear
-          onBookSession={handleBookSession}
-        />
-
-        {/* Featured Discography & Releases */}
-        <Discography
-          onPlayTrack={handlePlayShowreel}
-        />
-
-        {/* Production Team */}
-        <Team />
-
-        {/* Client Testimonials & Partner Badges */}
-        <Testimonials />
-
-        {/* Studio Session Booking & Project Inquiry */}
-        <BookingForm
-          preselectedService={selectedService}
-        />
-      </main>
-
-      {/* Footer */}
-      <Footer />
-    </div>
+        {/* Global Persistent Footer */}
+        <Footer />
+      </div>
+    </Router>
   );
 }

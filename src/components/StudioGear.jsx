@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Layers, Mic, Sliders, Volume2, Music, Check, ArrowUpRight } from 'lucide-react';
 import { STUDIOS_DATA, GEAR_CATEGORIES } from '../data/studios';
 
 export default function StudioGear({ onBookSession }) {
+  const navigate = useNavigate();
   const [activeRoomId, setActiveRoomId] = useState('studio-a');
   const [activeGearCategory, setActiveGearCategory] = useState(0);
 
   const activeRoom = STUDIOS_DATA.find(r => r.id === activeRoomId) || STUDIOS_DATA[0];
+  const handleBook = onBookSession || (() => navigate('/contact'));
 
   return (
     <section id="studios" className="section-padding" style={{ position: 'relative' }}>
@@ -161,7 +164,7 @@ export default function StudioGear({ onBookSession }) {
             </div>
 
             <button
-              onClick={onBookSession}
+              onClick={handleBook}
               className="btn btn-primary"
               style={{ padding: '0.85rem 1.75rem' }}
             >

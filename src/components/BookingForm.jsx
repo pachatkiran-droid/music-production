@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
-import { Calendar, Mail, Phone, MapPin, Clock, Send, CheckCircle, MessageSquare, AlertCircle } from 'lucide-react';
-import Logo from './Logo';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { Calendar, Mail, Phone, MapPin, Clock, Send, CheckCircle, MessageSquare } from 'lucide-react';
 
 export default function BookingForm({ preselectedService = '' }) {
+  const [searchParams] = useSearchParams();
+  const queryService = searchParams.get('service');
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    service: preselectedService || 'Music Production & Arrangement',
+    service: queryService || preselectedService || 'Music Production & Arrangement',
     studioRoom: 'Studio A: Master Control Room',
     budget: '$1,000 - $3,000',
     timeline: 'Within 2-4 Weeks',
@@ -18,17 +21,14 @@ export default function BookingForm({ preselectedService = '' }) {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Update service if prop changes
-  React.useEffect(() => {
-    if (preselectedService) {
+  // Update service if prop or query param changes
+  useEffect(() => {
+    if (queryService) {
+      setFormData(prev => ({ ...prev, service: queryService }));
+    } else if (preselectedService) {
       setFormData(prev => ({ ...prev, service: preselectedService }));
     }
-  }, [preselectedService]);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, name: value }));
-  };
+  }, [queryService, preselectedService]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

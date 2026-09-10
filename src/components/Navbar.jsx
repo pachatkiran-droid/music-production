@@ -1,46 +1,44 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Calendar, Music, Sparkles } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Menu, X, Calendar, Sparkles } from 'lucide-react';
 import Logo from './Logo';
 
 export default function Navbar({ onBookSessionClick }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('hero');
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
-
-      // Simple active section detection
-      const sections = ['hero', 'showreel', 'about', 'services', 'studios', 'releases', 'team', 'contact'];
-      const scrollPos = window.scrollY + 200;
-
-      for (const sectionId of sections) {
-        const el = document.getElementById(sectionId);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            setActiveSection(sectionId);
-            break;
-          }
-        }
-      }
+      setIsScrolled(window.scrollY > 30);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile drawer on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
+
   const navLinks = [
-    { name: 'Showreel', href: '#showreel' },
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Studio & Gear', href: '#studios' },
-    { name: 'Releases', href: '#releases' },
-    { name: 'Team', href: '#team' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+    { name: 'Services', path: '/services' },
+    { name: 'Studio & Gear', path: '/studios' },
+    { name: 'Discography', path: '/releases' },
+    { name: 'Contact', path: '/contact' },
   ];
+
+  const handleBookClick = () => {
+    if (onBookSessionClick) {
+      onBookSessionClick();
+    } else {
+      navigate('/contact');
+    }
+  };
 
   return (
     <header
@@ -52,27 +50,27 @@ export default function Navbar({ onBookSessionClick }) {
         right: 0,
         zIndex: 1000,
         transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
-        backgroundColor: isScrolled ? 'rgba(8, 8, 10, 0.92)' : 'transparent',
-        backdropFilter: isScrolled ? 'blur(16px)' : 'none',
-        borderBottom: isScrolled ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid transparent',
-        boxShadow: isScrolled ? '0 10px 30px rgba(0,0,0,0.5)' : 'none',
-        padding: isScrolled ? '0.75rem 0' : '1.25rem 0'
+        backgroundColor: isScrolled ? 'rgba(8, 8, 10, 0.94)' : 'rgba(8, 8, 10, 0.65)',
+        backdropFilter: 'blur(16px)',
+        borderBottom: isScrolled ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid rgba(255, 255, 255, 0.04)',
+        boxShadow: isScrolled ? '0 10px 30px rgba(0,0,0,0.6)' : 'none',
+        padding: isScrolled ? '0.75rem 0' : '1.1rem 0'
       }}
     >
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         {/* Brand Logo */}
-        <a href="#hero" style={{ textDecoration: 'none', color: 'inherit' }} aria-label="Malhar Productions Home">
+        <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }} aria-label="Malhar Productions Home">
           <Logo variant="full" color="red" size="md" />
-        </a>
+        </Link>
 
         {/* Desktop Navigation Links */}
         <nav className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
           {navLinks.map((link) => {
-            const isActive = activeSection === link.href.replace('#', '');
+            const isActive = location.pathname === link.path;
             return (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.path}
                 className={`nav-link ${isActive ? 'active' : ''}`}
                 style={{
                   fontFamily: "'Outfit', sans-serif",
@@ -97,19 +95,19 @@ export default function Navbar({ onBookSessionClick }) {
                       height: '2px',
                       backgroundColor: 'var(--primary-red)',
                       borderRadius: '2px',
-                      boxShadow: '0 0 8px var(--primary-red)'
+                      boxShadow: '0 0 10px var(--primary-red)'
                     }}
                   />
                 )}
-              </a>
+              </Link>
             );
           })}
         </nav>
 
-        {/* CTA Button */}
+        {/* CTA Button & Mobile Toggle */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <button
-            onClick={onBookSessionClick}
+            onClick={handleBookClick}
             className="btn btn-primary nav-cta-btn"
             style={{
               padding: '0.65rem 1.35rem',
@@ -159,28 +157,35 @@ export default function Navbar({ onBookSessionClick }) {
             boxShadow: '0 20px 40px rgba(0,0,0,0.8)'
           }}
         >
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              style={{
-                fontFamily: "'Outfit', sans-serif",
-                fontSize: '1.15rem',
-                fontWeight: 600,
-                color: '#FFFFFF',
-                textDecoration: 'none',
-                padding: '0.5rem 0',
-                borderBottom: '1px solid rgba(255, 255, 255, 0.05)'
-              }}
-            >
-              {link.name}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.path;
+            return (
+              <Link
+                key={link.name}
+                to={link.path}
+                onClick={() => setMobileMenuOpen(false)}
+                style={{
+                  fontFamily: "'Outfit', sans-serif",
+                  fontSize: '1.15rem',
+                  fontWeight: 600,
+                  color: isActive ? 'var(--accent-scarlet)' : '#FFFFFF',
+                  textDecoration: 'none',
+                  padding: '0.5rem 0',
+                  borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center'
+                }}
+              >
+                <span>{link.name}</span>
+                {isActive && <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: 'var(--primary-red)' }} />}
+              </Link>
+            );
+          })}
           <button
             onClick={() => {
               setMobileMenuOpen(false);
-              onBookSessionClick();
+              handleBookClick();
             }}
             className="btn btn-primary"
             style={{ marginTop: '1rem', width: '100%' }}

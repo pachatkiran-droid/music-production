@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Play, Pause, SkipBack, SkipForward, Volume2, VolumeX, Radio, Sparkles, Disc, Sliders, CheckCircle } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Play, Pause, SkipBack, SkipForward, Volume2, VolumeX, Radio, Sliders } from 'lucide-react';
 import { SHOWREEL_TRACKS } from '../data/tracks';
 import { studioAudioEngine } from '../utils/audioEngine';
 
 export default function AudioPlayer({ onBookSession }) {
+  const navigate = useNavigate();
+  const handleBook = onBookSession || (() => navigate('/contact'));
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTimeSec, setCurrentTimeSec] = useState(0);
@@ -290,7 +293,7 @@ export default function AudioPlayer({ onBookSession }) {
             </div>
 
             <button
-              onClick={onBookSession}
+              onClick={handleBook}
               className="btn btn-secondary"
               style={{ padding: '0.65rem 1.25rem', fontSize: '0.82rem' }}
             >

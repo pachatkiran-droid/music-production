@@ -1,5 +1,6 @@
 import React from 'react';
-import { ArrowUp, Music, Disc, Heart, Mail, Radio } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowUp, Music, Radio } from 'lucide-react';
 import Logo from './Logo';
 
 export default function Footer() {
@@ -30,7 +31,9 @@ export default function Footer() {
           {/* Brand Col */}
           <div style={{ maxWidth: '340px' }}>
             <div style={{ marginBottom: '1.25rem' }}>
-              <Logo variant="full" color="white" size="md" />
+              <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }} aria-label="Malhar Productions Home">
+                <Logo variant="full" color="white" size="md" />
+              </Link>
             </div>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.7, marginBottom: '1.5rem' }}>
               A world-class music production company, Dolby Atmos® spatial mixing facility, and analog recording sanctuary. Inspired by the soul of Raga Malhar.
@@ -133,34 +136,34 @@ export default function Footer() {
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               <li>
-                <a href="#hero" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.2s ease' }}>
-                  Studio Overview
-                </a>
+                <Link to="/" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.2s ease' }}>
+                  Studio Overview (Home)
+                </Link>
               </li>
               <li>
-                <a href="#showreel" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.9rem' }}>
-                  Audio Showreel
-                </a>
+                <Link to="/about" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.9rem' }}>
+                  The Malhar Philosophy & Team
+                </Link>
               </li>
               <li>
-                <a href="#about" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.9rem' }}>
-                  The Malhar Philosophy
-                </a>
+                <Link to="/services" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.9rem' }}>
+                  Services & Production Suites
+                </Link>
               </li>
               <li>
-                <a href="#services" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.9rem' }}>
-                  Services & Suites
-                </a>
+                <Link to="/studios" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.9rem' }}>
+                  Acoustic Rooms & Gear Arsenal
+                </Link>
               </li>
               <li>
-                <a href="#studios" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.9rem' }}>
-                  Gear Arsenal
-                </a>
+                <Link to="/releases" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.9rem' }}>
+                  Discography & Audio Showreel
+                </Link>
               </li>
               <li>
-                <a href="#releases" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.9rem' }}>
-                  Featured Discography
-                </a>
+                <Link to="/contact" style={{ color: 'var(--accent-scarlet)', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 600 }}>
+                  Book Studio Session →
+                </Link>
               </li>
             </ul>
           </div>

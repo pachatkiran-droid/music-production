@@ -1,8 +1,13 @@
 import React from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import { Play, Calendar, Disc, Volume2, ArrowDown, Award, Sparkles } from 'lucide-react';
 import Logo from './Logo';
 
 export default function Hero({ onPlayShowreel, onBookSession }) {
+  const navigate = useNavigate();
+
+  const handlePlay = onPlayShowreel || (() => navigate('/releases'));
+  const handleBook = onBookSession || (() => navigate('/contact'));
   return (
     <section
       id="hero"
@@ -113,7 +118,7 @@ export default function Hero({ onPlayShowreel, onBookSession }) {
           }}
         >
           <button
-            onClick={onPlayShowreel}
+            onClick={handlePlay}
             className="btn btn-primary"
             style={{
               padding: '1rem 2.2rem',
@@ -141,7 +146,7 @@ export default function Hero({ onPlayShowreel, onBookSession }) {
           </button>
 
           <button
-            onClick={onBookSession}
+            onClick={handleBook}
             className="btn btn-secondary"
             style={{
               padding: '1rem 2rem',
@@ -239,16 +244,25 @@ export default function Hero({ onPlayShowreel, onBookSession }) {
 
         {/* Scroll Indicator */}
         <div style={{ marginTop: '2.5rem', display: 'flex', justifyContent: 'center' }}>
-          <a
-            href="#showreel"
-            aria-label="Scroll down to showreel"
+          <button
+            onClick={() => {
+              const nextEl = document.getElementById('home-content');
+              if (nextEl) {
+                nextEl.scrollIntoView({ behavior: 'smooth' });
+              } else {
+                window.scrollTo({ top: window.innerHeight * 0.85, behavior: 'smooth' });
+              }
+            }}
+            aria-label="Scroll down to explore"
             style={{
+              background: 'transparent',
+              border: 'none',
+              cursor: 'pointer',
               color: 'var(--text-dim)',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
               gap: '0.35rem',
-              textDecoration: 'none',
               fontSize: '0.75rem',
               letterSpacing: '0.15em',
               textTransform: 'uppercase',
@@ -257,7 +271,7 @@ export default function Hero({ onPlayShowreel, onBookSession }) {
           >
             <span>Explore Sound</span>
             <ArrowDown size={16} className="bounce-animation" />
-          </a>
+          </button>
         </div>
       </div>
     </section>

@@ -1,8 +1,20 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Music2, Mic2, Sliders, Disc3, Film, Sparkles, CheckCircle2, ArrowRight } from 'lucide-react';
 import { SERVICES } from '../data/services';
 
-export default function Services({ onSelectService }) {
+export default function Services({ onSelectService, limit }) {
+  const navigate = useNavigate();
+
+  const handleSelect = (title) => {
+    if (onSelectService) {
+      onSelectService(title);
+    } else {
+      navigate(`/contact?service=${encodeURIComponent(title)}`);
+    }
+  };
+
+  const displayedServices = limit ? SERVICES.slice(0, limit) : SERVICES;
   const iconMap = {
     Music2: Music2,
     Mic2: Mic2,
@@ -37,7 +49,7 @@ export default function Services({ onSelectService }) {
             gap: '2rem'
           }}
         >
-          {SERVICES.map((srv) => {
+          {displayedServices.map((srv) => {
             const IconComponent = iconMap[srv.icon] || Music2;
             return (
               <div
@@ -111,7 +123,7 @@ export default function Services({ onSelectService }) {
                     ★ {srv.highlight}
                   </div>
                   <button
-                    onClick={() => onSelectService(srv.title)}
+                    onClick={() => handleSelect(srv.title)}
                     className="btn btn-secondary"
                     style={{
                       width: '100%',
