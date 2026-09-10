@@ -40,12 +40,22 @@
   width: 100%;
   background: #080203;
   color: #ffffff;
-  padding: 8.5rem 0 5.5rem 0;
+  padding: 6rem 0 2.5rem 0;
   border-radius: 0;
   overflow: hidden;
-  min-height: 88vh;
+  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
+  box-sizing: border-box;
+}
+
+@media (max-height: 620px) {
+  .editorial-hero {
+    height: auto;
+    min-height: 100vh;
+    padding: 5.5rem 0 2rem 0;
+  }
 }
 
 .hero-video-banner-wrap {
@@ -102,8 +112,10 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: calc(88vh - 14rem);
+  justifyContent: space-between;
+  min-height: calc(100vh - 8.5rem);
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .hero-video-controls-badge {
@@ -297,9 +309,14 @@
    -------------------------------------------------------------------------- */
 .editorial-statement-sec {
   width: 100%;
+  min-height: 100vh;
   padding: 6.5rem 0;
   background: #f6f4ef;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justifyContent: center;
+  box-sizing: border-box;
 }
 
 .statement-container {
@@ -470,9 +487,14 @@
    -------------------------------------------------------------------------- */
 .services-deck-sec {
   width: 100%;
+  min-height: 100vh;
   padding: 6.5rem 0;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
   background: #fcfbfa;
+  display: flex;
+  flex-direction: column;
+  justifyContent: center;
+  box-sizing: border-box;
 }
 
 .services-deck-container {
@@ -598,9 +620,14 @@
    -------------------------------------------------------------------------- */
 .editorial-vision-sec {
   width: 100%;
+  min-height: 100vh;
   padding: 6.5rem 0;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
   background: #f6f4ef;
+  display: flex;
+  flex-direction: column;
+  justifyContent: center;
+  box-sizing: border-box;
 }
 
 .vision-container {
