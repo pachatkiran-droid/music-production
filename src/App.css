@@ -1,0 +1,108 @@
+/* ==========================================================================
+   MALHAAR PRODUCTIONS - Application Component Styles & Animations
+   ========================================================================== */
+
+/* Navbar Scrolled State */
+.navbar-wrapper.scrolled {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+.nav-link:hover {
+  color: #FFFFFF !important;
+}
+
+/* Bounce animation for hero scroll indicator */
+.bounce-animation {
+  animation: bounce-subtle 2s infinite ease-in-out;
+}
+
+@keyframes bounce-subtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+/* Equalizer Bars Animation */
+.equalizer-bar {
+  width: 3px;
+  background-color: var(--accent-scarlet);
+  border-radius: 2px;
+  animation: equalize 0.8s infinite ease-in-out alternate;
+  display: inline-block;
+}
+
+@keyframes equalize {
+  0% {
+    height: 3px;
+  }
+  100% {
+    height: 12px;
+  }
+}
+
+/* Floating Mini Player */
+.floating-mini-player {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 990;
+  background: rgba(18, 18, 24, 0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-accent);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(186, 27, 35, 0.35);
+  border-radius: 9999px;
+  padding: 0.6rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all var(--transition-normal);
+  animation: slideInUp 0.4s var(--ease-smooth);
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Discography hover effect */
+.discography-card:hover .disc-spin {
+  transform: rotate(360deg);
+  transition: transform 8s linear infinite;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 992px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  .mobile-menu-toggle {
+    display: block !important;
+  }
+  .nav-cta-btn {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .track-genre-badge {
+    display: inline-block !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .section-title {
+    font-size: 2rem !important;
+  }
+  .glass-card {
+    padding: 1.5rem !important;
+  }
+}
