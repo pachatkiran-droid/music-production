@@ -1,10 +1,12 @@
-import React from 'react';
-import { Clock, FileAudio, CheckCircle2 } from 'lucide-react';
+import React, { useState } from 'react';
+import { Clock, FileAudio, CheckCircle2, Play, Sliders, X, Sparkles } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 import Services from '../components/Services';
 import BookingCTA from '../components/BookingCTA';
 
 export default function ServicesPage() {
+  const [showVideoModal, setShowVideoModal] = useState(false);
+
   const workflowSteps = [
     {
       step: '01',
@@ -36,17 +38,113 @@ export default function ServicesPage() {
   return (
     <div className="page-wrapper">
       {/* 1. Page Header */}
-        <PageHeader
-          badge="PRODUCTION CAPABILITIES"
-          title="END-TO-END"
-          highlight="STUDIO SERVICES"
-          subtitle="Every sonic discipline under one acoustically tuned roof. From commercial film scoring to chart-topping Dolby Atmos mixes, we elevate your sound to international standards."
-        />
+      <PageHeader
+        badge="PRODUCTION CAPABILITIES"
+        title="END-TO-END"
+        highlight="STUDIO SERVICES"
+        subtitle="Every sonic discipline under one acoustically tuned roof. From commercial film scoring to chart-topping Dolby Atmos mixes, we elevate your sound to international standards."
+      />
 
       {/* 2. All Services Grid */}
       <Services />
 
-      {/* 3. Studio Production Lifecycle / Process */}
+      {/* 3. Studio Session & Dolby Atmos Workflow Video Reel */}
+      <section className="section-padding" style={{ position: 'relative', backgroundColor: 'rgba(8, 2, 4, 0.95)' }}>
+        <div className="container">
+          <div className="section-header" style={{ marginBottom: '3rem' }}>
+            <div className="section-tag">
+              <Sliders size={14} />
+              <span>Studio In Action</span>
+            </div>
+            <h2 className="section-title">
+              SEE OUR ENGINEERS <span className="highlight">IN THE MIX</span>
+            </h2>
+            <p className="section-subtitle">
+              Watch how our production team blends British analog hardware summing with 3D spatial object rendering in real-time.
+            </p>
+          </div>
+
+          <div
+            className="glass-card"
+            style={{
+              position: 'relative',
+              borderRadius: '24px',
+              overflow: 'hidden',
+              minHeight: '440px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundImage: `linear-gradient(180deg, rgba(14,3,6,0.35) 0%, rgba(10,2,4,0.85) 100%), url('/images/studio-console-analog.jpg')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              border: '1px solid rgba(186, 27, 35, 0.4)',
+              boxShadow: '0 25px 60px rgba(0,0,0,0.85), 0 0 35px rgba(186,27,35,0.25)',
+              cursor: 'pointer'
+            }}
+            onClick={() => setShowVideoModal(true)}
+          >
+            <div
+              style={{
+                position: 'absolute',
+                width: '320px',
+                height: '320px',
+                borderRadius: '50%',
+                background: 'radial-gradient(circle, rgba(230, 42, 52, 0.45) 0%, transparent 70%)',
+                filter: 'blur(50px)',
+                pointerEvents: 'none'
+              }}
+            />
+
+            <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', padding: '2rem' }}>
+              <div
+                style={{
+                  width: '86px',
+                  height: '86px',
+                  borderRadius: '50%',
+                  background: 'linear-gradient(135deg, #ba1b23 0%, #e62a34 100%)',
+                  boxShadow: '0 0 35px rgba(230, 42, 52, 0.8), 0 8px 20px rgba(0,0,0,0.5)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 1.5rem auto',
+                  color: '#ffffff',
+                  transition: 'transform 0.3s ease'
+                }}
+              >
+                <Play size={36} fill="#ffffff" style={{ marginLeft: '3px' }} />
+              </div>
+              <h3 style={{ fontSize: '1.9rem', fontWeight: 800, color: '#ffffff', textTransform: 'uppercase', letterSpacing: '0.02em', marginBottom: '0.5rem' }}>
+                Watch Production & Mixing Reel
+              </h3>
+              <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.95rem', maxWidth: '500px', margin: '0 auto 1.5rem auto' }}>
+                Experience the tactile workflow: from raw vocal capture to 48-channel analog summing and Dolby Atmos object calibration.
+              </p>
+              <div style={{ display: 'flex', gap: '0.6rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                {['ANALOG SUMMING', 'SPATIAL ATMOS', 'VOCAL CHAIN', 'MASTERING SUITE'].map((badge, i) => (
+                  <span
+                    key={i}
+                    style={{
+                      fontSize: '0.7rem',
+                      fontWeight: 700,
+                      letterSpacing: '0.08em',
+                      backgroundColor: 'rgba(0,0,0,0.65)',
+                      backdropFilter: 'blur(8px)',
+                      color: 'rgba(255,255,255,0.9)',
+                      padding: '0.35rem 0.8rem',
+                      borderRadius: '999px',
+                      border: '1px solid rgba(255,255,255,0.15)'
+                    }}
+                  >
+                    {badge}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Studio Production Lifecycle / Process */}
       <section className="section-padding" style={{ position: 'relative', backgroundColor: 'rgba(10, 10, 14, 0.6)' }}>
         <div className="container">
           <div className="section-header">
@@ -154,6 +252,30 @@ export default function ServicesPage() {
         title="READY TO BOOK A SERVICE SUITE?"
         subtitle="Select your preferred service and let our audio engineers craft the definitive sound for your music."
       />
+
+      {/* Production & Atmos Session Cinema Modal */}
+      {showVideoModal && (
+        <div className="video-modal-backdrop" onClick={() => setShowVideoModal(false)}>
+          <div className="video-modal-container" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              className="video-modal-close-btn"
+              onClick={() => setShowVideoModal(false)}
+              aria-label="Close cinema modal"
+            >
+              <X size={20} />
+            </button>
+            <div className="video-modal-responsive">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/oYmU8Av_e84?autoplay=1&controls=1&rel=0&modestbranding=1"
+                title="Malhaar Productions Studio Session Reel"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

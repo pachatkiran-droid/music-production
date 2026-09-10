@@ -3,7 +3,7 @@ export const STUDIOS_DATA = [
     id: 'studio-a',
     name: 'Studio A: Master Control Room',
     tagline: 'Flagship Analog Console & Hybrid Production Hub',
-    image: '/images/studio-control-room.jpg',
+    image: '/images/studio-console-analog.jpg',
     description: 'Our premier control suite centered around an iconic solid-state console with outboard analog processing racks, calibrated Genelec coaxial monitoring, and custom-tuned acoustic geometry.',
     specs: [
       { label: 'Acoustic Volume', value: '450 sq. ft. / Floating Floor' },
@@ -12,6 +12,20 @@ export const STUDIOS_DATA = [
       { label: 'DAW Systems', value: 'Pro Tools Ultimate HDX & Apple Logic Pro' }
     ],
     highlights: ['Hybrid Analog/Digital Routing', 'Outboard Neve & Tube-Tech Racks', 'Calibrated Diffusers']
+  },
+  {
+    id: 'studio-atmos',
+    name: 'Studio C: Dolby Atmos® 7.1.4 Suite',
+    tagline: 'Certified Immersive Spatial Mixing & Object Rendering',
+    image: '/images/studio-atmos-suite.jpg',
+    description: 'A certified Dolby Atmos 7.1.4 spatial audio mixing environment featuring ceiling and surround Genelec calibrated monitoring, Avid S6 tactile control, and pristine 3D acoustic object placement.',
+    specs: [
+      { label: 'Spatial Calibration', value: 'Dolby Atmos® Certified 7.1.4 Array' },
+      { label: 'Surround Monitors', value: 'Genelec The Ones 8341A + 8331A Overhead' },
+      { label: 'Subwoofers', value: 'Dual Genelec 7380A SAM Calibrated LFE' },
+      { label: 'Console Control', value: 'Avid S6 Modular Mixing System' }
+    ],
+    highlights: ['Dolby Atmos Certified', '3D Spatial Binaural Previews', 'Floating Acoustic Decoupling']
   },
   {
     id: 'studio-live',

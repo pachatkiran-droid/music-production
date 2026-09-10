@@ -361,6 +361,62 @@ export default function BookingForm({ preselectedService = '' }) {
 
           {/* Studio Direct Info & Amenities */}
           <div>
+            {/* Visual Studio Facility Showcase Card */}
+            <div
+              className="glass-card"
+              style={{
+                borderRadius: '16px',
+                overflow: 'hidden',
+                position: 'relative',
+                height: '190px',
+                marginBottom: '1.5rem',
+                border: '1px solid rgba(186, 27, 35, 0.3)',
+                boxShadow: '0 15px 35px rgba(0,0,0,0.6)'
+              }}
+            >
+              <img
+                src="/images/studio-atmos-suite.jpg"
+                alt="Malhaar Sound Labs Facilities"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  filter: 'brightness(0.75)'
+                }}
+              />
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: 'linear-gradient(180deg, rgba(6,6,8,0.2) 0%, rgba(6,6,8,0.85) 100%)'
+                }}
+              />
+              <div style={{ position: 'absolute', top: '1rem', left: '1rem' }}>
+                <span
+                  style={{
+                    backgroundColor: 'rgba(186, 27, 35, 0.85)',
+                    backdropFilter: 'blur(8px)',
+                    color: '#FFFFFF',
+                    fontSize: '0.72rem',
+                    fontWeight: 700,
+                    padding: '0.35rem 0.75rem',
+                    borderRadius: '999px',
+                    letterSpacing: '0.06em'
+                  }}
+                >
+                  MALHAAR SOUND LABS
+                </span>
+              </div>
+              <div style={{ position: 'absolute', bottom: '1rem', left: '1.25rem', right: '1.25rem' }}>
+                <h4 style={{ color: '#FFFFFF', fontSize: '1.05rem', fontWeight: 800, margin: '0 0 0.2rem 0' }}>
+                  Private Suites & Dolby Atmos Rooms
+                </h4>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem', margin: 0 }}>
+                  24/7 locked-out residential blocks available upon request.
+                </p>
+              </div>
+            </div>
+
             <div
               className="glass-card"
               style={{

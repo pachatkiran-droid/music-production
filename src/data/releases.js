@@ -6,9 +6,11 @@ export const FEATURED_RELEASES = [
     type: 'Original Soundtrack / Single',
     year: '2025',
     streams: '42M+ Streams',
+    coverImage: '/images/album-rain-varanasi.jpg',
     coverGradient: 'linear-gradient(135deg, #ba1b23 0%, #300609 100%)',
     badge: 'Platinum Release',
-    role: 'Produced, Arranged, Mixed & Mastered'
+    role: 'Produced, Arranged, Mixed & Mastered',
+    youtubeId: 'oYmU8Av_e84'
   },
   {
     id: 'rel-2',
@@ -17,9 +19,11 @@ export const FEATURED_RELEASES = [
     type: 'Studio Album',
     year: '2024',
     streams: '18M+ Streams',
+    coverImage: '/images/album-sands-malhar.jpg',
     coverGradient: 'linear-gradient(135deg, #7c1218 0%, #150e12 100%)',
     badge: 'Award Winner',
-    role: 'Full Live Recording & Dolby Atmos Mix'
+    role: 'Full Live Recording & Dolby Atmos Mix',
+    youtubeId: 'oYmU8Av_e84'
   },
   {
     id: 'rel-3',
@@ -28,9 +32,11 @@ export const FEATURED_RELEASES = [
     type: 'EP (Electronic / Classical)',
     year: '2024',
     streams: '29M+ Streams',
+    coverImage: '/images/album-neon-ragas.jpg',
     coverGradient: 'linear-gradient(135deg, #d4222e 0%, #1d070a 100%)',
     badge: 'Chart Top 10',
-    role: 'Music Production & Mastering'
+    role: 'Music Production & Mastering',
+    youtubeId: 'oYmU8Av_e84'
   },
   {
     id: 'rel-4',
@@ -39,9 +45,11 @@ export const FEATURED_RELEASES = [
     type: 'Original Motion Picture Score',
     year: '2025',
     streams: '15M+ Streams',
+    coverImage: '/images/album-kashmir-echoes.jpg',
     coverGradient: 'linear-gradient(135deg, #91161d 0%, #0c080a 100%)',
     badge: 'Film OST Winner',
-    role: 'Orchestral Score & Foley Sound Design'
+    role: 'Orchestral Score & Foley Sound Design',
+    youtubeId: 'oYmU8Av_e84'
   }
 ];
 

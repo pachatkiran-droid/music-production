@@ -13,7 +13,13 @@ export default function HomePage() {
   const [isPlayingTeaser, setIsPlayingTeaser] = useState(false);
   const [isVideoMuted, setIsVideoMuted] = useState(true);
   const [showVideoModal, setShowVideoModal] = useState(false);
+  const [currentVideoId, setCurrentVideoId] = useState('oYmU8Av_e84');
   const videoIframeRef = useRef(null);
+
+  const openVideo = (id = 'oYmU8Av_e84') => {
+    setCurrentVideoId(id);
+    setShowVideoModal(true);
+  };
 
   const handleToggleTeaser = () => {
     if (isPlayingTeaser) {
@@ -221,25 +227,51 @@ export default function HomePage() {
 
             <div className="projects-cards-grid">
               {FEATURED_RELEASES.slice(0, 3).map((track, idx) => (
-                <Link to="/releases" key={track.id || idx} className="project-card">
+                <div
+                  key={track.id || idx}
+                  className="project-card"
+                  onClick={() => openVideo(track.youtubeId || 'oYmU8Av_e84')}
+                  style={{ cursor: 'pointer' }}
+                >
                   <div
                     className="project-card-image"
                     style={{
-                      background: track.coverGradient || '#1a0508',
-                      backgroundImage: idx === 0
-                        ? `linear-gradient(180deg, rgba(186,27,35,0.4) 0%, #0c0204 100%), url('/images/studio-live-room.jpg')`
-                        : idx === 1
-                        ? `linear-gradient(180deg, rgba(14,8,12,0.4) 0%, #0c0204 100%), url('/images/studio-vocal-booth.jpg')`
-                        : `linear-gradient(180deg, rgba(186,27,35,0.3) 0%, #0c0204 100%), url('/images/studio-control-room.jpg')`
+                      backgroundImage: `linear-gradient(180deg, rgba(14,3,6,0.1) 0%, rgba(10,2,4,0.88) 100%), url('${track.coverImage || "/images/album-rain-varanasi.jpg"}')`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      position: 'relative'
                     }}
-                  />
+                  >
+                    <div
+                      style={{
+                        position: 'absolute',
+                        top: '1rem',
+                        right: '1rem',
+                        backgroundColor: 'rgba(10, 2, 4, 0.8)',
+                        backdropFilter: 'blur(8px)',
+                        border: '1px solid rgba(255,255,255,0.25)',
+                        borderRadius: '999px',
+                        padding: '0.35rem 0.75rem',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.35rem',
+                        fontSize: '0.7rem',
+                        fontWeight: 700,
+                        color: '#ffffff',
+                        letterSpacing: '0.05em'
+                      }}
+                    >
+                      <Play size={11} fill="#ffffff" />
+                      <span>WATCH REEL</span>
+                    </div>
+                  </div>
                   <div className="project-card-overlay" />
                   <div className="project-card-content">
-                    <div className="project-tag">{track.genre} • {track.year}</div>
+                    <div className="project-tag">{track.type || 'Single'} • {track.year}</div>
                     <div className="project-title">{track.title}</div>
                     <div className="project-artist">{track.artist}</div>
                   </div>
-                </Link>
+                </div>
               ))}
             </div>
           </div>
@@ -264,7 +296,15 @@ export default function HomePage() {
           {/* 4 Cards Deck with Popped-out Elevated Centerpiece */}
           <div className="deck-cards-row">
             {/* Card 1: Production Strategy */}
-            <Link to="/services" className="deck-card">
+            <Link
+              to="/services"
+              className="deck-card"
+              style={{
+                backgroundImage: 'linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(248,245,240,0.96) 100%), url("/images/service-production.jpg")',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            >
               <div>
                 <div className="deck-card-category">01 / PRODUCTION STRATEGY</div>
                 <div className="deck-card-title">Songwriting & Arrangement</div>
@@ -272,14 +312,22 @@ export default function HomePage() {
                   Harmonic motif mapping, live acoustic instrumentation, and beat architecture.
                 </div>
               </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '1rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '1rem' }}>
                 <span style={{ fontSize: '0.75rem', color: '#ba1b23', fontWeight: 700 }}>EXPLORE SUITE</span>
                 <ArrowUpRight size={16} color="#ba1b23" />
               </div>
             </Link>
 
             {/* Card 2: THE STANDOUT ELEVATED POPPED-OUT CENTERPIECE (Dolby Atmos Spatial Mixing) */}
-            <Link to="/services" className="deck-card elevated-card">
+            <Link
+              to="/services"
+              className="deck-card elevated-card"
+              style={{
+                backgroundImage: 'radial-gradient(ellipse at 50% 25%, rgba(186, 27, 35, 0.78) 0%, rgba(18, 3, 6, 0.95) 85%), url("/images/studio-atmos-suite.jpg")',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            >
               <div>
                 <div className="deck-card-category" style={{ color: '#ffffff', opacity: 0.9 }}>
                   02 / SPATIAL AUDIO IMMERSION
@@ -326,7 +374,15 @@ export default function HomePage() {
             </Link>
 
             {/* Card 3: Creative Direction / Analog Tracking */}
-            <Link to="/services" className="deck-card">
+            <Link
+              to="/services"
+              className="deck-card"
+              style={{
+                backgroundImage: 'linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(248,245,240,0.96) 100%), url("/images/studio-console-analog.jpg")',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            >
               <div>
                 <div className="deck-card-category">03 / ANALOG TRACKING</div>
                 <div className="deck-card-title">SSL 4000E Console</div>
@@ -334,14 +390,22 @@ export default function HomePage() {
                   Solid-state British summing, vintage Telefunken microphones, and Tube-Tech optical compression.
                 </div>
               </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '1rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '1rem' }}>
                 <span style={{ fontSize: '0.75rem', color: '#ba1b23', fontWeight: 700 }}>EXPLORE SUITE</span>
                 <ArrowUpRight size={16} color="#ba1b23" />
               </div>
             </Link>
 
             {/* Card 4: Art Direction / Master Engineering */}
-            <Link to="/services" className="deck-card">
+            <Link
+              to="/services"
+              className="deck-card"
+              style={{
+                backgroundImage: 'linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(248,245,240,0.96) 100%), url("/images/service-mastering.jpg")',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            >
               <div>
                 <div className="deck-card-category">04 / AUDIO MASTERING</div>
                 <div className="deck-card-title">Apple Digital Masters</div>
@@ -349,7 +413,7 @@ export default function HomePage() {
                   MFiT certified loudness optimization, vinyl DMM pre-masters, and 192kHz Prism Sound conversion.
                 </div>
               </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '1rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '1rem' }}>
                 <span style={{ fontSize: '0.75rem', color: '#ba1b23', fontWeight: 700 }}>EXPLORE SUITE</span>
                 <ArrowUpRight size={16} color="#ba1b23" />
               </div>
@@ -392,17 +456,17 @@ export default function HomePage() {
           </h2>
 
           <div className="vision-grid">
-            {/* Card 1: Artist Portrait in Red Light */}
+            {/* Card 1: Artist Portrait in Red Light (Vocal tracking session) */}
             <div className="vision-card-1">
               <div className="vision-card-image-box">
                 <div
                   style={{
                     position: 'absolute',
                     inset: 0,
-                    backgroundImage: `linear-gradient(180deg, rgba(186, 27, 35, 0.4) 0%, rgba(12, 3, 5, 0.9) 100%), url('/images/studio-vocal-booth.jpg')`,
+                    backgroundImage: `linear-gradient(180deg, rgba(186, 27, 35, 0.35) 0%, rgba(12, 3, 5, 0.9) 100%), url('/images/service-tracking.jpg')`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    filter: 'contrast(1.2)'
+                    filter: 'contrast(1.15)'
                   }}
                 />
               </div>
@@ -429,16 +493,16 @@ export default function HomePage() {
               </div>
             </Link>
 
-            {/* Card 3: Fashion/Producer Silhouette with Pill CTA */}
+            {/* Card 3: Heritage Classical Fusion Sanctuary */}
             <div className="vision-card-3">
               <div
                 style={{
                   position: 'absolute',
                   inset: 0,
-                  backgroundImage: `linear-gradient(180deg, rgba(12, 3, 5, 0.2) 0%, rgba(10, 2, 4, 0.9) 100%), url('/images/studio-live-room.jpg')`,
+                  backgroundImage: `linear-gradient(180deg, rgba(12, 3, 5, 0.25) 0%, rgba(10, 2, 4, 0.9) 100%), url('/images/heritage-sitar-studio.jpg')`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
-                  filter: 'contrast(1.2) brightness(0.9)'
+                  filter: 'contrast(1.15) brightness(0.95)'
                 }}
               />
               <div style={{ position: 'relative', zIndex: 2 }}>
@@ -476,8 +540,8 @@ export default function HomePage() {
             </button>
             <div className="video-modal-responsive">
               <iframe
-                src="https://www.youtube-nocookie.com/embed/oYmU8Av_e84?autoplay=1&controls=1&rel=0&modestbranding=1"
-                title="Malhaar Productions Cinematic Film"
+                src={`https://www.youtube-nocookie.com/embed/${currentVideoId}?autoplay=1&controls=1&rel=0&modestbranding=1`}
+                title="Malhaar Productions Video Showcase"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />

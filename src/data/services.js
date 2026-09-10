@@ -3,6 +3,7 @@ export const SERVICES = [
     id: 'production',
     icon: 'Music2',
     title: 'Music Production & Arrangement',
+    image: '/images/service-production.jpg',
     shortDesc: 'From melodic concept to release-ready masterwork. Full-scale music production tailored to your artistic identity.',
     features: [
       'Original Songwriting & Composition',
@@ -16,6 +17,7 @@ export const SERVICES = [
     id: 'recording',
     icon: 'Mic2',
     title: 'Analog & Live Tracking',
+    image: '/images/service-tracking.jpg',
     shortDesc: 'Capture authentic emotional nuance in acoustically treated rooms with classic tube microphones and vintage preamps.',
     features: [
       'Vocal Tracking with Vintage Neumann & Telefunken Mics',
@@ -29,6 +31,7 @@ export const SERVICES = [
     id: 'mixing',
     icon: 'Sliders',
     title: 'Hybrid Mixing & Spatial Audio',
+    image: '/images/studio-atmos-suite.jpg',
     shortDesc: 'Blending the warmth and glue of analog summing with the surgical precision of modern digital workflows.',
     features: [
       'SSL 4000E & Neve Analog Summing Console',
@@ -42,6 +45,7 @@ export const SERVICES = [
     id: 'mastering',
     icon: 'Disc3',
     title: 'Audio Mastering & Final Delivery',
+    image: '/images/service-mastering.jpg',
     shortDesc: 'The final polish that ensures your music sounds deep, wide, loud, and balanced on every speaker system.',
     features: [
       'Mastered for Apple Digital Masters (MFiT Verified)',
@@ -55,6 +59,7 @@ export const SERVICES = [
     id: 'scoring',
     icon: 'Film',
     title: 'Film Scoring & Cinematic Audio',
+    image: '/images/service-scoring.jpg',
     shortDesc: 'Evocative original scores, cinematic trailer sound design, and emotional soundscapes for OTT, feature films, and games.',
     features: [
       'Original Feature Film & OTT Series Soundtracks',
@@ -68,6 +73,7 @@ export const SERVICES = [
     id: 'branding',
     icon: 'Sparkles',
     title: 'Sonic Branding & Commercial Jingles',
+    image: '/images/service-branding.jpg',
     shortDesc: 'Give your brand a distinctive acoustic signature. Memorable audio mnemonics, advertising campaigns, and sound design.',
     features: [
       'Commercial Jingles & TVC Music Production',

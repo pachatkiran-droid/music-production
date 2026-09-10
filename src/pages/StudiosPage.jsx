@@ -1,10 +1,12 @@
-import React from 'react';
-import { Coffee, Wifi, Shield, Disc, Sparkles } from 'lucide-react';
+import React, { useState } from 'react';
+import { Coffee, Wifi, Shield, Disc, Sparkles, Play, Video, X } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 import StudioGear from '../components/StudioGear';
 import BookingCTA from '../components/BookingCTA';
 
 export default function StudiosPage() {
+  const [showVideoModal, setShowVideoModal] = useState(false);
+
   const amenities = [
     {
       icon: Coffee,
@@ -31,17 +33,116 @@ export default function StudiosPage() {
   return (
     <div className="page-wrapper">
       {/* 1. Page Header */}
-        <PageHeader
-          badge="ACOUSTIC ARCHITECTURE & GEAR"
-          title="WORLD-CLASS SUITES,"
-          highlight="LEGENDARY HARDWARE"
-          subtitle="Step inside our 4 decoupled recording environments and explore our curated arsenal of analog consoles, vintage tube microphones, and Dolby Atmos monitoring."
-        />
+      <PageHeader
+        badge="ACOUSTIC ARCHITECTURE & GEAR"
+        title="WORLD-CLASS SUITES,"
+        highlight="LEGENDARY HARDWARE"
+        subtitle="Step inside our 4 decoupled recording environments and explore our curated arsenal of analog consoles, vintage tube microphones, and Dolby Atmos monitoring."
+      />
 
       {/* 2. Studio Suites & Gear Component */}
       <StudioGear />
 
-      {/* 3. Studio Amenities & Hospitality */}
+      {/* 3. 4K Studio Facility Tour Video Section */}
+      <section className="section-padding" style={{ position: 'relative', backgroundColor: 'rgba(6, 6, 8, 0.95)' }}>
+        <div className="container">
+          <div className="section-header" style={{ marginBottom: '3rem' }}>
+            <div className="section-tag">
+              <Video size={14} />
+              <span>Cinematic Facility Walkthrough</span>
+            </div>
+            <h2 className="section-title">
+              EXPERIENCE THE <span className="highlight">MALHAAR SANCTUARY</span>
+            </h2>
+            <p className="section-subtitle">
+              Take a virtual 4K walkthrough of our master control rooms, decoupled live tracking stages, and Dolby Atmos 7.1.4 spatial monitoring environment.
+            </p>
+          </div>
+
+          {/* Interactive Cinema Video Banner Card */}
+          <div
+            className="glass-card"
+            style={{
+              position: 'relative',
+              borderRadius: '24px',
+              overflow: 'hidden',
+              minHeight: '460px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundImage: `linear-gradient(180deg, rgba(10,2,4,0.4) 0%, rgba(8,2,4,0.85) 100%), url('/images/studio-atmos-suite.jpg')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              border: '1px solid rgba(186, 27, 35, 0.4)',
+              boxShadow: '0 25px 60px rgba(0,0,0,0.85), 0 0 40px rgba(186,27,35,0.25)',
+              cursor: 'pointer'
+            }}
+            onClick={() => setShowVideoModal(true)}
+          >
+            {/* Ambient Red Center Glow */}
+            <div
+              style={{
+                position: 'absolute',
+                width: '350px',
+                height: '350px',
+                borderRadius: '50%',
+                background: 'radial-gradient(circle, rgba(230, 42, 52, 0.45) 0%, transparent 70%)',
+                filter: 'blur(50px)',
+                pointerEvents: 'none'
+              }}
+            />
+
+            {/* Play Button & Center Content */}
+            <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', padding: '2rem' }}>
+              <div
+                style={{
+                  width: '90px',
+                  height: '90px',
+                  borderRadius: '50%',
+                  background: 'linear-gradient(135deg, #ba1b23 0%, #e62a34 100%)',
+                  boxShadow: '0 0 40px rgba(230, 42, 52, 0.8), 0 8px 25px rgba(0,0,0,0.5)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 1.5rem auto',
+                  color: '#ffffff',
+                  transition: 'transform 0.3s ease'
+                }}
+              >
+                <Play size={38} fill="#ffffff" style={{ marginLeft: '4px' }} />
+              </div>
+              <h3 style={{ fontSize: '2rem', fontWeight: 800, color: '#ffffff', textTransform: 'uppercase', letterSpacing: '0.02em', marginBottom: '0.5rem' }}>
+                Watch Studio Tour Reel
+              </h3>
+              <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.95rem', maxWidth: '520px', margin: '0 auto 1.5rem auto' }}>
+                Go behind the glass with our chief engineers as they walk through our analog summing workflow and spatial mixing suites.
+              </p>
+              <div style={{ display: 'flex', gap: '0.6rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                {['4 ISOLATED SUITES', 'DOLBY ATMOS® 7.1.4', 'SSL 4000E CONSOLE', 'NEVE OUTBOARD GEAR'].map((badge, i) => (
+                  <span
+                    key={i}
+                    style={{
+                      fontSize: '0.7rem',
+                      fontWeight: 700,
+                      letterSpacing: '0.08em',
+                      backgroundColor: 'rgba(0,0,0,0.65)',
+                      backdropFilter: 'blur(8px)',
+                      color: 'rgba(255,255,255,0.9)',
+                      padding: '0.35rem 0.8rem',
+                      borderRadius: '999px',
+                      border: '1px solid rgba(255,255,255,0.15)'
+                    }}
+                  >
+                    {badge}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Studio Amenities & Hospitality */}
       <section className="section-padding" style={{ position: 'relative', backgroundColor: 'rgba(8, 8, 12, 0.7)' }}>
         <div className="container">
           <div className="section-header">
@@ -111,6 +212,30 @@ export default function StudiosPage() {
         title="SCHEDULE A PRIVATE STUDIO TOUR"
         subtitle="Come experience our acoustic monitoring and analog outboard consoles in person before booking your session."
       />
+
+      {/* Studio Tour Cinema Modal */}
+      {showVideoModal && (
+        <div className="video-modal-backdrop" onClick={() => setShowVideoModal(false)}>
+          <div className="video-modal-container" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              className="video-modal-close-btn"
+              onClick={() => setShowVideoModal(false)}
+              aria-label="Close cinema modal"
+            >
+              <X size={20} />
+            </button>
+            <div className="video-modal-responsive">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/oYmU8Av_e84?autoplay=1&controls=1&rel=0&modestbranding=1"
+                title="Malhaar Productions Studio Tour Walkthrough"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

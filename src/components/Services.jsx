@@ -65,37 +65,64 @@ export default function Services({ onSelectService, limit }) {
                 }}
               >
                 <div>
-                  {/* Top Icon & Badge */}
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.5rem' }}>
+                  {/* Service Photo Banner Header */}
+                  <div
+                    style={{
+                      position: 'relative',
+                      height: '180px',
+                      borderRadius: '14px',
+                      overflow: 'hidden',
+                      marginBottom: '1.5rem',
+                      backgroundImage: `linear-gradient(180deg, rgba(10,2,4,0.15) 0%, rgba(8,2,4,0.85) 100%), url('${srv.image || "/images/service-production.jpg"}')`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      border: '1px solid rgba(255, 255, 255, 0.1)'
+                    }}
+                  >
                     <div
                       style={{
-                        width: '54px',
-                        height: '54px',
-                        borderRadius: '14px',
-                        backgroundColor: 'rgba(186, 27, 35, 0.15)',
-                        border: '1px solid rgba(186, 27, 35, 0.3)',
+                        position: 'absolute',
+                        bottom: '1rem',
+                        left: '1rem',
+                        right: '1rem',
                         display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: 'var(--accent-scarlet)'
+                        justifyContent: 'space-between',
+                        alignItems: 'center'
                       }}
                     >
-                      <IconComponent size={26} />
+                      <div
+                        style={{
+                          width: '42px',
+                          height: '42px',
+                          borderRadius: '10px',
+                          backgroundColor: 'rgba(186, 27, 35, 0.85)',
+                          backdropFilter: 'blur(8px)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: '#ffffff',
+                          boxShadow: '0 4px 15px rgba(0,0,0,0.4)'
+                        }}
+                      >
+                        <IconComponent size={20} />
+                      </div>
+                      <span
+                        style={{
+                          fontSize: '0.7rem',
+                          fontWeight: 700,
+                          color: '#ffffff',
+                          backgroundColor: 'rgba(0,0,0,0.65)',
+                          backdropFilter: 'blur(6px)',
+                          padding: '0.25rem 0.65rem',
+                          borderRadius: '6px',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.08em',
+                          border: '1px solid rgba(255,255,255,0.15)'
+                        }}
+                      >
+                        {srv.id}
+                      </span>
                     </div>
-                    <span
-                      style={{
-                        fontSize: '0.72rem',
-                        fontWeight: 700,
-                        color: 'var(--accent-scarlet)',
-                        backgroundColor: 'rgba(186, 27, 35, 0.12)',
-                        padding: '0.25rem 0.65rem',
-                        borderRadius: '6px',
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.06em'
-                      }}
-                    >
-                      {srv.id}
-                    </span>
                   </div>
 
                   {/* Title & Short Description */}

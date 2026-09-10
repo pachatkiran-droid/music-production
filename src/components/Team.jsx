@@ -42,26 +42,56 @@ export default function Team() {
               }}
             >
               <div>
-                {/* Avatar Placeholder Badge */}
+                {/* Real Producer Portrait Photo */}
                 <div
                   style={{
-                    width: '64px',
-                    height: '64px',
+                    position: 'relative',
+                    width: '100%',
+                    height: '240px',
                     borderRadius: '16px',
-                    backgroundColor: 'rgba(186, 27, 35, 0.15)',
-                    border: '1px solid rgba(186, 27, 35, 0.35)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '1.25rem',
-                    color: 'var(--accent-scarlet)'
+                    overflow: 'hidden',
+                    marginBottom: '1.5rem',
+                    border: '1px solid rgba(186, 27, 35, 0.3)',
+                    boxShadow: '0 12px 30px rgba(0,0,0,0.5)'
                   }}
                 >
-                  <Headphones size={28} />
-                </div>
-
-                <div style={{ fontSize: '0.8rem', color: 'var(--accent-scarlet)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 600, marginBottom: '0.35rem' }}>
-                  {member.role}
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      display: 'block',
+                      filter: 'contrast(1.1) brightness(0.95)'
+                    }}
+                  />
+                  <div
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      background: 'linear-gradient(180deg, transparent 40%, rgba(10, 10, 14, 0.95) 100%)'
+                    }}
+                  />
+                  <div
+                    style={{
+                      position: 'absolute',
+                      bottom: '1rem',
+                      left: '1rem',
+                      fontSize: '0.72rem',
+                      color: 'var(--accent-scarlet)',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.1em',
+                      fontWeight: 700,
+                      backgroundColor: 'rgba(0,0,0,0.7)',
+                      padding: '0.25rem 0.65rem',
+                      borderRadius: '6px',
+                      backdropFilter: 'blur(6px)',
+                      border: '1px solid rgba(255,255,255,0.1)'
+                    }}
+                  >
+                    {member.role}
+                  </div>
                 </div>
                 <h3 style={{ fontSize: '1.35rem', color: '#FFFFFF', fontWeight: 800, marginBottom: '0.85rem' }}>
                   {member.name}
