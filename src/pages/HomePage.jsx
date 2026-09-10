@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Compass, Sliders, Layers, Disc, ArrowRight, Sparkles, Award, Waves, CheckCircle2 } from 'lucide-react';
-import Hero from '../components/Hero';
 import AudioPlayer from '../components/AudioPlayer';
 import Testimonials from '../components/Testimonials';
 import BookingCTA from '../components/BookingCTA';
@@ -12,14 +11,8 @@ import { FEATURED_RELEASES } from '../data/releases';
 export default function HomePage() {
   return (
     <div className="home-page">
-      {/* 1. Hero Section */}
-      <Hero />
-
-      {/* Anchor point for Hero scroll */}
-      <div id="home-content" />
-
-      {/* 2. Interactive Audio Showreel Teaser */}
-      <section style={{ position: 'relative', paddingTop: '1rem' }}>
+      {/* Interactive Audio Showreel Teaser */}
+      <section style={{ position: 'relative', paddingTop: '7.5rem', paddingBottom: '2rem' }}>
         <div className="container" style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
           <div style={{ display: 'inline-flex', justifyContent: 'center', marginBottom: '0.75rem' }}>
             <div className="section-tag" style={{ background: 'rgba(186, 27, 35, 0.15)' }}>

@@ -11,7 +11,7 @@
   color: #FFFFFF !important;
 }
 
-/* Bounce animation for hero scroll indicator */
+/* Bounce animation for scroll indicator */
 .bounce-animation {
   animation: bounce-subtle 2s infinite ease-in-out;
 }
