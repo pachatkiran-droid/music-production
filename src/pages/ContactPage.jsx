@@ -30,9 +30,8 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="editorial-wrapper">
-      <div className="editorial-canvas">
-        {/* 1. Page Header */}
+    <div className="page-wrapper">
+      {/* 1. Page Header */}
         <PageHeader
           badge="GET IN TOUCH"
           title="BOOK A"
@@ -95,7 +94,6 @@ export default function ContactPage() {
             </div>
           </div>
         </section>
-      </div>
     </div>
   );
 }

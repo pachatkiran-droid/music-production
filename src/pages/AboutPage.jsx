@@ -38,9 +38,8 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="editorial-wrapper">
-      <div className="editorial-canvas">
-        {/* 1. Page Header */}
+    <div className="page-wrapper">
+      {/* 1. Page Header */}
         <PageHeader
           badge="THE MALHAR PHILOSOPHY"
           title="INSPIRED BY TRADITION,"
@@ -245,7 +244,6 @@ export default function AboutPage() {
         title="COLLABORATE WITH OUR PRODUCTION TEAM"
         subtitle="Book a session or schedule an in-person studio walkthrough to discuss your upcoming musical project."
       />
-      </div>
     </div>
   );
 }

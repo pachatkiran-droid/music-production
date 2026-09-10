@@ -34,9 +34,8 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="editorial-wrapper">
-      <div className="editorial-canvas">
-        {/* 1. Page Header */}
+    <div className="page-wrapper">
+      {/* 1. Page Header */}
         <PageHeader
           badge="PRODUCTION CAPABILITIES"
           title="END-TO-END"
@@ -155,7 +154,6 @@ export default function ServicesPage() {
         title="READY TO BOOK A SERVICE SUITE?"
         subtitle="Select your preferred service and let our audio engineers craft the definitive sound for your music."
       />
-      </div>
     </div>
   );
 }

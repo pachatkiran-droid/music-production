@@ -108,44 +108,48 @@
 }
 
 /* ==========================================================================
-   Shared Luxury Editorial Frame (All Pages)
+   Full Width Edge-to-Edge Layout (All Pages)
    ========================================================================== */
-.editorial-wrapper {
-  background: radial-gradient(circle at 50% 10%, #1a0508 0%, #0b0204 70%, #050102 100%);
-  padding: 6.5rem 1.25rem 4rem 1.25rem;
+.app-container {
+  width: 100%;
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
 
+.main-content {
+  width: 100%;
+  flex: 1 0 auto;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.page-wrapper,
+.editorial-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  display: block;
+  overflow-x: hidden;
+}
+
+.page-canvas,
 .editorial-canvas {
   width: 100%;
-  max-width: 1180px;
-  background: #f6f4ef;
-  border-radius: 32px;
-  overflow: hidden;
-  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.75), 0 0 40px rgba(186, 27, 35, 0.2);
-  color: #161618;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: none;
+  border: none;
 }
 
-.editorial-canvas h1,
-.editorial-canvas h2,
-.editorial-canvas h3,
-.editorial-canvas h4 {
-  color: #1a080c;
-}
-
-.editorial-canvas .section-title {
-  color: #1a080c;
-}
-
-.editorial-canvas .section-subtitle {
-  color: #635f56;
-}
-
-.editorial-canvas .glass-card {
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.18);
-}
 

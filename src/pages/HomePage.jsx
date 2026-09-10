@@ -23,16 +23,16 @@ export default function HomePage() {
   };
 
   return (
-    <div className="editorial-wrapper">
-      <div className="editorial-canvas">
-        {/* ====================================================================
-            SECTION 1: HERO AGENCY BANNER (Matching Reference UI/UX)
-            ==================================================================== */}
-        <section className="editorial-hero">
-          {/* Subtle Ambient Red Atmospheric Background */}
-          <div className="editorial-hero-bg" />
-          <div className="editorial-hero-glow" />
+    <div className="home-page-full">
+      {/* ====================================================================
+          SECTION 1: HERO AGENCY BANNER (Matching Reference UI/UX)
+          ==================================================================== */}
+      <section className="editorial-hero">
+        {/* Subtle Ambient Red Atmospheric Background */}
+        <div className="editorial-hero-bg" />
+        <div className="editorial-hero-glow" />
 
+        <div className="editorial-hero-container">
           {/* Top Info Bar */}
           <div className="hero-top-bar">
             <div>
@@ -126,12 +126,14 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ====================================================================
-            SECTION 2: EDITORIAL STATEMENT & LATEST PROJECTS
-            ==================================================================== */}
-        <section className="editorial-statement-sec">
+      {/* ====================================================================
+          SECTION 2: EDITORIAL STATEMENT & LATEST PROJECTS
+          ==================================================================== */}
+      <section className="editorial-statement-sec">
+        <div className="statement-container">
           <div className="statement-asterisk">✳</div>
 
           <h2 className="editorial-headline">
@@ -186,12 +188,14 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ====================================================================
-            SECTION 3: "EVERYTHING YOUR RECORD NEEDS TO GROW" (Deck with Popped-out Card)
-            ==================================================================== */}
-        <section className="services-deck-sec">
+      {/* ====================================================================
+          SECTION 3: "EVERYTHING YOUR RECORD NEEDS TO GROW" (Deck with Popped-out Card)
+          ==================================================================== */}
+      <section className="services-deck-sec">
+        <div className="services-deck-container">
           <div className="services-deck-header">
             <h2 className="services-deck-title">
               <span className="gray">EVERYTHING YOUR</span> <br />
@@ -309,12 +313,14 @@ export default function HomePage() {
             </div>
             <AudioPlayer />
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ====================================================================
-            SECTION 4: VISION STATEMENT & 3-COLUMN EDITORIAL GRID
-            ==================================================================== */}
-        <section className="editorial-vision-sec">
+      {/* ====================================================================
+          SECTION 4: VISION STATEMENT & 3-COLUMN EDITORIAL GRID
+          ==================================================================== */}
+      <section className="editorial-vision-sec">
+        <div className="vision-container">
           <h2 className="vision-headline">
             WE TURN IDEAS <br />
             INTO SONIC{' '}
@@ -388,18 +394,18 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ====================================================================
-            SECTION 5: CLIENT TESTIMONIALS & BOOKING CTA
-            ==================================================================== */}
-        <Testimonials />
+      {/* ====================================================================
+          SECTION 5: CLIENT TESTIMONIALS & BOOKING CTA
+          ==================================================================== */}
+      <Testimonials />
 
-        <BookingCTA
-          title="READY TO ELEVATE YOUR RECORD?"
-          subtitle="Reserve time in Studio A, B, or our Dolby Atmos suite. Our multi-platinum producers and acoustic engineers are ready."
-        />
-      </div>
+      <BookingCTA
+        title="READY TO ELEVATE YOUR RECORD?"
+        subtitle="Reserve time in Studio A, B, or our Dolby Atmos suite. Our multi-platinum producers and acoustic engineers are ready."
+      />
     </div>
   );
 }

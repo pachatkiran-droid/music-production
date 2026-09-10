@@ -29,9 +29,8 @@ export default function StudiosPage() {
   ];
 
   return (
-    <div className="editorial-wrapper">
-      <div className="editorial-canvas">
-        {/* 1. Page Header */}
+    <div className="page-wrapper">
+      {/* 1. Page Header */}
         <PageHeader
           badge="ACOUSTIC ARCHITECTURE & GEAR"
           title="WORLD-CLASS SUITES,"
@@ -112,7 +111,6 @@ export default function StudiosPage() {
         title="SCHEDULE A PRIVATE STUDIO TOUR"
         subtitle="Come experience our acoustic monitoring and analog outboard consoles in person before booking your session."
       />
-      </div>
     </div>
   );
 }

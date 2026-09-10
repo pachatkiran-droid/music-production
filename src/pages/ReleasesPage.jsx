@@ -8,9 +8,8 @@ import BookingCTA from '../components/BookingCTA';
 
 export default function ReleasesPage() {
   return (
-    <div className="editorial-wrapper">
-      <div className="editorial-canvas">
-        {/* 1. Page Header */}
+    <div className="page-wrapper">
+      {/* 1. Page Header */}
         <PageHeader
           badge="DISCOGRAPHY & SHOWREEL"
           title="OUR SONIC"
@@ -48,8 +47,7 @@ export default function ReleasesPage() {
         <BookingCTA
           title="READY TO ADD YOUR TRACK TO OUR WALL OF SOUND?"
           subtitle="Let our production team bring your composition into the realm of multi-platinum records."
-        />
-      </div>
+      />
     </div>
   );
 }
