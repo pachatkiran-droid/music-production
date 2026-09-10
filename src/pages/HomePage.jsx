@@ -1,465 +1,405 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Compass, Sliders, Layers, Disc, ArrowRight, Sparkles, Award, Waves, CheckCircle2 } from 'lucide-react';
+import { ArrowUpRight, ArrowRight, Play, Pause, Disc } from 'lucide-react';
+import './HomePage.css';
 import AudioPlayer from '../components/AudioPlayer';
 import Testimonials from '../components/Testimonials';
 import BookingCTA from '../components/BookingCTA';
-import { SERVICES } from '../data/services';
-import { STUDIOS_DATA } from '../data/studios';
 import { FEATURED_RELEASES } from '../data/releases';
+import { studioAudioEngine } from '../utils/audioEngine';
+import { SHOWREEL_TRACKS } from '../data/tracks';
 
 export default function HomePage() {
+  const [isPlayingTeaser, setIsPlayingTeaser] = useState(false);
+
+  const handleToggleTeaser = () => {
+    if (isPlayingTeaser) {
+      studioAudioEngine.stop();
+      setIsPlayingTeaser(false);
+    } else {
+      studioAudioEngine.playTrack(SHOWREEL_TRACKS[0]);
+      setIsPlayingTeaser(true);
+    }
+  };
+
   return (
-    <div className="home-page">
-      {/* Interactive Audio Showreel Teaser */}
-      <section style={{ position: 'relative', paddingTop: '7.5rem', paddingBottom: '2rem' }}>
-        <div className="container" style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
-          <div style={{ display: 'inline-flex', justifyContent: 'center', marginBottom: '0.75rem' }}>
-            <div className="section-tag" style={{ background: 'rgba(186, 27, 35, 0.15)' }}>
-              <Sparkles size={14} />
-              <span>LISTEN TO THE SOUND</span>
+    <div className="editorial-wrapper">
+      <div className="editorial-canvas">
+        {/* ====================================================================
+            SECTION 1: HERO AGENCY BANNER (Matching Reference UI/UX)
+            ==================================================================== */}
+        <section className="editorial-hero">
+          {/* Subtle Ambient Red Atmospheric Background */}
+          <div className="editorial-hero-bg" />
+          <div className="editorial-hero-glow" />
+
+          {/* Top Info Bar */}
+          <div className="hero-top-bar">
+            <div>
+              <div className="hero-source-tag">SOURCE OF BOLD SOUND /</div>
+              <div className="hero-source-sub">
+                Acoustic purity, vintage analog summing & Dolby Atmos® 7.1.4 certified facility.
+              </div>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#e62a34', boxShadow: '0 0 10px #e62a34' }} />
+              <span style={{ fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', fontWeight: 600 }}>
+                MUMBAI • GLOBAL
+              </span>
             </div>
           </div>
-          <h2 className="section-title">
-            INTERACTIVE <span className="highlight">AUDIO SHOWREEL</span>
-          </h2>
-          <p className="section-subtitle">
-            Experience our procedural audio synthesizer and real-time spectrum analyzer. Switch genres to preview the breadth of our sound.
-          </p>
-        </div>
 
-        {/* Audio Player Engine */}
-        <AudioPlayer />
-
-        <div style={{ textAlign: 'center', marginTop: '1.5rem', marginBottom: '3rem' }}>
-          <Link
-            to="/releases"
-            className="btn btn-secondary"
-            style={{
-              padding: '0.85rem 1.85rem',
-              fontSize: '0.92rem',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.6rem',
-              textDecoration: 'none'
-            }}
-          >
-            <span>Explore Full Discography & Credits</span>
-            <ArrowRight size={16} />
-          </Link>
-        </div>
-      </section>
-
-      {/* 3. About & Heritage Spotlight Teaser */}
-      <section className="section-padding" style={{ position: 'relative', backgroundColor: 'rgba(10, 10, 14, 0.6)' }}>
-        <div className="container">
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '3.5rem',
-              alignItems: 'center'
-            }}
-          >
-            {/* Left Content */}
-            <div>
-              <div className="section-tag" style={{ marginBottom: '1.25rem' }}>
-                <Compass size={14} />
-                <span>The Malhar Legacy</span>
-              </div>
-              <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '1.25rem' }}>
-                WHERE TIMELESS RAGA MEETS <br />
-                <span className="highlight">ANALOG MASTERY</span>
-              </h2>
-              <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: 1.75, marginBottom: '1.5rem' }}>
-                In Indian classical heritage, <em>Raga Malhar</em> is famed for its ability to conjure rain from clear skies. At Malhaar Productions, we channel that same tempestuous emotional resonance into modern records, commercial sound design, and cinematic scores.
-              </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', marginBottom: '2.5rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'var(--text-main)', fontSize: '0.95rem' }}>
-                  <CheckCircle2 size={18} color="var(--primary-red)" />
-                  <span>Solid State Logic (SSL) 4000E Analog Console Summing</span>
+          {/* Hero Middle & Bottom Grid */}
+          <div className="hero-middle-grid">
+            {/* Left Floating Cards (85% stat + Reload sound widget) */}
+            <div className="hero-floating-cards">
+              {/* White Stat Card */}
+              <div className="stat-pill-card">
+                <div className="stat-pill-header">
+                  <span style={{ color: '#ba1b23' }}>✳</span>
+                  <span>RECORD IMPACT</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'var(--text-main)', fontSize: '0.95rem' }}>
-                  <CheckCircle2 size={18} color="var(--primary-red)" />
-                  <span>Official Dolby Atmos® 7.1.4 Certified Immersive Mixing Suite</span>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'var(--text-main)', fontSize: '0.95rem' }}>
-                  <CheckCircle2 size={18} color="var(--primary-red)" />
-                  <span>Pristine Burl Audio, Prism Sound & Antelope Mastering Converters</span>
-                </div>
+                <div className="stat-pill-number">85%</div>
+                <div className="stat-pill-desc">Top 10 streaming & label placement ratio</div>
               </div>
 
-              <Link
-                to="/about"
-                className="btn btn-primary"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.75rem',
-                  textDecoration: 'none',
-                  padding: '0.9rem 1.8rem'
-                }}
-              >
-                <span>Discover Our Heritage & Team</span>
-                <ArrowRight size={16} />
-              </Link>
-            </div>
-
-            {/* Right Stat Grid Cards */}
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(2, 1fr)',
-                gap: '1.25rem'
-              }}
-            >
-              {[
-                { num: '250+', label: 'Mastered Releases', desc: 'Commercial label & indie tracks' },
-                { num: '120M+', label: 'Streams Delivered', desc: 'Global platforms & radio' },
-                { num: '15+', label: 'Platinum & Gold Hits', desc: 'National & international charts' },
-                { num: '4', label: 'Dedicated Suites', desc: 'Acoustically tuned control rooms' }
-              ].map((stat, i) => (
+              {/* Dark Glassmorphic Interactive Sound Card */}
+              <div className="action-glass-pill" onClick={handleToggleTeaser}>
                 <div
-                  key={i}
-                  className="glass-card"
                   style={{
-                    padding: '2rem 1.5rem',
-                    textAlign: 'center',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
-                    background: 'linear-gradient(180deg, rgba(22, 22, 28, 0.7) 0%, rgba(12, 12, 16, 0.95) 100%)'
+                    width: '38px',
+                    height: '38px',
+                    borderRadius: '50%',
+                    backgroundColor: isPlayingTeaser ? '#ba1b23' : 'rgba(255,255,255,0.12)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#ffffff',
+                    transition: 'all 0.25s ease'
                   }}
                 >
-                  <div
-                    style={{
-                      fontFamily: "'Cinzel', serif",
-                      fontSize: 'clamp(2rem, 3.5vw, 2.6rem)',
-                      fontWeight: 800,
-                      color: 'var(--accent-scarlet)',
-                      marginBottom: '0.35rem'
-                    }}
-                  >
-                    {stat.num}
+                  {isPlayingTeaser ? <Pause size={16} /> : <Play size={16} style={{ marginLeft: '2px' }} />}
+                </div>
+                <div>
+                  <div style={{ fontSize: '0.82rem', fontWeight: 700, letterSpacing: '0.04em' }}>
+                    {isPlayingTeaser ? 'Playing Soundscape' : 'Reload Your Sound'}
                   </div>
-                  <div style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '0.95rem', marginBottom: '0.35rem' }}>
-                    {stat.label}
-                  </div>
-                  <div style={{ color: 'var(--text-dim)', fontSize: '0.8rem' }}>
-                    {stat.desc}
+                  <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.6)' }}>
+                    Live procedural synth preview
                   </div>
                 </div>
+              </div>
+            </div>
+
+            {/* Right Agency Typography */}
+            <div className="hero-agency-col">
+              <Link to="/services" className="hero-arrow-btn" aria-label="Explore Production Services">
+                <ArrowUpRight size={22} />
+              </Link>
+              <h1 className="hero-agency-title">
+                CREATIVE <br />
+                MUSIC PRODUCTION <br />
+                AGENCY
+              </h1>
+              <p className="hero-agency-sub">
+                One-of-one sound identities that command attention. From raw analog tracking to spatial Dolby Atmos® immersion.
+              </p>
+              <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
+                {['DOLBY ATMOS® 7.1.4', 'SSL 4000E SUMMING', 'APPLE DIGITAL MASTERS'].map((tag, i) => (
+                  <span
+                    key={i}
+                    style={{
+                      fontSize: '0.65rem',
+                      fontWeight: 700,
+                      letterSpacing: '0.1em',
+                      textTransform: 'uppercase',
+                      backgroundColor: 'rgba(255,255,255,0.08)',
+                      padding: '0.3rem 0.65rem',
+                      borderRadius: '999px',
+                      color: 'rgba(255,255,255,0.85)',
+                      border: '1px solid rgba(255,255,255,0.1)'
+                    }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ====================================================================
+            SECTION 2: EDITORIAL STATEMENT & LATEST PROJECTS
+            ==================================================================== */}
+        <section className="editorial-statement-sec">
+          <div className="statement-asterisk">✳</div>
+
+          <h2 className="editorial-headline">
+            MALHAAR DESIGNS MAKE <br />
+            SOUND SYSTEMS{' '}
+            <span className="inline-capsule">
+              <span className="inline-capsule-bars">
+                <span style={{ height: '14px' }} />
+                <span style={{ height: '24px' }} />
+                <span style={{ height: '18px' }} />
+                <span style={{ height: '12px' }} />
+              </span>
+            </span>{' '}
+            THAT <br />
+            <span className="dimmed">REDEFINE MODERN</span> <br />
+            SONIC CULTURE
+          </h2>
+
+          <p className="statement-subcopy">
+            Malhaar crafts records and acoustic identities that cut through commercial noise, challenge genres, and awaken deep human emotion. We combine Indian classical soul, analog hardware, and spatial mixing all in one creative sanctuary.
+          </p>
+
+          {/* Projects Layout with Vertical Left Label */}
+          <div className="projects-layout-row">
+            <div className="vertical-label-col">
+              <span>OUR</span>
+              <span>LATEST</span>
+              <span style={{ color: '#ba1b23' }}>PROJECTS</span>
+            </div>
+
+            <div className="projects-cards-grid">
+              {FEATURED_RELEASES.slice(0, 3).map((track, idx) => (
+                <Link to="/releases" key={track.id || idx} className="project-card">
+                  <div
+                    className="project-card-image"
+                    style={{
+                      background: track.coverGradient || '#1a0508',
+                      backgroundImage: idx === 0
+                        ? `linear-gradient(180deg, rgba(186,27,35,0.4) 0%, #0c0204 100%), url('/images/studio-live-room.jpg')`
+                        : idx === 1
+                        ? `linear-gradient(180deg, rgba(14,8,12,0.4) 0%, #0c0204 100%), url('/images/studio-vocal-booth.jpg')`
+                        : `linear-gradient(180deg, rgba(186,27,35,0.3) 0%, #0c0204 100%), url('/images/studio-control-room.jpg')`
+                    }}
+                  />
+                  <div className="project-card-overlay" />
+                  <div className="project-card-content">
+                    <div className="project-tag">{track.genre} • {track.year}</div>
+                    <div className="project-title">{track.title}</div>
+                    <div className="project-artist">{track.artist}</div>
+                  </div>
+                </Link>
               ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* 4. Production Services Preview */}
-      <section className="section-padding" style={{ position: 'relative' }}>
-        <div className="container">
-          <div className="section-header">
-            <div className="section-tag">
-              <Sliders size={14} />
-              <span>Capabilities</span>
-            </div>
-            <h2 className="section-title">
-              BESPOKE STUDIO <span className="highlight">SERVICES</span>
+        {/* ====================================================================
+            SECTION 3: "EVERYTHING YOUR RECORD NEEDS TO GROW" (Deck with Popped-out Card)
+            ==================================================================== */}
+        <section className="services-deck-sec">
+          <div className="services-deck-header">
+            <h2 className="services-deck-title">
+              <span className="gray">EVERYTHING YOUR</span> <br />
+              RECORD NEEDS TO GROW
             </h2>
-            <p className="section-subtitle">
-              From initial songwriting sessions to Dolby Atmos theatrical mastering, our suites are engineered for pure sonic impact.
+            <p className="services-deck-sub">
+              Malhaar offers end-to-end music production, analog tracking, spatial audio mixing, and commercial sound design — engineered to cut through noise and deliver undeniable sonic impact.
             </p>
           </div>
 
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '2rem',
-              marginBottom: '3rem'
-            }}
-          >
-            {SERVICES.slice(0, 3).map((srv) => (
-              <div
-                key={srv.id}
-                className="glass-card"
-                style={{
-                  padding: '2.25rem',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
-                  background: 'linear-gradient(180deg, rgba(20, 20, 26, 0.7) 0%, rgba(12, 12, 16, 0.9) 100%)'
-                }}
-              >
-                <div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
-                    <span
-                      style={{
-                        fontSize: '0.72rem',
-                        fontWeight: 700,
-                        color: 'var(--accent-scarlet)',
-                        backgroundColor: 'rgba(186, 27, 35, 0.12)',
-                        padding: '0.25rem 0.65rem',
-                        borderRadius: '6px',
-                        textTransform: 'uppercase'
-                      }}
-                    >
-                      {srv.id}
-                    </span>
-                    <span style={{ fontSize: '0.75rem', color: 'var(--accent-gold)' }}>★ {srv.highlight}</span>
-                  </div>
-                  <h3 style={{ fontSize: '1.3rem', color: '#FFFFFF', fontWeight: 700, marginBottom: '0.75rem' }}>
-                    {srv.title}
-                  </h3>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>
-                    {srv.shortDesc}
-                  </p>
-                </div>
-
-                <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.06)', paddingTop: '1.25rem' }}>
-                  <Link
-                    to={`/contact?service=${encodeURIComponent(srv.title)}`}
-                    className="btn btn-secondary"
-                    style={{
-                      width: '100%',
-                      padding: '0.75rem',
-                      fontSize: '0.85rem',
-                      justifyContent: 'space-between',
-                      textDecoration: 'none'
-                    }}
-                  >
-                    <span>Book {srv.title.split('&')[0]}</span>
-                    <ArrowRight size={16} />
-                  </Link>
+          {/* 4 Cards Deck with Popped-out Elevated Centerpiece */}
+          <div className="deck-cards-row">
+            {/* Card 1: Production Strategy */}
+            <Link to="/services" className="deck-card">
+              <div>
+                <div className="deck-card-category">01 / PRODUCTION STRATEGY</div>
+                <div className="deck-card-title">Songwriting & Arrangement</div>
+                <div className="deck-card-desc">
+                  Harmonic motif mapping, live acoustic instrumentation, and beat architecture.
                 </div>
               </div>
-            ))}
-          </div>
-
-          <div style={{ textAlign: 'center' }}>
-            <Link
-              to="/services"
-              className="btn btn-primary"
-              style={{
-                padding: '0.9rem 2rem',
-                fontSize: '0.95rem',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.65rem',
-                textDecoration: 'none'
-              }}
-            >
-              <span>View All 6 Production Suites & Services</span>
-              <ArrowRight size={16} />
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '1rem' }}>
+                <span style={{ fontSize: '0.75rem', color: '#ba1b23', fontWeight: 700 }}>EXPLORE SUITE</span>
+                <ArrowUpRight size={16} color="#ba1b23" />
+              </div>
             </Link>
-          </div>
-        </div>
-      </section>
 
-      {/* 5. Studio Rooms & Gear Preview */}
-      <section className="section-padding" style={{ position: 'relative', backgroundColor: 'rgba(8, 8, 12, 0.7)' }}>
-        <div className="container">
-          <div className="section-header">
-            <div className="section-tag">
-              <Layers size={14} />
-              <span>Acoustic Environments</span>
-            </div>
-            <h2 className="section-title">
-              ENGINEERED FOR <span className="highlight">PERFECTION</span>
-            </h2>
-            <p className="section-subtitle">
-              Take a look inside our 4 purpose-built acoustic suites featuring floating concrete floors, vintage Neve/SSL gear, and ATC monitoring.
-            </p>
-          </div>
-
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))',
-              gap: '1.5rem',
-              marginBottom: '3rem'
-            }}
-          >
-            {STUDIOS_DATA.map((room) => (
-              <div
-                key={room.id}
-                className="glass-card"
-                style={{
-                  padding: '1.75rem',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
-                  background: 'linear-gradient(180deg, rgba(22, 22, 28, 0.75) 0%, rgba(12, 12, 16, 0.95) 100%)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between'
-                }}
-              >
-                <div>
-                  <div
-                    style={{
-                      height: '140px',
-                      borderRadius: '12px',
-                      background: 'radial-gradient(ellipse at center, rgba(186, 27, 35, 0.3) 0%, rgba(18, 18, 24, 0.9) 70%)',
-                      border: '1px solid rgba(186, 27, 35, 0.25)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      marginBottom: '1.25rem'
-                    }}
-                  >
-                    <Layers size={36} color="var(--accent-scarlet)" />
-                  </div>
-                  <h3 style={{ fontSize: '1.15rem', color: '#FFFFFF', fontWeight: 700, marginBottom: '0.4rem' }}>
-                    {room.name}
-                  </h3>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--accent-scarlet)', marginBottom: '0.75rem', fontWeight: 600 }}>
-                    {room.dimensions} • {room.reverbTime}
-                  </div>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.86rem', lineHeight: 1.6, marginBottom: '1rem' }}>
-                    {room.description}
-                  </p>
+            {/* Card 2: THE STANDOUT ELEVATED POPPED-OUT CENTERPIECE (Dolby Atmos Spatial Mixing) */}
+            <Link to="/services" className="deck-card elevated-card">
+              <div>
+                <div className="deck-card-category" style={{ color: '#ffffff', opacity: 0.9 }}>
+                  02 / SPATIAL AUDIO IMMERSION
                 </div>
-
-                <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.06)', paddingTop: '1rem' }}>
-                  <div style={{ fontSize: '0.78rem', color: 'var(--text-dim)', marginBottom: '0.5rem' }}>
-                    <strong>Console:</strong> {room.console}
-                  </div>
+                <div className="deck-card-title" style={{ fontSize: '1.45rem' }}>
+                  Dolby Atmos® 7.1.4
+                </div>
+                <div className="deck-card-desc" style={{ color: 'rgba(255,255,255,0.85)' }}>
+                  Certified immersive mixing environment. Elevating stereo stems into three-dimensional acoustic space with pinpoint object rendering.
                 </div>
               </div>
-            ))}
-          </div>
 
-          <div style={{ textAlign: 'center' }}>
-            <Link
-              to="/studios"
-              className="btn btn-secondary"
-              style={{
-                padding: '0.85rem 1.85rem',
-                fontSize: '0.92rem',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.6rem',
-                textDecoration: 'none'
-              }}
-            >
-              <span>Explore Gear Arsenal & Studio Specifications</span>
-              <ArrowRight size={16} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Featured Discography Highlights */}
-      <section className="section-padding" style={{ position: 'relative' }}>
-        <div className="container">
-          <div className="section-header">
-            <div className="section-tag">
-              <Disc size={14} />
-              <span>Recent Hits</span>
-            </div>
-            <h2 className="section-title">
-              FEATURED <span className="highlight">RELEASES</span>
-            </h2>
-            <p className="section-subtitle">
-              A glimpse into recent chart releases, soundtracks, and indie anthems mixed and mastered at Malhaar Productions.
-            </p>
-          </div>
-
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))',
-              gap: '2rem',
-              marginBottom: '3rem'
-            }}
-          >
-            {FEATURED_RELEASES.slice(0, 3).map((rel) => (
-              <div
-                key={rel.id}
-                className="glass-card discography-card"
-                style={{
-                  padding: '1.5rem',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
-                  background: 'linear-gradient(180deg, rgba(22, 22, 28, 0.75) 0%, rgba(12, 12, 16, 0.95) 100%)'
-                }}
-              >
+              {/* Glowing Centerpiece Orb / Canister Visual */}
+              <div className="deck-card-visual">
+                <div className="deck-orb-glow" />
                 <div
                   style={{
-                    position: 'relative',
-                    width: '100%',
-                    aspectRatio: '1 / 1',
-                    borderRadius: '16px',
-                    background: rel.coverGradient,
-                    marginBottom: '1.25rem',
-                    overflow: 'hidden',
+                    width: '90px',
+                    height: '90px',
+                    borderRadius: '50%',
+                    background: 'radial-gradient(circle at 35% 35%, #ff4b55 0%, #ba1b23 60%, #4a080d 100%)',
+                    border: '2px solid rgba(255,255,255,0.4)',
+                    boxShadow: '0 0 35px rgba(230, 42, 52, 0.8), inset 0 0 20px rgba(255,255,255,0.3)',
                     display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    padding: '1.25rem',
-                    boxShadow: '0 15px 35px rgba(0,0,0,0.6)'
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#ffffff',
+                    position: 'relative',
+                    zIndex: 2
                   }}
                 >
-                  <span
-                    style={{
-                      alignSelf: 'flex-start',
-                      fontSize: '0.7rem',
-                      fontWeight: 700,
-                      color: '#FFFFFF',
-                      backgroundColor: 'rgba(0,0,0,0.5)',
-                      backdropFilter: 'blur(8px)',
-                      padding: '0.25rem 0.6rem',
-                      borderRadius: '4px',
-                      textTransform: 'uppercase'
-                    }}
-                  >
-                    {rel.genre}
-                  </span>
-                  <div>
-                    <h3 style={{ color: '#FFFFFF', fontSize: '1.3rem', fontWeight: 800, textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
-                      {rel.title}
-                    </h3>
-                    <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.88rem' }}>
-                      {rel.artist} • {rel.year}
-                    </p>
-                  </div>
-                </div>
-
-                <div style={{ fontSize: '0.8rem', color: 'var(--accent-scarlet)', fontWeight: 600, marginBottom: '0.5rem' }}>
-                  ★ {rel.achievement}
-                </div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                  <strong>Role:</strong> {rel.role}
+                  <Disc size={36} className="disc-spin" />
                 </div>
               </div>
-            ))}
-          </div>
 
-          <div style={{ textAlign: 'center' }}>
-            <Link
-              to="/releases"
-              className="btn btn-primary"
-              style={{
-                padding: '0.9rem 2rem',
-                fontSize: '0.95rem',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.65rem',
-                textDecoration: 'none'
-              }}
-            >
-              <span>View Full Discography & Interactive Showreel</span>
-              <ArrowRight size={16} />
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: '1rem' }}>
+                <span style={{ fontSize: '0.8rem', color: '#ffffff', fontWeight: 800, letterSpacing: '0.04em' }}>
+                  FEATURED SUITE
+                </span>
+                <div style={{ width: '30px', height: '30px', borderRadius: '50%', backgroundColor: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ba1b23' }}>
+                  <ArrowUpRight size={16} />
+                </div>
+              </div>
+            </Link>
+
+            {/* Card 3: Creative Direction / Analog Tracking */}
+            <Link to="/services" className="deck-card">
+              <div>
+                <div className="deck-card-category">03 / ANALOG TRACKING</div>
+                <div className="deck-card-title">SSL 4000E Console</div>
+                <div className="deck-card-desc">
+                  Solid-state British summing, vintage Telefunken microphones, and Tube-Tech optical compression.
+                </div>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '1rem' }}>
+                <span style={{ fontSize: '0.75rem', color: '#ba1b23', fontWeight: 700 }}>EXPLORE SUITE</span>
+                <ArrowUpRight size={16} color="#ba1b23" />
+              </div>
+            </Link>
+
+            {/* Card 4: Art Direction / Master Engineering */}
+            <Link to="/services" className="deck-card">
+              <div>
+                <div className="deck-card-category">04 / AUDIO MASTERING</div>
+                <div className="deck-card-title">Apple Digital Masters</div>
+                <div className="deck-card-desc">
+                  MFiT certified loudness optimization, vinyl DMM pre-masters, and 192kHz Prism Sound conversion.
+                </div>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '1rem' }}>
+                <span style={{ fontSize: '0.75rem', color: '#ba1b23', fontWeight: 700 }}>EXPLORE SUITE</span>
+                <ArrowUpRight size={16} color="#ba1b23" />
+              </div>
             </Link>
           </div>
-        </div>
-      </section>
 
-      {/* 7. Client Testimonials & Partner Badges */}
-      <Testimonials />
+          {/* Interactive Web Audio Synthesizer Player */}
+          <div style={{ marginTop: '5rem', background: '#0a0204', borderRadius: '24px', padding: '2rem 1.5rem', color: '#ffffff' }}>
+            <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
+              <span style={{ fontSize: '0.75rem', letterSpacing: '0.12em', color: '#e62a34', textTransform: 'uppercase', fontWeight: 700 }}>
+                LIVE WEB AUDIO ENGINE
+              </span>
+              <h3 style={{ fontSize: '1.6rem', fontWeight: 800, marginTop: '0.35rem' }}>
+                Interactive Audio Showreel & Visualizer
+              </h3>
+            </div>
+            <AudioPlayer />
+          </div>
+        </section>
 
-      {/* 8. Booking CTA Banner */}
-      <BookingCTA
-        title="READY TO ELEVATE YOUR SOUND?"
-        subtitle="Book a dedicated studio session in our acoustically certified suites with multi-platinum producers and Dolby Atmos mix engineers."
-      />
+        {/* ====================================================================
+            SECTION 4: VISION STATEMENT & 3-COLUMN EDITORIAL GRID
+            ==================================================================== */}
+        <section className="editorial-vision-sec">
+          <h2 className="vision-headline">
+            WE TURN IDEAS <br />
+            INTO SONIC{' '}
+            <span className="inline-capsule">
+              <span className="inline-capsule-bars">
+                <span style={{ height: '22px' }} />
+                <span style={{ height: '12px' }} />
+                <span style={{ height: '18px' }} />
+              </span>
+            </span>{' '}
+            STATEMENTS <br />
+            <span className="dimmed">FROM VISION TO DELIVERY —</span> <br />
+            <span className="dimmed">IMPACT THAT LASTS</span>
+          </h2>
+
+          <div className="vision-grid">
+            {/* Card 1: Artist Portrait in Red Light */}
+            <div className="vision-card-1">
+              <div className="vision-card-image-box">
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    backgroundImage: `linear-gradient(180deg, rgba(186, 27, 35, 0.4) 0%, rgba(12, 3, 5, 0.9) 100%), url('/images/studio-vocal-booth.jpg')`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    filter: 'contrast(1.2)'
+                  }}
+                />
+              </div>
+              <div className="vision-card-caption">
+                <span className="asterisk">✳</span>
+                <span>
+                  Acoustic design, stem mixing, and analog mastering engineered to outlast temporary industry trends. From raw acoustic motif to global platform delivery.
+                </span>
+              </div>
+            </div>
+
+            {/* Card 2: Saturated Red Glow Mesh Card */}
+            <Link to="/studios" className="vision-card-2">
+              <div>
+                <div style={{ fontSize: '0.72rem', letterSpacing: '0.15em', textTransform: 'uppercase', opacity: 0.85, fontWeight: 700, marginBottom: '1.25rem' }}>
+                  THE PHYSICAL SANCTUARY
+                </div>
+                <h3 style={{ fontSize: '1.9rem', fontWeight: 800, lineHeight: 1.15, textTransform: 'uppercase', letterSpacing: '-0.02em', maxWidth: '280px' }}>
+                  Explore our 4 dedicated studio suites & gear arsenal
+                </h3>
+              </div>
+              <div className="vision-card-2-pill-btn">
+                <ArrowRight size={20} />
+              </div>
+            </Link>
+
+            {/* Card 3: Fashion/Producer Silhouette with Pill CTA */}
+            <div className="vision-card-3">
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  backgroundImage: `linear-gradient(180deg, rgba(12, 3, 5, 0.2) 0%, rgba(10, 2, 4, 0.9) 100%), url('/images/studio-live-room.jpg')`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  filter: 'contrast(1.2) brightness(0.9)'
+                }}
+              />
+              <div style={{ position: 'relative', zIndex: 2 }}>
+                <Link to="/contact" className="vision-card-3-btn">
+                  <span>BOOK SESSION NOW</span>
+                  <ArrowUpRight size={16} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ====================================================================
+            SECTION 5: CLIENT TESTIMONIALS & BOOKING CTA
+            ==================================================================== */}
+        <Testimonials />
+
+        <BookingCTA
+          title="READY TO ELEVATE YOUR RECORD?"
+          subtitle="Reserve time in Studio A, B, or our Dolby Atmos suite. Our multi-platinum producers and acoustic engineers are ready."
+        />
+      </div>
     </div>
   );
 }

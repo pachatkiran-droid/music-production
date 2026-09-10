@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, Calendar, Sparkles } from 'lucide-react';
+import { Menu, X, Calendar } from 'lucide-react';
 import Logo from './Logo';
 
 export default function Navbar({ onBookSessionClick }) {
