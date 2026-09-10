@@ -33,19 +33,64 @@
 }
 
 /* --------------------------------------------------------------------------
-   Section 1: Hero Agency Banner (100% Edge-to-Edge)
+   Section 1: Hero Video Banner (100% Edge-to-Edge)
    -------------------------------------------------------------------------- */
 .editorial-hero {
   position: relative;
   width: 100%;
-  background: radial-gradient(ellipse at 50% 35%, rgba(186, 27, 35, 0.5) 0%, rgba(16, 3, 7, 0.98) 65%, #080203 100%);
+  background: #080203;
   color: #ffffff;
-  padding: 8rem 0 5rem 0;
+  padding: 8.5rem 0 5.5rem 0;
   border-radius: 0;
   overflow: hidden;
-  min-height: 85vh;
+  min-height: 88vh;
   display: flex;
   align-items: center;
+}
+
+.hero-video-banner-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-video-banner-iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 56.25vw; /* 16:9 ratio */
+  min-height: 100%;
+  min-width: 177.77vh; /* 16:9 ratio */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border: none;
+  filter: brightness(0.65) contrast(1.18) saturate(1.15);
+}
+
+.hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 35%, rgba(186, 27, 35, 0.42) 0%, rgba(14, 3, 6, 0.76) 65%, #080203 100%),
+              linear-gradient(180deg, rgba(8, 2, 4, 0.72) 0%, rgba(8, 2, 4, 0.15) 45%, rgba(8, 2, 4, 0.92) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.editorial-hero-glow {
+  position: absolute;
+  top: 20%;
+  left: 40%;
+  width: 650px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(230, 42, 52, 0.28) 0%, transparent 70%);
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .editorial-hero-container {
@@ -58,30 +103,38 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: calc(85vh - 13rem);
+  min-height: calc(88vh - 14rem);
 }
 
-.editorial-hero-bg {
-  position: absolute;
-  inset: 0;
-  background-image: url('/images/studio-control-room.jpg');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.15;
-  filter: contrast(1.25) grayscale(0.5);
-  mix-blend-mode: luminosity;
-  pointer-events: none;
+.hero-video-controls-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.editorial-hero-glow {
-  position: absolute;
-  top: 20%;
-  left: 40%;
-  width: 650px;
-  height: 420px;
-  background: radial-gradient(circle, rgba(230, 42, 52, 0.35) 0%, transparent 70%);
-  filter: blur(90px);
-  pointer-events: none;
+.hero-video-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(12px);
+  color: #ffffff;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.hero-video-pill-btn:hover {
+  background: rgba(186, 27, 35, 0.65);
+  border-color: #ba1b23;
+  transform: translateY(-1px);
 }
 
 /* Hero Top Bar */
@@ -754,4 +807,76 @@
     align-items: stretch;
     width: 100%;
   }
+}
+
+/* ==========================================================================
+   Cinema Mode Video Modal
+   ========================================================================== */
+.video-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 1, 2, 0.92);
+  backdrop-filter: blur(24px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 3vw, 2.5rem);
+  animation: fadeInModal 0.25s ease;
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.video-modal-container {
+  position: relative;
+  width: 100%;
+  max-width: 1080px;
+  background: #0d0406;
+  border: 1px solid rgba(186, 27, 35, 0.45);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), 0 0 45px rgba(186, 27, 35, 0.35);
+}
+
+.video-modal-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 10;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.video-modal-close-btn:hover {
+  background: var(--primary-red);
+  border-color: var(--primary-red);
+  transform: scale(1.08);
+}
+
+.video-modal-responsive {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-modal-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }

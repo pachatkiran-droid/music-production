@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, ArrowRight, Play, Pause, Disc } from 'lucide-react';
+import { ArrowUpRight, ArrowRight, Play, Pause, Disc, Volume2, VolumeX, Maximize2, X } from 'lucide-react';
 import './HomePage.css';
 import AudioPlayer from '../components/AudioPlayer';
 import Testimonials from '../components/Testimonials';
@@ -11,6 +11,9 @@ import { SHOWREEL_TRACKS } from '../data/tracks';
 
 export default function HomePage() {
   const [isPlayingTeaser, setIsPlayingTeaser] = useState(false);
+  const [isVideoMuted, setIsVideoMuted] = useState(true);
+  const [showVideoModal, setShowVideoModal] = useState(false);
+  const videoIframeRef = useRef(null);
 
   const handleToggleTeaser = () => {
     if (isPlayingTeaser) {
@@ -22,14 +25,40 @@ export default function HomePage() {
     }
   };
 
+  const toggleVideoSound = () => {
+    const nextMuted = !isVideoMuted;
+    setIsVideoMuted(nextMuted);
+    const command = nextMuted ? 'mute' : 'unMute';
+    try {
+      videoIframeRef.current?.contentWindow?.postMessage(
+        JSON.stringify({ event: 'command', func: command, args: '' }),
+        '*'
+      );
+    } catch (err) {
+      console.warn('Could not postMessage to video iframe', err);
+    }
+  };
+
   return (
     <div className="home-page-full">
       {/* ====================================================================
-          SECTION 1: HERO AGENCY BANNER (Matching Reference UI/UX)
+          SECTION 1: HERO AGENCY BANNER WITH YOUTUBE VIDEO BANNER
           ==================================================================== */}
       <section className="editorial-hero">
-        {/* Subtle Ambient Red Atmospheric Background */}
-        <div className="editorial-hero-bg" />
+        {/* Full-Bleed YouTube Video Banner (Spec Commercial - SONY) */}
+        <div className="hero-video-banner-wrap">
+          <iframe
+            ref={videoIframeRef}
+            className="hero-video-banner-iframe"
+            src="https://www.youtube-nocookie.com/embed/oYmU8Av_e84?autoplay=1&mute=1&loop=1&playlist=oYmU8Av_e84&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&enablejsapi=1"
+            title="Malhaar Productions Video Banner"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+
+        {/* Cinematic Atmospheric Ruby/Dark Vignette Overlay */}
+        <div className="hero-video-overlay" />
         <div className="editorial-hero-glow" />
 
         <div className="editorial-hero-container">
@@ -41,11 +70,37 @@ export default function HomePage() {
                 Acoustic purity, vintage analog summing & Dolby Atmos® 7.1.4 certified facility.
               </div>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#e62a34', boxShadow: '0 0 10px #e62a34' }} />
-              <span style={{ fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', fontWeight: 600 }}>
-                MUMBAI • GLOBAL
-              </span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+              {/* Interactive Video Banner Controls */}
+              <div className="hero-video-controls-badge">
+                <button
+                  type="button"
+                  onClick={toggleVideoSound}
+                  className="hero-video-pill-btn"
+                  title={isVideoMuted ? "Turn Sound On" : "Mute Sound"}
+                  aria-label="Toggle video banner sound"
+                >
+                  {isVideoMuted ? <VolumeX size={14} /> : <Volume2 size={14} style={{ color: '#ff3b47' }} />}
+                  <span>{isVideoMuted ? "Sound Off" : "Sound On"}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setShowVideoModal(true)}
+                  className="hero-video-pill-btn"
+                  title="Watch in Cinema Mode"
+                  aria-label="Watch video banner in cinema modal"
+                >
+                  <Maximize2 size={13} />
+                  <span>Cinema Mode</span>
+                </button>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#e62a34', boxShadow: '0 0 10px #e62a34' }} />
+                <span style={{ fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', fontWeight: 600 }}>
+                  MUMBAI • GLOBAL
+                </span>
+              </div>
             </div>
           </div>
 
@@ -406,6 +461,30 @@ export default function HomePage() {
         title="READY TO ELEVATE YOUR RECORD?"
         subtitle="Reserve time in Studio A, B, or our Dolby Atmos suite. Our multi-platinum producers and acoustic engineers are ready."
       />
+
+      {/* Cinema Mode Video Modal */}
+      {showVideoModal && (
+        <div className="video-modal-backdrop" onClick={() => setShowVideoModal(false)}>
+          <div className="video-modal-container" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              className="video-modal-close-btn"
+              onClick={() => setShowVideoModal(false)}
+              aria-label="Close cinema modal"
+            >
+              <X size={20} />
+            </button>
+            <div className="video-modal-responsive">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/oYmU8Av_e84?autoplay=1&controls=1&rel=0&modestbranding=1"
+                title="Malhaar Productions Cinematic Film"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
