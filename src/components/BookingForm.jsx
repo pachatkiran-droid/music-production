@@ -10,8 +10,8 @@ export default function BookingForm({ preselectedService = '' }) {
     name: '',
     email: '',
     phone: '',
-    service: queryService || preselectedService || 'Music Production & Arrangement',
-    studioRoom: 'Studio A: Master Control Room',
+    service: queryService || preselectedService || 'Advertisements & Commercials',
+    studioRoom: 'Commercial TVC / Campaign',
     budget: '$1,000 - $3,000',
     timeline: 'Within 2-4 Weeks',
     demoLink: '',
@@ -47,13 +47,13 @@ export default function BookingForm({ preselectedService = '' }) {
         <div className="section-header">
           <div className="section-tag">
             <Calendar size={14} />
-            <span>Studio Inquiries & Booking</span>
+            <span>Let's Connect & Create</span>
           </div>
           <h2 className="section-title">
-            BOOK A SESSION AT <span className="highlight">MALHAAR</span>
+            START A PROJECT AT <span className="highlight">MALHAAR</span>
           </h2>
           <p className="section-subtitle">
-            Tell us about your musical vision, release deadlines, and recording requirements. Our production team will review your stems and respond within 24 hours.
+            Tell us about your creative idea, timeline, and vision. From the first spark of a concept to its final realization, we bring every project to life with care, passion, and attention to detail.
           </p>
         </div>
 
@@ -223,22 +223,21 @@ export default function BookingForm({ preselectedService = '' }) {
                         outline: 'none'
                       }}
                     >
-                      <option value="Music Production & Arrangement">Music Production & Arrangement</option>
-                      <option value="Analog & Live Tracking">Analog & Live Tracking</option>
-                      <option value="Hybrid Mixing & Spatial Audio">Hybrid Mixing & Dolby Atmos®</option>
-                      <option value="Audio Mastering & Final Delivery">Audio Mastering</option>
-                      <option value="Film Scoring & Cinematic Audio">Film Scoring & Sound Design</option>
-                      <option value="Sonic Branding & Commercial Audio">Sonic Branding & Jingles</option>
-                      <option value="Full Album Package">Full Studio Album Package</option>
+                      <option value="Advertisements & Commercials">Advertisements & Commercials</option>
+                      <option value="Music Videos & Visual Storytelling">Music Videos & Visual Storytelling</option>
+                      <option value="Music Productions & Sound Design">Music Productions & Sound Design</option>
+                      <option value="Artistic Initiatives & Creative Labs">Artistic Initiatives & Creative Labs</option>
+                      <option value="Musical Events & Stage Productions">Musical Events & Stage Productions</option>
+                      <option value="Multi-Disciplinary Collaboration">Comprehensive Multi-Discipline Project</option>
                     </select>
                   </div>
                 </div>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.25rem', marginBottom: '1.25rem' }}>
-                  {/* Preferred Studio Suite */}
+                  {/* Project Scope / Format */}
                   <div>
                     <label style={{ display: 'block', fontSize: '0.82rem', color: 'var(--text-main)', marginBottom: '0.4rem', fontWeight: 600 }}>
-                      Preferred Suite
+                      Project Scope / Format
                     </label>
                     <select
                       value={formData.studioRoom}
@@ -255,10 +254,12 @@ export default function BookingForm({ preselectedService = '' }) {
                         outline: 'none'
                       }}
                     >
-                      <option value="Studio A: Master Control Room">Studio A (SSL Console & Hybrid)</option>
-                      <option value="The Live Hall & Acoustic Room">The Live Hall (Grand Piano / Band)</option>
-                      <option value="Vocal & Soloist Isolation Suite">Vocal Isolation Chamber</option>
-                      <option value="Dolby Atmos Spatial Mixing Suite">Dolby Atmos Spatial Suite</option>
+                      <option value="Commercial TVC / Campaign">Commercial Campaign / TVC / Jingle</option>
+                      <option value="Music Video Cinematic Production">Cinematic Music Video Production</option>
+                      <option value="Studio Music Production & Mix">Studio Single / EP / Album Track</option>
+                      <option value="Cultural / Artistic Collaboration">Artistic / Cultural Initiative</option>
+                      <option value="Live Event / Stage Show">Concert / Musical Event Staging</option>
+                      <option value="General Exploration & Consulting">General Consultation & Ideation</option>
                     </select>
                   </div>
 
@@ -415,6 +416,29 @@ export default function BookingForm({ preselectedService = '' }) {
                   24/7 locked-out residential blocks available upon request.
                 </p>
               </div>
+            </div>
+
+            {/* Founder Note Card */}
+            <div
+              className="glass-card"
+              style={{
+                padding: '1.75rem',
+                border: '1px solid rgba(186, 27, 35, 0.3)',
+                background: 'linear-gradient(135deg, rgba(28, 12, 16, 0.7) 0%, rgba(14, 14, 18, 0.95) 100%)',
+                marginBottom: '2rem'
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.75rem' }}>
+                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--accent-scarlet)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                  A Note From Our Founder
+                </span>
+              </div>
+              <p style={{ color: 'var(--text-main)', fontSize: '0.92rem', lineHeight: 1.7, fontStyle: 'italic', margin: '0 0 0.85rem 0' }}>
+                "Malhaar Productions is a venture close to my heart—a creative platform dedicated to conceptualising and producing advertisements, music videos, music productions, artistic initiatives, and musical events. From the first spark of a concept to its final realization, our goal is to bring every project to life with care, passion, and attention to detail."
+              </p>
+              <p style={{ color: 'var(--accent-scarlet)', fontSize: '0.85rem', fontWeight: 600, margin: 0 }}>
+                Thank you for being a part of this journey.
+              </p>
             </div>
 
             <div

@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { Calendar, ArrowRight, Sparkles, Disc, Headphones } from 'lucide-react';
 
 export default function BookingCTA({
-  title = "READY TO CRAFT YOUR NEXT MASTERPIECE?",
-  subtitle = "Whether you need high-fidelity live tracking, Dolby Atmos immersive mixing, or complete end-to-end production, our team is ready to realize your vision."
+  title = "READY TO TRANSFORM YOUR IDEA INTO REALITY?",
+  subtitle = "From advertisements and music videos to music productions, artistic initiatives, and musical events—we bring every project to life with care, passion, and attention to detail."
 }) {
   return (
     <section className="section-padding" style={{ position: 'relative', overflow: 'hidden' }}>

@@ -31,13 +31,13 @@ export default function Services({ onSelectService, limit }) {
         <div className="section-header">
           <div className="section-tag">
             <Sliders size={14} />
-            <span>End-to-End Capabilities</span>
+            <span>Creative Disciplines & Capabilities</span>
           </div>
           <h2 className="section-title">
-            STUDIO SERVICES & <span className="highlight">PRODUCTION SUITES</span>
+            WHAT WE <span className="highlight">CONCEPTUALISE & PRODUCE</span>
           </h2>
           <p className="section-subtitle">
-            From initial songwriting drafts to global streaming delivery and theatrical surround mixing, Malhar Productions provides bespoke sonic solutions for artists, record labels, and directors.
+            Malhaar Productions is a creative platform dedicated to conceptualising and producing advertisements, music videos, music productions, artistic initiatives, and musical events—bringing every project to life with care, passion, and attention to detail.
           </p>
         </div>
 

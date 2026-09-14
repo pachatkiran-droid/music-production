@@ -4,27 +4,32 @@ import Logo from './Logo';
 
 export default function About() {
   const stats = [
-    { number: '250+', label: 'Mastered Releases', desc: 'Across Spotify, Apple Music & Vinyl' },
-    { number: '15+', label: 'Platinum & Gold Hits', desc: 'Independent charts & major label releases' },
-    { number: '120M+', label: 'Global Streams', desc: 'Worldwide listener reach' },
-    { number: '4', label: 'Dedicated Suites', desc: 'Acoustically isolated control & live rooms' }
+    { number: '5', label: 'Core Disciplines', desc: 'Ads, Music Videos, Productions, Initiatives & Events' },
+    { number: '100%', label: 'Concept to Realization', desc: 'From initial spark to final delivery' },
+    { number: '150+', label: 'Creative Projects', desc: 'Commercial campaigns, records & stage events' },
+    { number: 'Care & Detail', label: 'Artistic Passion', desc: 'Every project brought to life with dedication' }
   ];
 
   const pillars = [
     {
+      icon: Sparkles,
+      title: 'The Conceptual Spark',
+      description: 'We believe every extraordinary project begins with a spark. We dive deep into narrative, emotion, and purpose to craft concepts that truly resonate.'
+    },
+    {
       icon: Waves,
-      title: 'Acoustic Purity',
-      description: 'Engineered with floating floors, hardwood diffusers, and bass traps to achieve linear frequency response down to 20Hz.'
+      title: 'Thoughtful Creativity',
+      description: 'Creativity driven by vision. Our sonic, visual, and experiential choices are purposeful, evocative, and deeply considered.'
     },
     {
       icon: Disc3,
-      title: 'Analog & Modern Hybrid',
-      description: 'Solid-state SSL summing consoles, vintage Neve preamps, and Tube-Tech optical compression paired with ultra-high resolution converters.'
+      title: 'Professional Execution',
+      description: 'From precision studio engineering and analog warmth to cinematic 4K camera direction and seamless event stagecraft, we deliver world-class standards.'
     },
     {
-      icon: Sparkles,
-      title: 'Spatial Immersive Audio',
-      description: 'Dolby Atmos® 7.1.4 certified mixing environment that elevates music from flat stereo into three-dimensional acoustic space.'
+      icon: ShieldCheck,
+      title: 'Care, Passion & Detail',
+      description: 'Malhaar is a venture close to our hearts. We obsess over the finest nuances—every harmonic tone, lighting cue, and frame is sculpted with love.'
     }
   ];
 
@@ -50,13 +55,13 @@ export default function About() {
         <div className="section-header">
           <div className="section-tag">
             <Compass size={14} />
-            <span>The Malhar Story</span>
+            <span>A Venture Close To Our Hearts</span>
           </div>
           <h2 className="section-title">
-            INSPIRED BY SOUND, <span className="highlight">DEFINED BY MASTERY</span>
+            THOUGHTFUL CREATIVITY, <span className="highlight">PROFESSIONAL EXECUTION</span>
           </h2>
           <p className="section-subtitle">
-            In Indian classical tradition, <em>Malhar</em> is the raga possessing the transformative power to summon torrential monsoons. We carry that elemental, soul-stirring energy into modern music production.
+            At its core, Malhaar is driven by a simple vision: to transform ideas into meaningful experiences through thoughtful creativity and professional execution.
           </p>
         </div>
 
@@ -77,18 +82,32 @@ export default function About() {
               <div>
                 <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#FFFFFF' }}>MALHAAR PRODUCTIONS</h3>
                 <span style={{ fontSize: '0.8rem', color: 'var(--accent-scarlet)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-                  Sonic Architecture Since 2018
+                  Creative Platform & Production
                 </span>
               </div>
             </div>
 
             <p style={{ color: 'var(--text-main)', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '1.25rem' }}>
-              Founded by visionary producers and certified audio engineers, <strong>Malhar Productions</strong> bridges the sacred heritage of classical acoustic instrumentation with the relentless pulse of contemporary global pop, hip-hop, and cinematic scoring.
+              <strong>Malhaar Productions</strong> is a venture close to my heart—a creative platform dedicated to conceptualising and producing <strong>advertisements, music videos, music productions, artistic initiatives, and musical events</strong>.
             </p>
 
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.8, marginBottom: '2rem' }}>
-              Whether you are an independent singer-songwriter tracking your debut vocal or a film studio requiring synchronized 7.1.4 Dolby Atmos orchestral mixes, our facility provides the exact acoustic environment and creative guidance required to elevate raw talent into timeless records.
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.8, marginBottom: '1.5rem' }}>
+              From the first spark of a concept to its final realization, our goal is to bring every project to life with care, passion, and attention to detail.
             </p>
+
+            <div
+              style={{
+                padding: '1.15rem 1.5rem',
+                borderRadius: '12px',
+                backgroundColor: 'rgba(186, 27, 35, 0.08)',
+                borderLeft: '4px solid var(--primary-red)',
+                marginBottom: '2rem'
+              }}
+            >
+              <p style={{ fontStyle: 'italic', color: 'var(--text-main)', fontSize: '0.95rem', margin: 0, lineHeight: 1.6 }}>
+                "Thank you for being a part of this journey. Together, we bring ideas into the realm of enduring artistic expression."
+              </p>
+            </div>
 
             {/* Core Values List */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>

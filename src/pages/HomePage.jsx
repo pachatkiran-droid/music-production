@@ -38,66 +38,74 @@ export default function HomePage() {
   const videoIframeRef = useRef(null);
 
   const stats = [
-    { number: '250+', label: 'Mastered Releases', desc: 'Across Spotify, Apple Music & Vinyl' },
-    { number: '15+', label: 'Platinum & Gold Hits', desc: 'Independent charts & major label releases' },
-    { number: '120M+', label: 'Global Streams', desc: 'Worldwide listener reach' },
-    { number: '4', label: 'Dedicated Suites', desc: 'Acoustically isolated control & live rooms' }
+    { number: '5', label: 'Core Disciplines', desc: 'Ads, Music Videos, Productions, Initiatives & Events' },
+    { number: '100%', label: 'Concept to Realization', desc: 'From initial spark to final delivery' },
+    { number: '150+', label: 'Projects Delivered', desc: 'Commercial campaigns, records & stage events' },
+    { number: 'Care & Detail', label: 'Artistic Passion', desc: 'Every project brought to life with dedication' }
   ];
 
   const pillars = [
     {
+      icon: Sparkles,
+      title: 'The Conceptual Spark',
+      description: 'We believe every extraordinary project begins with a spark. We dive deep into narrative, emotion, and purpose to craft concepts that truly resonate.'
+    },
+    {
       icon: Waves,
-      title: 'Acoustic Purity',
-      description: 'Engineered with floating floors, hardwood diffusers, and bass traps to achieve linear frequency response down to 20Hz.'
+      title: 'Thoughtful Creativity',
+      description: 'Creativity driven by vision. Our sonic, visual, and experiential choices are purposeful, evocative, and deeply considered.'
     },
     {
       icon: Disc3,
-      title: 'Analog & Modern Hybrid',
-      description: 'Solid-state SSL summing consoles, vintage Neve preamps, and Tube-Tech optical compression paired with ultra-high resolution converters.'
-    },
-    {
-      icon: Sparkles,
-      title: 'Spatial Immersive Audio',
-      description: 'Dolby Atmos® 7.1.4 certified mixing environment that elevates music from flat stereo into three-dimensional acoustic space.'
+      title: 'Professional Execution',
+      description: 'From precision studio engineering and analog warmth to cinematic 4K camera direction and seamless event stagecraft, we deliver world-class standards.'
     },
     {
       icon: ShieldCheck,
-      title: 'Artist-First Integrity',
-      description: 'We believe technology serves emotion. Every harmonic saturation choice and dynamic curve is sculpted in deep collaboration with the artist.'
+      title: 'Care, Passion & Detail',
+      description: 'Malhaar is a venture close to our hearts. We obsess over the finest nuances—every harmonic tone, lighting cue, and frame is sculpted with love.'
     }
   ];
 
   const suites = [
     {
       step: '01',
-      tag: 'HYBRID CONTROL',
-      title: 'SSL 4000E Analog Summing',
-      desc: 'Solid State Logic summing with vintage Neve preamplification and Tube-Tech optical compression for warm, radio-ready stem separation.',
-      image: '/images/studio-control-room.jpg',
+      tag: 'COMMERCIAL & TVC',
+      title: 'Advertisements & Commercials',
+      desc: 'Conceptualising and producing high-impact TVCs, digital video ads, commercial jingles, and sonic branding that leave an indelible impression.',
+      image: '/images/service-branding.jpg',
       link: '/services'
     },
     {
       step: '02',
-      tag: 'IMMERSIVE AUDIO',
-      title: 'Dolby Atmos® 7.1.4 Suite',
-      desc: 'Binaural calibration and 11-channel Genelec SAM object rendering, immersing listeners in three-dimensional acoustic depth.',
-      image: '/images/studio-atmos-suite.jpg',
+      tag: 'CINEMATIC VISUALS',
+      title: 'Music Videos & Storytelling',
+      desc: 'Transforming songs into cinematic visual spectacles. From scriptwriting, casting, and shoot direction to color grading and VFX.',
+      image: '/images/service-scoring.jpg',
       link: '/services'
     },
     {
       step: '03',
-      tag: 'LIVE SANCTUARY',
-      title: 'Acoustic Live Hall',
-      desc: 'Floating concrete floors and 18-foot timber diffusers capturing grand piano, sitar, strings, and live drum ensembles with 1.4s natural decay.',
-      image: '/images/heritage-sitar-studio.jpg',
+      tag: 'STUDIO & SOUND DESIGN',
+      title: 'Music Productions',
+      desc: 'Original composition, live acoustic tracking, SSL analog summing, and spatial Dolby Atmos® mixing with pure acoustic fidelity.',
+      image: '/images/service-production.jpg',
       link: '/services'
     },
     {
       step: '04',
-      tag: 'LINEAR MASTERING',
-      title: 'Precision Analog Mastering',
-      desc: 'Apple Digital Masters certified signal chains with Prism Sound converters, surgical M/S EQ, and Direct Metal Mastering for vinyl.',
-      image: '/images/studio-console-analog.jpg',
+      tag: 'HERITAGE & LABS',
+      title: 'Artistic Initiatives',
+      desc: 'Nurturing cultural heritage, incubating independent artists, and fostering cross-genre experimental collaborations that push creative boundaries.',
+      image: '/images/heritage-sitar-studio.jpg',
+      link: '/services'
+    },
+    {
+      step: '05',
+      tag: 'STAGE & LIVE',
+      title: 'Musical Events & Shows',
+      desc: 'Curating, engineering, and producing unforgettable live musical experiences, intimate acoustic gatherings, and large-scale stage concerts.',
+      image: '/images/studio-control-room.jpg',
       link: '/services'
     }
   ];
@@ -277,7 +285,7 @@ export default function HomePage() {
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1.25rem' }}>
               <div className="section-tag">
                 <Sparkles size={14} />
-                <span>GLOBAL MUSIC PRODUCTION & ANALOG ARCHITECTURE</span>
+                <span>CREATIVE PLATFORM & PRODUCTION SANCTUARY</span>
               </div>
             </div>
 
@@ -293,10 +301,10 @@ export default function HomePage() {
                 color: '#FFFFFF'
               }}
             >
-              CREATIVE <br />
-              <span>MUSIC PRODUCTION</span> <br />
+              TRANSFORMING IDEAS <br />
+              <span>INTO MEANINGFUL</span> <br />
               <span className="highlight" style={{ color: 'var(--primary-red)', textShadow: '0 0 35px rgba(186, 27, 35, 0.6)' }}>
-                AGENCY
+                EXPERIENCES
               </span>
             </h1>
 
@@ -310,19 +318,19 @@ export default function HomePage() {
                 marginBottom: '2.5rem'
               }}
             >
-              One-of-one sound identities that command international attention. From raw acoustic motif and analog tape tracking to 7.1.4 Dolby Atmos® spatial immersion.
+              Malhaar Productions is a creative platform dedicated to conceptualising and producing advertisements, music videos, music productions, artistic initiatives, and musical events—engineered with thoughtful creativity and professional execution.
             </p>
 
             {/* Action Buttons */}
             <div style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap', alignItems: 'center' }}>
               <Link to="/contact" className="btn btn-primary" style={{ textDecoration: 'none' }}>
                 <Calendar size={18} />
-                <span>Book Studio Session</span>
+                <span>Start Your Project</span>
               </Link>
 
               <Link to="/services" className="btn btn-secondary" style={{ textDecoration: 'none' }}>
                 <Headphones size={18} />
-                <span>Explore Services</span>
+                <span>Explore Disciplines</span>
               </Link>
 
               {/* Reload Sound Teaser */}
@@ -388,13 +396,13 @@ export default function HomePage() {
           <div className="section-header">
             <div className="section-tag">
               <Compass size={14} />
-              <span>The Malhar Story</span>
+              <span>A Venture Close To Our Hearts</span>
             </div>
             <h2 className="section-title">
-              INSPIRED BY SOUND, <span className="highlight">DEFINED BY MASTERY</span>
+              THOUGHTFUL CREATIVITY, <span className="highlight">PROFESSIONAL EXECUTION</span>
             </h2>
             <p className="section-subtitle">
-              In Indian classical tradition, <em>Malhar</em> is the raga possessing the transformative power to summon torrential monsoons. We carry that elemental, soul-stirring energy into modern music production.
+              At its core, Malhaar is driven by a simple vision: to transform ideas into meaningful experiences through thoughtful creativity and professional execution.
             </p>
           </div>
 
@@ -415,18 +423,32 @@ export default function HomePage() {
                 <div>
                   <h3 style={{ fontFamily: "'Outfit', sans-serif", fontSize: '1.4rem', fontWeight: 800, color: '#FFFFFF' }}>MALHAAR PRODUCTIONS</h3>
                   <span style={{ fontSize: '0.8rem', color: 'var(--accent-scarlet)', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 600 }}>
-                    Sonic Architecture Since 2018
+                    Creative Platform & Production
                   </span>
                 </div>
               </div>
 
               <p style={{ color: 'var(--text-main)', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '1.25rem' }}>
-                Founded by visionary producers and certified audio engineers, <strong>Malhar Productions</strong> bridges the sacred heritage of classical acoustic instrumentation with the relentless pulse of contemporary global pop, hip-hop, and cinematic scoring.
+                <strong>Malhaar Productions</strong> is a venture close to my heart—a creative platform dedicated to conceptualising and producing <strong>advertisements, music videos, music productions, artistic initiatives, and musical events</strong>.
               </p>
 
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.8, marginBottom: '2rem' }}>
-                Whether you are an independent singer-songwriter tracking your debut vocal or a film studio requiring synchronized 7.1.4 Dolby Atmos orchestral mixes, our facility provides the exact acoustic environment and creative guidance required to elevate raw talent into timeless records.
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.98rem', lineHeight: 1.8, marginBottom: '1.5rem' }}>
+                From the first spark of a concept to its final realization, our goal is to bring every project to life with care, passion, and attention to detail.
               </p>
+
+              <div
+                style={{
+                  padding: '1.15rem 1.5rem',
+                  borderRadius: '12px',
+                  backgroundColor: 'rgba(186, 27, 35, 0.08)',
+                  borderLeft: '4px solid var(--primary-red)',
+                  marginBottom: '2rem'
+                }}
+              >
+                <p style={{ fontStyle: 'italic', color: 'var(--text-main)', fontSize: '0.95rem', margin: 0, lineHeight: 1.6 }}>
+                  "Thank you for being a part of this journey. Together, we transform ideas into experiences that linger long after the final note."
+                </p>
+              </div>
 
               {/* Core Values List */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -586,20 +608,20 @@ export default function HomePage() {
       </section>
 
       {/* ====================================================================
-          3. PRODUCTION SUITES & SONIC ARCHITECTURE
+          3. FIVE CORE DISCIPLINES & CAPABILITIES
           ==================================================================== */}
       <section id="suites" className="section-padding" style={{ position: 'relative', backgroundColor: 'rgba(10, 10, 14, 0.65)' }}>
         <div className="container">
           <div className="section-header">
             <div className="section-tag">
               <Sliders size={14} />
-              <span>Dedicated Recording Suites</span>
+              <span>Our Five Core Disciplines</span>
             </div>
             <h2 className="section-title">
-              PURPOSE-BUILT <span className="highlight">STUDIO SUITES</span>
+              WHAT WE <span className="highlight">CONCEPTUALISE & PRODUCE</span>
             </h2>
             <p className="section-subtitle">
-              Every room at Malhaar Productions is decoupled on floating concrete and tuned for acoustic transparency. Discover the environment tailored to your session.
+              From advertisements and music videos to music productions, artistic initiatives, and musical events—bringing every project to life with care, passion, and attention to detail.
             </p>
           </div>
 
@@ -718,7 +740,7 @@ export default function HomePage() {
               <div>
                 <div className="section-tag" style={{ background: 'rgba(186, 27, 35, 0.25)' }}>
                   <Music2 size={14} />
-                  <span>Stay In The Loop / Studio Dispatch</span>
+                  <span>Let's Connect & Collaborate</span>
                 </div>
 
                 <h2
@@ -733,12 +755,12 @@ export default function HomePage() {
                     marginBottom: '1rem'
                   }}
                 >
-                  STAY CURIOUS. <br />
-                  <span className="highlight" style={{ color: 'var(--primary-red)' }}>MAKE RECORDS THAT LAST.</span>
+                  HAVE AN IDEA? <br />
+                  <span className="highlight" style={{ color: 'var(--primary-red)' }}>LET'S BRING IT TO LIFE.</span>
                 </h2>
 
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.7, margin: 0 }}>
-                  Subscribe to receive open calendar slots in Studio A, stem mixing walkthroughs, and early notice on masterclasses.
+                  Whether it's an advertisement, music video, music production, artistic initiative, or musical event—we're excited to partner with you from concept to realization.
                 </p>
               </div>
 

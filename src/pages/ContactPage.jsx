@@ -8,24 +8,24 @@ export default function ContactPage() {
 
   const faqs = [
     {
-      q: 'How should I format and prepare my stems before sending?',
-      a: 'We require 24-bit or 32-bit float WAV/AIFF files exported at your native recording sample rate (44.1kHz, 48kHz, or 96kHz). All tracks should start at bar 1/time zero so they align immediately. Please bypass master bus limiters and provide a rough mix for reference.'
+      q: 'What types of creative projects does Malhaar Productions handle?',
+      a: 'We conceptualise and produce projects across five core disciplines: Advertisements (commercials, TVCs, jingles & sonic branding), Music Videos (cinematic visual storytelling), Music Productions (songwriting, acoustic tracking, mixing & spatial Dolby Atmos), Artistic Initiatives (cultural preservation & indie artist labs), and Musical Events (live concerts & curated stages).'
     },
     {
-      q: 'What is your session deposit and cancellation policy?',
-      a: 'A 50% non-refundable deposit is required to reserve studio dates on our calendar. Rescheduling is permitted free of charge up to 72 hours before your scheduled session.'
+      q: 'At what stage of our project should we get in touch with you?',
+      a: 'At any stage! We specialize in guiding projects from the first spark of a concept to its final realization. Whether you have an initial rough idea, a corporate campaign brief, a raw melody, or a fully planned music video or event, our team brings thoughtful creativity and professional execution to your vision.'
     },
     {
-      q: 'Can I bring my own external producer or engineer?',
-      a: 'Yes! We welcome guest producers and mixing engineers. Every booking includes a resident Malhar assistant engineer to patch equipment, manage routing, and ensure your session runs smoothly.'
+      q: 'Can Malhaar handle both audio and visual production under one roof?',
+      a: 'Yes! Having in-house composers, sound designers, cinematographers, directors, and editors ensures that music, visuals, and storytelling harmonize perfectly with unified creative direction and zero fragmentation.'
     },
     {
-      q: 'Do you offer unattended remote mixing & mastering services?',
-      a: 'Absolutely. Over 60% of our mixing and Dolby Atmos mastering work is conducted remotely with artists across the globe. We provide real-time high-fidelity streaming via Audiomovers Listento during review sessions.'
+      q: 'How do you collaborate on artistic initiatives or cultural projects?',
+      a: 'Artistic initiatives are a venture close to our hearts. We actively support independent musicians, Indian classical and folk heritage preservation, and cross-disciplinary art projects. We welcome proposals from artists, filmmakers, and cultural foundations.'
     },
     {
-      q: 'Can we schedule an in-person studio walkthrough before booking?',
-      a: 'Yes, we are delighted to show prospective artists and labels around our facilities. Please submit an inquiry selecting "Studio Walkthrough / Tour" or reach out directly to our studio manager.'
+      q: 'What is your typical timeline from concept to final realization?',
+      a: 'Timelines vary by discipline. Commercial audio branding and jingles typically take 1–2 weeks; music productions and multi-track mixes take 2–3 weeks; while full-scale music videos and live musical events span 3–6 weeks with clear iterative review milestones.'
     }
   ];
 
@@ -33,10 +33,10 @@ export default function ContactPage() {
     <div className="page-wrapper">
       {/* 1. Page Header */}
         <PageHeader
-          badge="GET IN TOUCH"
-          title="BOOK A"
-          highlight="SESSION"
-          subtitle="Whether you need tracking in Studio A, a Dolby Atmos 7.1.4 spatial mix, or full album production, our team is ready to assist your sonic journey."
+          badge="LET'S CREATE TOGETHER"
+          title="BRING YOUR"
+          highlight="VISION TO LIFE"
+          subtitle="Malhaar Productions is a creative platform dedicated to conceptualising and producing advertisements, music videos, music productions, artistic initiatives, and musical events. From the first spark of a concept to its final realization, our goal is to bring every project to life with care, passion, and attention to detail."
         />
 
         {/* 2. Main Booking Form & Studio Details */}
@@ -48,13 +48,13 @@ export default function ContactPage() {
             <div className="section-header">
               <div className="section-tag">
                 <HelpCircle size={14} />
-                <span>Studio Guidelines & Policies</span>
+                <span>Collaboration Guidelines</span>
               </div>
               <h2 className="section-title">
                 FREQUENTLY ASKED <span className="highlight">QUESTIONS</span>
               </h2>
               <p className="section-subtitle">
-                Everything you need to know about booking, stem preparation, deliverables, and visiting Malhar Productions.
+                Everything you need to know about working with Malhaar Productions from concept to final realization.
               </p>
             </div>
 

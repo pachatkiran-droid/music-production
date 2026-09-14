@@ -9,32 +9,32 @@ import Logo from '../components/Logo';
 export default function AboutPage() {
   const [activeVideo, setActiveVideo] = useState(null);
   const stats = [
-    { number: '250+', label: 'Mastered Releases', desc: 'Across Spotify, Apple Music & Vinyl' },
-    { number: '15+', label: 'Platinum & Gold Hits', desc: 'Independent charts & major label releases' },
-    { number: '120M+', label: 'Global Streams', desc: 'Worldwide listener reach' },
-    { number: '4', label: 'Dedicated Suites', desc: 'Acoustically isolated control & live rooms' }
+    { number: '5', label: 'Core Disciplines', desc: 'Ads, Music Videos, Productions, Initiatives & Events' },
+    { number: '100%', label: 'Concept to Realization', desc: 'End-to-end creative & technical execution' },
+    { number: '150+', label: 'Creative Projects', desc: 'Commercial campaigns, records & stage events' },
+    { number: 'Care & Detail', label: 'Artistic Dedication', desc: 'Every project brought to life with passion' }
   ];
 
   const pillars = [
     {
+      icon: Sparkles,
+      title: 'The Conceptual Spark',
+      description: 'We believe every extraordinary project begins with a spark. We dive deep into narrative, tone, and audience emotion to craft concepts that truly resonate.'
+    },
+    {
       icon: Waves,
-      title: 'Acoustic Purity',
-      description: 'Engineered with floating concrete floors, custom hardwood diffusers, and diaphragmatic bass traps to achieve an absolute linear frequency response down to 20Hz.'
+      title: 'Thoughtful Creativity',
+      description: 'Creativity with purpose. At Malhaar, our creative choices in sound, visuals, and staging are purposeful, evocative, and deeply considered.'
     },
     {
       icon: Disc3,
-      title: 'Analog & Modern Hybrid',
-      description: 'Solid-state SSL 4000E summing consoles, vintage Neve preamplifiers, and Tube-Tech optical compression paired with ultra-high resolution Prism Sound and Burl converters.'
-    },
-    {
-      icon: Sparkles,
-      title: 'Spatial Immersive Audio',
-      description: 'Dolby Atmos® 7.1.4 certified mixing environment that elevates music from flat stereo into three-dimensional acoustic space with pinpoint object rendering.'
+      title: 'Professional Execution',
+      description: 'From precision studio engineering and analog warmth to cinematic 4K camera direction and seamless event stagecraft, we deliver at the highest industry standards.'
     },
     {
       icon: ShieldCheck,
-      title: 'Artist-First Integrity',
-      description: 'We believe technology serves emotion. Every sonic nuance, harmonic saturation choice, and dynamic curve is sculpted in deep collaboration with the artist.'
+      title: 'Care, Passion & Detail',
+      description: 'Malhaar is a venture close to our hearts. We obsess over the finest nuances—every harmonic tone, lighting cue, and visual frame is sculpted with love.'
     }
   ];
 
@@ -42,10 +42,10 @@ export default function AboutPage() {
     <div className="page-wrapper">
       {/* 1. Page Header */}
         <PageHeader
-          badge="THE MALHAR PHILOSOPHY"
-          title="INSPIRED BY TRADITION,"
-          highlight="DEFINED BY MASTERY"
-          subtitle="In Indian classical music, Raga Malhar possesses the mythical power to summon torrential monsoons. We bring that same visceral, transformative passion to modern sound design and record production."
+          badge="A VENTURE CLOSE TO OUR HEARTS"
+          title="THOUGHTFUL CREATIVITY,"
+          highlight="PROFESSIONAL EXECUTION"
+          subtitle="At its core, Malhaar is driven by a simple vision: to transform ideas into meaningful experiences through thoughtful creativity and professional execution."
         />
 
       {/* 2. Heritage Story & Studio Mission */}
@@ -70,13 +70,13 @@ export default function AboutPage() {
                   lineHeight: 1.2
                 }}
               >
-                THE ROOTS OF <span className="highlight">MALHAAR</span>
+                A VENTURE CLOSE TO <span className="highlight">OUR HEARTS</span>
               </h2>
               <p style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: 1.8, marginBottom: '1.25rem' }}>
-                Founded by passionate record producers and audio architects, <strong>Malhar Productions</strong> (also known as <em>Malhaar Productions</em>) was conceived as a haven for artists seeking uncompromising sonic fidelity. We recognized a growing void in the modern era: digital convenience had stripped away the organic warmth, air, and emotional weight that defined the golden age of records.
+                <strong>Malhaar Productions</strong> is a venture close to my heart—a creative platform dedicated to conceptualising and producing <strong>advertisements, music videos, music productions, artistic initiatives, and musical events</strong>.
               </p>
               <p style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: 1.8, marginBottom: '1.75rem' }}>
-                We built our facility from the ground up inside a decoupled, sound-isolated sanctuary. Here, vintage tube microphones and legendary British consoles breathe analog warmth into pristine 192kHz digital recording workflows. Whether scoring cinematic themes or polishing Billboard-ready pop vocals, we treat every note with reverent craftsmanship.
+                At its core, Malhaar is driven by a simple vision: <strong>to transform ideas into meaningful experiences through thoughtful creativity and professional execution</strong>. From the first spark of a concept to its final realization, our goal is to bring every project to life with care, passion, and attention to detail.
               </p>
 
               <div
@@ -87,8 +87,8 @@ export default function AboutPage() {
                   borderLeft: '4px solid var(--primary-red)'
                 }}
               >
-                <p style={{ fontStyle: 'italic', color: 'var(--text-main)', fontSize: '0.95rem', margin: 0 }}>
-                  "Sound is not just vibrations hitting an eardrum; it is the physical manifestation of human feeling. When Malhar plays, the atmosphere changes."
+                <p style={{ fontStyle: 'italic', color: 'var(--text-main)', fontSize: '0.98rem', margin: 0, lineHeight: 1.7 }}>
+                  "Thank you for being a part of this journey. Every concept entrusted to us is nurtured with genuine care, bringing experiences to life that touch lives and leave lasting impressions."
                 </p>
               </div>
             </div>
@@ -137,37 +137,37 @@ export default function AboutPage() {
                       textTransform: 'uppercase'
                     }}
                   >
-                    ACOUSTIC SANCTUARY
+                    CREATIVE PLATFORM
                   </span>
                 </div>
                 <div style={{ position: 'absolute', bottom: '1rem', left: '1.25rem', right: '1.25rem' }}>
                   <h3 style={{ fontSize: '1.2rem', color: '#FFFFFF', fontWeight: 800, margin: 0, textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}>
-                    Live Acoustic Hall & Heritage Strings Room
+                    Thoughtful Creativity, Professional Execution
                   </h3>
                 </div>
               </div>
 
               <div style={{ padding: '1.75rem' }}>
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>
-                  Engineered specifically to capture Indian classical acoustics, high-resonance sitars, dynamic sarods, and grand orchestral strings in total harmonic equilibrium.
+                  A unified platform conceptualising and delivering across five artistic disciplines with passion and technical mastery:
                 </p>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.75rem', textAlign: 'left' }}>
                   <div style={{ padding: '0.75rem', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)' }}>
-                    <div style={{ color: 'var(--accent-scarlet)', fontWeight: 700, fontSize: '0.8rem' }}>FLOATING SLABS</div>
-                    <div style={{ color: 'var(--text-dim)', fontSize: '0.74rem' }}>Decoupled isolation</div>
+                    <div style={{ color: 'var(--accent-scarlet)', fontWeight: 700, fontSize: '0.8rem' }}>ADVERTISEMENTS</div>
+                    <div style={{ color: 'var(--text-dim)', fontSize: '0.74rem' }}>Commercials & Jingles</div>
                   </div>
                   <div style={{ padding: '0.75rem', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)' }}>
-                    <div style={{ color: 'var(--accent-scarlet)', fontWeight: 700, fontSize: '0.8rem' }}>TELEFUNKEN TUBES</div>
-                    <div style={{ color: 'var(--text-dim)', fontSize: '0.74rem' }}>Vintage microphone lockers</div>
+                    <div style={{ color: 'var(--accent-scarlet)', fontWeight: 700, fontSize: '0.8rem' }}>MUSIC VIDEOS</div>
+                    <div style={{ color: 'var(--text-dim)', fontSize: '0.74rem' }}>Cinematic Storytelling</div>
                   </div>
                   <div style={{ padding: '0.75rem', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)' }}>
-                    <div style={{ color: 'var(--accent-scarlet)', fontWeight: 700, fontSize: '0.8rem' }}>DIFFUSION TIMBER</div>
-                    <div style={{ color: 'var(--text-dim)', fontSize: '0.74rem' }}>Teak acoustic treatment</div>
+                    <div style={{ color: 'var(--accent-scarlet)', fontWeight: 700, fontSize: '0.8rem' }}>MUSIC PRODUCTIONS</div>
+                    <div style={{ color: 'var(--text-dim)', fontSize: '0.74rem' }}>Songwriting & Mixing</div>
                   </div>
                   <div style={{ padding: '0.75rem', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)' }}>
-                    <div style={{ color: 'var(--accent-scarlet)', fontWeight: 700, fontSize: '0.8rem' }}>PRISM AD/DA</div>
-                    <div style={{ color: 'var(--text-dim)', fontSize: '0.74rem' }}>192kHz uncompressed</div>
+                    <div style={{ color: 'var(--accent-scarlet)', fontWeight: 700, fontSize: '0.8rem' }}>ARTISTIC INITIATIVES</div>
+                    <div style={{ color: 'var(--text-dim)', fontSize: '0.74rem' }}>Heritage & Culture Labs</div>
                   </div>
                 </div>
               </div>
@@ -459,8 +459,8 @@ export default function AboutPage() {
 
       {/* 8. Call To Action Banner */}
       <BookingCTA
-        title="COLLABORATE WITH OUR PRODUCTION TEAM"
-        subtitle="Book a session or schedule an in-person studio walkthrough to discuss your upcoming musical project."
+        title="BE A PART OF THIS CREATIVE JOURNEY"
+        subtitle="From the first spark of a concept to its final realization, let's bring your advertisements, music videos, productions, artistic initiatives, or events to life."
       />
 
       {/* Cinema Video Modal */}

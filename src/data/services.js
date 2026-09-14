@@ -1,86 +1,72 @@
 export const SERVICES = [
   {
-    id: 'production',
-    icon: 'Music2',
-    title: 'Music Production & Arrangement',
-    image: '/images/service-production.jpg',
-    shortDesc: 'From melodic concept to release-ready masterwork. Full-scale music production tailored to your artistic identity.',
-    features: [
-      'Original Songwriting & Composition',
-      'Orchestral, Electronic & Live Rhythm Arrangements',
-      'Session Musician Curation (Strings, Brass, Traditional Instruments)',
-      'A&R Guidance & Pre-Production Ideation'
-    ],
-    highlight: '250+ Tracks Charted Across Spotify & Apple Music'
-  },
-  {
-    id: 'recording',
-    icon: 'Mic2',
-    title: 'Analog & Live Tracking',
-    image: '/images/service-tracking.jpg',
-    shortDesc: 'Capture authentic emotional nuance in acoustically treated rooms with classic tube microphones and vintage preamps.',
-    features: [
-      'Vocal Tracking with Vintage Neumann & Telefunken Mics',
-      'Multi-Mic Drum & Percussion Tracking in Live Hall',
-      'Steinway Concert Grand Piano Sessions',
-      'Ultra-low Jitter Prism Sound & Burl Audio Conversion'
-    ],
-    highlight: 'Pristine Signal Chains: Neve 1073, Tube-Tech CL1B'
-  },
-  {
-    id: 'mixing',
-    icon: 'Sliders',
-    title: 'Hybrid Mixing & Spatial Audio',
-    image: '/images/studio-atmos-suite.jpg',
-    shortDesc: 'Blending the warmth and glue of analog summing with the surgical precision of modern digital workflows.',
-    features: [
-      'SSL 4000E & Neve Analog Summing Console',
-      'Dolby Atmos® 7.1.4 Immersive Spatial Mixing',
-      'Stem Processing, Dynamic EQ & Parallel Saturation',
-      'Unlimited Revisions Until Sonic Perfection'
-    ],
-    highlight: 'Dolby Atmos® Certified Mix Environment'
-  },
-  {
-    id: 'mastering',
-    icon: 'Disc3',
-    title: 'Audio Mastering & Final Delivery',
-    image: '/images/service-mastering.jpg',
-    shortDesc: 'The final polish that ensures your music sounds deep, wide, loud, and balanced on every speaker system.',
-    features: [
-      'Mastered for Apple Digital Masters (MFiT Verified)',
-      'Streaming Platform LUFS Loudness Optimization',
-      'Audiophile 24-bit/96kHz & DSD High-Resolution Masters',
-      'Vinyl Cut Preparation & DDP CD Image Generation'
-    ],
-    highlight: 'Transparent Analog & Precision Digital Processing'
-  },
-  {
-    id: 'scoring',
-    icon: 'Film',
-    title: 'Film Scoring & Cinematic Audio',
-    image: '/images/service-scoring.jpg',
-    shortDesc: 'Evocative original scores, cinematic trailer sound design, and emotional soundscapes for OTT, feature films, and games.',
-    features: [
-      'Original Feature Film & OTT Series Soundtracks',
-      'Custom Trailer Hits, Whooshes, Risers & Braams',
-      'Foley & Post-Production Audio Engineering',
-      'Synchronized Timecode Stems & M&E Mix Stems'
-    ],
-    highlight: 'Credits Across National Award-Winning Films'
-  },
-  {
-    id: 'branding',
+    id: 'advertisements',
     icon: 'Sparkles',
-    title: 'Sonic Branding & Commercial Jingles',
+    title: 'Advertisements & Commercials',
     image: '/images/service-branding.jpg',
-    shortDesc: 'Give your brand a distinctive acoustic signature. Memorable audio mnemonics, advertising campaigns, and sound design.',
+    shortDesc: 'Conceptualising and producing high-impact TVCs, digital video ads, commercial jingles, and sonic branding that leave an indelible impression.',
     features: [
-      'Commercial Jingles & TVC Music Production',
-      'Brand Audio Logos & 3-Second Sound Mnemonics',
-      'Interactive App & Product Sound Design',
-      'Global Royalty Buyout & Licensing Cleared'
+      'TVC & Digital Video Ad Production & Direction',
+      'Commercial Jingles & Sonic Mnemonics',
+      'Brand Storytelling, Copywriting & Concept Design',
+      'Broadcast, Digital & Global Rights Clearance'
     ],
-    highlight: 'Trusted by Top Advertising Agencies & Brands'
+    highlight: 'Compelling Campaigns for Visionary Brands'
+  },
+  {
+    id: 'music-videos',
+    icon: 'Film',
+    title: 'Music Videos & Visual Storytelling',
+    image: '/images/service-scoring.jpg',
+    shortDesc: 'Transforming musical compositions into cinematic visual spectacles. From scriptwriting and cinematography to final color grading and VFX.',
+    features: [
+      'Creative Direction, Treatments & Storyboarding',
+      'Cinematic 4K/6K Filming, Lighting & Location Scouting',
+      'Dynamic Editing, Color Grading & Visual Effects',
+      'Synchronized Visuals Tailored to the Artist’s Identity'
+    ],
+    highlight: 'Cinematic Visuals from Concept to Cut'
+  },
+  {
+    id: 'music-production',
+    icon: 'Music2',
+    title: 'Music Productions & Sound Design',
+    image: '/images/service-production.jpg',
+    shortDesc: 'Full-spectrum music creation—original composition, live recording, analog summing, mixing, and mastering with uncompromising fidelity.',
+    features: [
+      'Original Songwriting, Composition & Harmonic Arranging',
+      'Vocal & Live Acoustic Instrument Tracking in Tuned Suites',
+      'Hybrid Analog Summing & Dolby Atmos® Spatial Mixing',
+      'Streaming Platform Loudness (Apple Digital Masters) & Vinyl Pre-Masters'
+    ],
+    highlight: 'Pure Acoustic Purity & Modern Hybrid Audio'
+  },
+  {
+    id: 'artistic-initiatives',
+    icon: 'Disc3',
+    title: 'Artistic Initiatives & Creative Labs',
+    image: '/images/heritage-sitar-studio.jpg',
+    shortDesc: 'Nurturing cultural heritage, incubating independent artists, and fostering cross-genre experimental collaborations that push creative boundaries.',
+    features: [
+      'Independent Artist Mentorship & Production Support',
+      'Indian Classical & Folk Heritage Preservation Projects',
+      'Cross-Disciplinary Collaborations (Music, Dance, Visual Art)',
+      'Experimental Acoustic Audio Explorations'
+    ],
+    highlight: 'Preserving Heritage, Inspiring Innovation'
+  },
+  {
+    id: 'musical-events',
+    icon: 'Sliders',
+    title: 'Musical Events & Stage Productions',
+    image: '/images/studio-control-room.jpg',
+    shortDesc: 'Curating, engineering, and producing unforgettable live musical experiences, intimate acoustic gatherings, and large-scale stage concerts.',
+    features: [
+      'Live Concert Conceptualisation & Stage Direction',
+      'High-Fidelity Front-of-House (FOH) Sound Engineering',
+      'Stage Scenography, Mood Lighting & Audio-Visual Sync',
+      'Artist Lineup Curation & Event Experience Logistics'
+    ],
+    highlight: 'Transforming Spaces into Living Soundstages'
   }
 ];

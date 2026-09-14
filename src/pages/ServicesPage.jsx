@@ -10,28 +10,28 @@ export default function ServicesPage() {
   const workflowSteps = [
     {
       step: '01',
-      title: 'Pre-Production & Vision',
-      desc: 'Tempo mapping, harmonic arrangement review, key selection, and custom acoustic instrumentation planning.'
+      title: 'The Conceptual Spark',
+      desc: 'Deep ideation, narrative treatments, sonic moodboards, and creative visioning tailored specifically to your brief.'
     },
     {
       step: '02',
-      title: 'Tracking & Capture',
-      desc: 'Recording in our live sanctuary through vintage Telefunken and Neumann microphones into Neve preamps.'
+      title: 'Thoughtful Pre-Production',
+      desc: 'Composing melodic frameworks, scripting video scenes, acoustic room calibration, and scheduling top-tier creative talent.'
     },
     {
       step: '03',
-      title: 'Analog Summing & Mixing',
-      desc: 'Stem balancing on our SSL 4000E console with outboard optical and VCA compression for punch and air.'
+      title: 'Professional Execution',
+      desc: 'Pristine live studio tracking, cinematic 4K/6K filming on set, or high-fidelity stage audio engineering for events.'
     },
     {
       step: '04',
-      title: 'Dolby Atmos® Spatial Mix',
-      desc: 'Binaural calibration and 7.1.4 object panning to create an immersive, boundaryless acoustic realm.'
+      title: 'Meticulous Craft & Polish',
+      desc: 'Hybrid analog summing, spatial Dolby Atmos® mixing, frame-accurate film editing, color grading, and dynamic acoustic balancing.'
     },
     {
       step: '05',
-      title: 'Mastering & Delivery',
-      desc: 'Apple Digital Masters (MFiT) certified loudness optimization, vinyl DMM pre-masters, and stems archive.'
+      title: 'Final Realization & Delivery',
+      desc: 'Flawless broadcast-ready commercials, release-ready masters, festival-ready music videos, or memorable live event experiences.'
     }
   ];
 
@@ -39,10 +39,10 @@ export default function ServicesPage() {
     <div className="page-wrapper">
       {/* 1. Page Header */}
       <PageHeader
-        badge="PRODUCTION CAPABILITIES"
-        title="END-TO-END"
-        highlight="STUDIO SERVICES"
-        subtitle="Every sonic discipline under one acoustically tuned roof. From commercial film scoring to chart-topping Dolby Atmos mixes, we elevate your sound to international standards."
+        badge="OUR CREATIVE SPECTRUM"
+        title="FROM CONCEPT TO"
+        highlight="FINAL REALIZATION"
+        subtitle="Malhaar Productions is a creative platform dedicated to conceptualising and producing advertisements, music videos, music productions, artistic initiatives, and musical events—transforming ideas into meaningful experiences through thoughtful creativity and professional execution."
       />
 
       {/* 2. All Services Grid */}
@@ -54,13 +54,13 @@ export default function ServicesPage() {
           <div className="section-header" style={{ marginBottom: '3rem' }}>
             <div className="section-tag">
               <Sliders size={14} />
-              <span>Studio In Action</span>
+              <span>Thoughtful Creativity In Action</span>
             </div>
             <h2 className="section-title">
-              SEE OUR ENGINEERS <span className="highlight">IN THE MIX</span>
+              CRAFTING EXPERIENCES <span className="highlight">WITH PASSION</span>
             </h2>
             <p className="section-subtitle">
-              Watch how our production team blends British analog hardware summing with 3D spatial object rendering in real-time.
+              From the initial spark of inspiration to the final cut and master, see how our team brings projects to life with care, passion, and uncompromising attention to detail.
             </p>
           </div>
 
@@ -150,13 +150,13 @@ export default function ServicesPage() {
           <div className="section-header">
             <div className="section-tag">
               <Clock size={14} />
-              <span>The Malhar Method</span>
+              <span>Concept To Realization</span>
             </div>
             <h2 className="section-title">
-              OUR FIVE-STAGE <span className="highlight">PRODUCTION WORKFLOW</span>
+              OUR FIVE-STAGE <span className="highlight">CREATIVE PROCESS</span>
             </h2>
             <p className="section-subtitle">
-              A transparent, artist-centric methodology engineered to translate raw ideas into timeless, radio-ready records.
+              A transparent, thoughtful methodology engineered to bring every spark of inspiration to life with care, passion, and attention to detail.
             </p>
           </div>
 
@@ -249,8 +249,8 @@ export default function ServicesPage() {
 
       {/* 4. Booking CTA */}
       <BookingCTA
-        title="READY TO BOOK A SERVICE SUITE?"
-        subtitle="Select your preferred service and let our audio engineers craft the definitive sound for your music."
+        title="READY TO BRING YOUR PROJECT TO LIFE?"
+        subtitle="Whether it's an advertisement, music video, music production, artistic initiative, or musical event—let's create something meaningful together."
       />
 
       {/* Production & Atmos Session Cinema Modal */}

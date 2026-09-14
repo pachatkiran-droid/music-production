@@ -51,8 +51,8 @@ export default function Footer() {
               color: '#ffffff'
             }}
           >
-            WHERE TIMELESS RAGA MEETS <br />
-            <span style={{ color: '#ba1b23' }}>MODERN ANALOG MASTERY.</span>
+            TRANSFORMING IDEAS INTO <br />
+            <span style={{ color: '#ba1b23' }}>MEANINGFUL EXPERIENCES.</span>
           </h2>
         </div>
 
@@ -73,7 +73,7 @@ export default function Footer() {
               </Link>
             </div>
             <p style={{ color: 'rgba(255, 255, 255, 0.65)', fontSize: '0.88rem', lineHeight: 1.7, marginBottom: '1.5rem' }}>
-              Dolby Atmos® 7.1.4 certified spatial mixing, SSL 4000E analog summing, and decoupled tracking sanctuary in Mumbai.
+              A creative platform dedicated to conceptualising and producing advertisements, music videos, music productions, artistic initiatives, and musical events.
             </p>
             <div style={{ display: 'flex', gap: '0.6rem' }}>
               {['Spotify', 'Instagram', 'YouTube', 'SoundCloud'].map((network, idx) => (
@@ -141,12 +141,12 @@ export default function Footer() {
               CAPABILITIES
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.85rem', fontSize: '0.88rem', color: 'rgba(255, 255, 255, 0.75)' }}>
-              <li>Dolby Atmos® 7.1.4 Spatial Mixing</li>
-              <li>Solid State Logic 4000E Analog Summing</li>
-              <li>Apple Digital Masters (MFiT)</li>
-              <li>Orchestral & Band Live Tracking</li>
-              <li>Feature Film Scoring & OTT Post</li>
-              <li>Sonic Branding & Sound Design</li>
+              <li>Advertisements & Commercials</li>
+              <li>Music Videos & Visual Storytelling</li>
+              <li>Music Productions & Sound Design</li>
+              <li>Artistic Initiatives & Creative Labs</li>
+              <li>Musical Events & Stage Productions</li>
+              <li>Thoughtful Concept to Realization</li>
             </ul>
           </div>
 
