@@ -30,7 +30,7 @@ export default function HomePage() {
   const videoIframeRef = useRef(null);
 
   // Standardized luxury layout container with guaranteed responsive gutters
-  const container = 'w-full max-w-[1320px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 box-border';
+  const container = 'container';
 
   const openVideo = (id = 'oYmU8Av_e84') => {
     setCurrentVideoId(id);
@@ -71,7 +71,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-[#060608] text-white overflow-x-hidden selection:bg-[#ba1b23] selection:text-white">
+    <div className="page-wrapper w-full min-h-screen bg-[#060608] text-white overflow-x-hidden selection:bg-[#ba1b23] selection:text-white">
       {/* ====================================================================
           SECTION 1: HERO AGENCY BANNER WITH YOUTUBE VIDEO BACKGROUND
           ==================================================================== */}
