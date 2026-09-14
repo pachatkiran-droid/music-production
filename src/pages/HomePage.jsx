@@ -301,10 +301,10 @@ export default function HomePage() {
                 color: '#FFFFFF'
               }}
             >
-              TRANSFORMING IDEAS <br />
-              <span>INTO MEANINGFUL</span> <br />
+              Where Sound  <br />
+              <span>Becomes </span> <br />
               <span className="highlight" style={{ color: 'var(--primary-red)', textShadow: '0 0 35px rgba(186, 27, 35, 0.6)' }}>
-                EXPERIENCES
+               Art
               </span>
             </h1>
 
