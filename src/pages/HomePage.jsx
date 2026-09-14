@@ -74,7 +74,7 @@ export default function HomePage() {
       title: 'SSL 4000E Analog Summing',
       desc: 'Solid State Logic summing with vintage Neve preamplification and Tube-Tech optical compression for warm, radio-ready stem separation.',
       image: '/images/studio-control-room.jpg',
-      link: '/studios'
+      link: '/services'
     },
     {
       step: '02',
@@ -90,7 +90,7 @@ export default function HomePage() {
       title: 'Acoustic Live Hall',
       desc: 'Floating concrete floors and 18-foot timber diffusers capturing grand piano, sitar, strings, and live drum ensembles with 1.4s natural decay.',
       image: '/images/heritage-sitar-studio.jpg',
-      link: '/studios'
+      link: '/services'
     },
     {
       step: '04',
@@ -320,9 +320,9 @@ export default function HomePage() {
                 <span>Book Studio Session</span>
               </Link>
 
-              <Link to="/studios" className="btn btn-secondary" style={{ textDecoration: 'none' }}>
+              <Link to="/services" className="btn btn-secondary" style={{ textDecoration: 'none' }}>
                 <Headphones size={18} />
-                <span>Explore Studio Suites</span>
+                <span>Explore Services</span>
               </Link>
 
               {/* Reload Sound Teaser */}

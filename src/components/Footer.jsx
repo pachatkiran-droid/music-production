@@ -112,12 +112,10 @@ export default function Footer() {
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
               {[
-                { name: 'Studio Overview (Home)', to: '/' },
-                { name: 'The Malhar Story', to: '/about' },
-                { name: 'Production Suites', to: '/services' },
-                { name: 'Acoustic Rooms & Gear', to: '/studios' },
-                { name: 'Featured Discography', to: '/releases' },
-                { name: 'Book Studio Session', to: '/contact' }
+                { name: 'Home', to: '/' },
+                { name: 'About Us', to: '/about' },
+                { name: 'Services', to: '/services' },
+                { name: 'Contact', to: '/contact' }
               ].map((link, idx) => (
                 <li key={idx}>
                   <Link

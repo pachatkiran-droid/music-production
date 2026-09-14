@@ -94,7 +94,7 @@ export default function BookingCTA({
               </Link>
 
               <Link
-                to="/studios"
+                to="/services"
                 className="btn btn-secondary"
                 style={{
                   padding: '1rem 2rem',
@@ -104,7 +104,7 @@ export default function BookingCTA({
                 }}
               >
                 <Headphones size={18} />
-                <span>Explore Studio Rooms</span>
+                <span>Explore Our Services</span>
               </Link>
             </div>
           </div>

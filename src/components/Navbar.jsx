@@ -25,10 +25,8 @@ export default function Navbar({ onBookSessionClick }) {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
+    { name: 'About Us', path: '/about' },
     { name: 'Services', path: '/services' },
-    { name: 'Studios & Gear', path: '/studios' },
-    { name: 'Discography', path: '/releases' },
     { name: 'Contact', path: '/contact' },
   ];
 

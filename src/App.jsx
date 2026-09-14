@@ -11,8 +11,6 @@ import ScrollToTop from './components/ScrollToTop';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ServicesPage from './pages/ServicesPage';
-import StudiosPage from './pages/StudiosPage';
-import ReleasesPage from './pages/ReleasesPage';
 import ContactPage from './pages/ContactPage';
 
 export default function App() {
@@ -32,14 +30,14 @@ export default function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/services" element={<ServicesPage />} />
-            <Route path="/studios" element={<StudiosPage />} />
-            <Route path="/releases" element={<ReleasesPage />} />
             <Route path="/contact" element={<ContactPage />} />
 
-            {/* Intuitive Route Aliases */}
-            <Route path="/gear" element={<Navigate to="/studios" replace />} />
-            <Route path="/showreel" element={<Navigate to="/releases" replace />} />
-            <Route path="/discography" element={<Navigate to="/releases" replace />} />
+            {/* Intuitive Route Aliases / Redirects to Active Pages */}
+            <Route path="/studios" element={<Navigate to="/services" replace />} />
+            <Route path="/gear" element={<Navigate to="/services" replace />} />
+            <Route path="/releases" element={<Navigate to="/services" replace />} />
+            <Route path="/showreel" element={<Navigate to="/services" replace />} />
+            <Route path="/discography" element={<Navigate to="/services" replace />} />
             <Route path="/booking" element={<Navigate to="/contact" replace />} />
 
             {/* 404 Fallback to Home */}
