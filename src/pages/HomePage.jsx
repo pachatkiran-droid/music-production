@@ -361,57 +361,6 @@ export default function HomePage() {
               </button>
             </div>
           </div>
-
-          {/* Lower Hero Capability Badges */}
-          <div
-            style={{
-              paddingTop: '1.5rem',
-              borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-              display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              gap: '1rem'
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <div style={{ fontSize: '1.75rem', fontFamily: "'Cinzel', serif", fontWeight: 800, color: 'var(--primary-red)' }}>85%</div>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', lineHeight: 1.3, maxWidth: '140px' }}>
-                  Top 10 streaming & label placement ratio
-                </div>
-              </div>
-
-              <div style={{ width: '1px', height: '30px', backgroundColor: 'rgba(255, 255, 255, 0.15)' }} />
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <div style={{ fontSize: '1.75rem', fontFamily: "'Cinzel', serif", fontWeight: 800, color: '#FFFFFF' }}>120M+</div>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', lineHeight: 1.3, maxWidth: '140px' }}>
-                  Worldwide listener reach on Spotify & Apple
-                </div>
-              </div>
-            </div>
-
-            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-              {['DOLBY ATMOS® 7.1.4', 'SSL 4000E SUMMING', 'APPLE DIGITAL MASTERS'].map((pill, idx) => (
-                <span
-                  key={idx}
-                  style={{
-                    padding: '0.35rem 0.85rem',
-                    borderRadius: '999px',
-                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid rgba(255, 255, 255, 0.12)',
-                    fontSize: '0.72rem',
-                    fontWeight: 600,
-                    letterSpacing: '0.1em',
-                    color: 'rgba(255, 255, 255, 0.75)'
-                  }}
-                >
-                  {pill}
-                </span>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
@@ -737,7 +686,7 @@ export default function HomePage() {
       {/* ====================================================================
           5. CLIENT TESTIMONIALS & VERIFIED REVIEWS
           ==================================================================== */}
-      <Testimonials />
+      <Testimonials showPartners={false} />
 
       {/* ====================================================================
           6. STUDIO DISPATCH & BOOKING CALL TO ACTION
