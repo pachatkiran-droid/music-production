@@ -1,10 +1,22 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, ArrowRight, Play, Pause, Disc, Volume2, VolumeX, Maximize2, X } from 'lucide-react';
-import AudioPlayer from '../components/AudioPlayer';
+import {
+  ArrowUpRight,
+  ArrowRight,
+  Play,
+  Pause,
+  Disc,
+  Volume2,
+  VolumeX,
+  Maximize2,
+  X,
+  Sparkles,
+  Sliders,
+  Waves,
+  ShieldCheck
+} from 'lucide-react';
 import Testimonials from '../components/Testimonials';
 import BookingCTA from '../components/BookingCTA';
-import { FEATURED_RELEASES } from '../data/releases';
 import { studioAudioEngine } from '../utils/audioEngine';
 import { SHOWREEL_TRACKS } from '../data/tracks';
 
@@ -13,7 +25,12 @@ export default function HomePage() {
   const [isVideoMuted, setIsVideoMuted] = useState(true);
   const [showVideoModal, setShowVideoModal] = useState(false);
   const [currentVideoId, setCurrentVideoId] = useState('oYmU8Av_e84');
+  const [emailInput, setEmailInput] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
   const videoIframeRef = useRef(null);
+
+  // Standardized luxury layout container with guaranteed responsive gutters
+  const container = 'w-full max-w-[1320px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 box-border';
 
   const openVideo = (id = 'oYmU8Av_e84') => {
     setCurrentVideoId(id);
@@ -44,411 +61,368 @@ export default function HomePage() {
     }
   };
 
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (emailInput.trim()) {
+      setSubscribed(true);
+      setTimeout(() => setSubscribed(false), 4000);
+      setEmailInput('');
+    }
+  };
+
   return (
-    <div className="w-full min-h-screen p-0 m-0 bg-transparent block overflow-x-hidden">
+    <div className="w-full min-h-screen bg-[#060608] text-white overflow-x-hidden selection:bg-[#ba1b23] selection:text-white">
       {/* ====================================================================
-          SECTION 1: HERO AGENCY BANNER WITH YOUTUBE VIDEO BANNER
+          SECTION 1: HERO AGENCY BANNER WITH YOUTUBE VIDEO BACKGROUND
           ==================================================================== */}
-      <section className="relative w-full bg-[#080203] text-white pt-24 pb-10 overflow-hidden h-screen min-h-screen flex items-center box-border max-h-[620px]:h-auto max-h-[620px]:min-h-screen">
-        {/* Full-Bleed YouTube Video Banner (Spec Commercial - SONY) */}
-        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-[1]">
+      <section className="relative w-full min-h-[92vh] flex items-center justify-center overflow-hidden bg-black pt-28 pb-16 lg:pt-36 lg:pb-24">
+        {/* Full-Bleed YouTube Video Banner */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none opacity-45 scale-105">
           <iframe
             ref={videoIframeRef}
-            className="absolute top-1/2 left-1/2 w-screen h-[56.25vw] min-h-full min-w-[177.77vh] -translate-x-1/2 -translate-y-1/2 pointer-events-none border-0 brightness-[0.65] contrast-[1.18] saturate-[1.15]"
+            className="w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-0 pointer-events-none"
             src="https://www.youtube-nocookie.com/embed/oYmU8Av_e84?autoplay=1&mute=1&loop=1&playlist=oYmU8Av_e84&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&enablejsapi=1"
             title="Malhaar Productions Video Banner"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
           />
         </div>
 
-        {/* Cinematic Atmospheric Ruby/Dark Vignette Overlay */}
-        <div className="absolute inset-0 [background:radial-gradient(ellipse_at_50%_35%,rgba(186,27,35,0.42)_0%,rgba(14,3,6,0.76)_65%,#080203_100%),linear-gradient(180deg,rgba(8,2,4,0.72)_0%,rgba(8,2,4,0.15)_45%,rgba(8,2,4,0.92)_100%)] pointer-events-none z-[1]" />
-        <div className="absolute top-[20%] left-[40%] w-[650px] h-[420px] [background:radial-gradient(circle,rgba(230,42,52,0.28)_0%,transparent_70%)] blur-[90px] pointer-events-none z-[1]" />
+        {/* Ambient Dark Ruby Radial Vignette Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#060608] via-black/65 to-black/85 pointer-events-none" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-radial from-[#ba1b23]/35 to-transparent blur-[90px] pointer-events-none" />
 
-        <div className="w-full max-w-[1380px] mx-auto px-6 sm:px-10 lg:px-14 relative z-[2] flex flex-col justify-between min-h-[calc(100vh-8.5rem)] h-full box-border">
+        <div className={`${container} relative z-10 flex flex-col justify-between min-h-[75vh]`}>
           {/* Top Info Bar */}
-          <div className="flex justify-between items-start flex-wrap gap-4 mb-6 relative z-[2]">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-white/10 pb-5">
             <div>
-              <div className="font-['Outfit',sans-serif] text-[0.82rem] tracking-[0.14em] uppercase text-white/95 leading-tight font-bold">
+              <div className="text-[10px] font-bold tracking-[0.25em] text-[#ba1b23] uppercase">
                 SOURCE OF BOLD SOUND /
               </div>
-              <div className="text-[0.78rem] text-white/65 font-normal tracking-wide mt-1 max-w-[280px] leading-relaxed">
-                Acoustic purity, vintage analog summing & Dolby Atmos® 7.1.4 certified facility.
+              <div className="text-xs text-white/70 max-w-[420px] mt-1 font-normal">
+                Acoustic purity, vintage analog summing & Dolby Atmos® 7.1.4 certified facility in Mumbai.
               </div>
             </div>
-            <div className="flex items-center gap-4 flex-wrap">
-              {/* Interactive Video Banner Controls */}
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={toggleVideoSound}
-                  className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 backdrop-blur-md text-white px-3.5 py-1.5 rounded-full font-['Outfit',sans-serif] text-[0.72rem] font-bold tracking-wider uppercase cursor-pointer transition-all duration-200 hover:bg-[#ba1b23]/70 hover:border-[#ba1b23] hover:-translate-y-0.5"
-                  title={isVideoMuted ? "Turn Sound On" : "Mute Sound"}
-                  aria-label="Toggle video banner sound"
-                >
-                  {isVideoMuted ? <VolumeX size={14} /> : <Volume2 size={14} className="text-[#ff3b47]" />}
-                  <span>{isVideoMuted ? "Sound Off" : "Sound On"}</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setShowVideoModal(true)}
-                  className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 backdrop-blur-md text-white px-3.5 py-1.5 rounded-full font-['Outfit',sans-serif] text-[0.72rem] font-bold tracking-wider uppercase cursor-pointer transition-all duration-200 hover:bg-[#ba1b23]/70 hover:border-[#ba1b23] hover:-translate-y-0.5"
-                  title="Watch in Cinema Mode"
-                  aria-label="Watch video banner in cinema modal"
-                >
-                  <Maximize2 size={13} />
-                  <span>Cinema Mode</span>
-                </button>
-              </div>
 
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#e62a34] shadow-[0_0_10px_#e62a34]" />
-                <span className="text-[0.72rem] tracking-[0.12em] uppercase text-white/70 font-semibold">
-                  MUMBAI • GLOBAL
+            {/* Video Controls */}
+            <div className="flex items-center gap-3 flex-wrap">
+              <button
+                type="button"
+                onClick={toggleVideoSound}
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-xs text-white transition-all cursor-pointer"
+                title={isVideoMuted ? 'Unmute Video Reel' : 'Mute Video Reel'}
+              >
+                {isVideoMuted ? <VolumeX size={14} /> : <Volume2 size={14} className="text-[#ff3b47]" />}
+                <span className="text-[10px] tracking-wider font-semibold uppercase">
+                  {isVideoMuted ? 'SOUND OFF' : 'SOUND ON'}
                 </span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => openVideo('oYmU8Av_e84')}
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-xs text-white transition-all cursor-pointer"
+              >
+                <Maximize2 size={13} />
+                <span className="text-[10px] tracking-wider font-semibold uppercase">CINEMA MODE</span>
+              </button>
+
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#ba1b23]/20 border border-[#ba1b23]/40 text-white text-xs">
+                <span className="w-2 h-2 rounded-full bg-[#e62a34] animate-pulse" />
+                <span className="text-[10px] tracking-wider font-semibold uppercase text-white/90">MUMBAI • GLOBAL</span>
               </div>
             </div>
           </div>
 
-          {/* Hero Middle & Bottom Grid */}
-          <div className="relative z-[2] grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-end">
-            {/* Left Floating Cards (85% stat + Reload sound widget) */}
-            <div className="flex gap-5 items-end flex-wrap">
-              {/* White Stat Card */}
-              <div className="bg-white text-[#121216] p-5 sm:p-6 rounded-[18px] shadow-2xl min-w-[150px]">
-                <div className="flex items-center gap-1.5 text-[0.7rem] font-bold tracking-wider uppercase text-[#686878] mb-1">
-                  <span className="text-[#ba1b23]">✳</span>
-                  <span>RECORD IMPACT</span>
+          {/* Center Main Headline */}
+          <div className="my-auto py-12 lg:py-16">
+            <div className="max-w-[960px]">
+              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.25em] text-[#ff3b47] uppercase mb-4">
+                <span>✳</span>
+                <span>GLOBAL MUSIC PRODUCTION & ANALOG ARCHITECTURE</span>
+              </div>
+
+              <h1 className="text-[clamp(2.8rem,7vw,6.5rem)] font-extrabold uppercase tracking-tight leading-[0.92] text-white">
+                CREATIVE <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-white/60">
+                  MUSIC PRODUCTION
+                </span> <br />
+                <span className="text-[#ba1b23] [text-shadow:0_0_40px_rgba(186,27,35,0.6)]">
+                  AGENCY
+                </span>
+              </h1>
+
+              <p className="mt-6 text-sm sm:text-base md:text-lg text-white/75 max-w-[620px] leading-relaxed">
+                One-of-one sound identities that command international attention. From raw acoustic capture to 7.1.4 Dolby Atmos® spatial immersion.
+              </p>
+            </div>
+          </div>
+
+          {/* Lower Hero Controls & Badges */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pt-6 border-t border-white/10">
+            <div className="flex items-center gap-4 flex-wrap">
+              {/* Record Impact Badge */}
+              <div className="bg-white text-[#0a0204] rounded-2xl px-5 py-3 shadow-2xl flex items-center gap-4">
+                <div>
+                  <div className="text-[9px] font-bold uppercase tracking-wider text-[#ba1b23]">
+                    ✳ RECORD IMPACT
+                  </div>
+                  <div className="text-2xl font-black leading-none">85%</div>
                 </div>
-                <div className="font-['Outfit',sans-serif] text-[2.4rem] font-black leading-none text-[#0c0204] tracking-tight">
-                  85%
-                </div>
-                <div className="text-[0.72rem] text-[#686878] mt-1 leading-snug">
+                <div className="text-[10px] text-neutral-600 max-w-[130px] leading-tight font-medium">
                   Top 10 streaming & label placement ratio
                 </div>
               </div>
 
-              {/* Dark Glassmorphic Interactive Sound Card */}
-              <div
-                className="bg-[rgba(20,5,8,0.78)] backdrop-blur-md border border-white/20 text-white p-5 rounded-[18px] flex items-center gap-4 cursor-pointer transition-all duration-200 shadow-xl hover:bg-[#ba1b23]/45 hover:border-[#e62a34]/60 hover:-translate-y-0.5"
+              {/* Reload Sound Teaser Button */}
+              <button
+                type="button"
                 onClick={handleToggleTeaser}
+                className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 text-white transition-all cursor-pointer"
               >
-                <div
-                  className={`w-9 h-9 rounded-full flex items-center justify-center text-white transition-all duration-200 ${
-                    isPlayingTeaser ? 'bg-[#ba1b23]' : 'bg-white/10'
-                  }`}
-                >
-                  {isPlayingTeaser ? <Pause size={16} /> : <Play size={16} className="ml-0.5" />}
+                <div className="w-8 h-8 rounded-full bg-[#ba1b23] flex items-center justify-center text-white">
+                  {isPlayingTeaser ? <Pause size={14} /> : <Play size={14} fill="currentColor" />}
                 </div>
-                <div>
-                  <div className="text-[0.82rem] font-bold tracking-wide">
-                    {isPlayingTeaser ? 'Playing Soundscape' : 'Reload Your Sound'}
+                <div className="text-left">
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-white">
+                    {isPlayingTeaser ? 'PAUSE PREVIEW' : 'RELOAD YOUR SOUND'}
                   </div>
-                  <div className="text-[0.7rem] text-white/60">
-                    Live procedural synth preview
-                  </div>
+                  <div className="text-[9px] text-white/60">Live procedural synth audio</div>
                 </div>
-              </div>
+              </button>
             </div>
 
-            {/* Right Agency Typography */}
-            <div className="text-left lg:text-right flex flex-col items-start lg:items-end">
-              <Link
-                to="/services"
-                className="w-12 h-12 rounded-full border border-white/35 bg-white/10 flex items-center justify-center text-white transition-all duration-200 mb-5 hover:bg-[#ba1b23] hover:border-[#ba1b23] hover:scale-105"
-                aria-label="Explore Production Services"
-              >
-                <ArrowUpRight size={22} />
-              </Link>
-              <h1 className="font-['Outfit',sans-serif] text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.05] tracking-tight uppercase text-white mb-5 drop-shadow-lg">
-                CREATIVE <br />
-                MUSIC PRODUCTION <br />
-                AGENCY
-              </h1>
-              <p className="text-sm sm:text-base text-white/80 max-w-[420px] leading-relaxed mb-6">
-                One-of-one sound identities that command attention. From raw analog tracking to spatial Dolby Atmos® immersion.
-              </p>
-              <div className="flex gap-2 flex-wrap">
-                {['DOLBY ATMOS® 7.1.4', 'SSL 4000E SUMMING', 'APPLE DIGITAL MASTERS'].map((tag, i) => (
-                  <span
-                    key={i}
-                    className="text-[0.65rem] font-bold tracking-widest uppercase bg-white/10 px-3 py-1 rounded-full text-white/85 border border-white/15"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ====================================================================
-          SECTION 2: EDITORIAL STATEMENT & LATEST PROJECTS
-          ==================================================================== */}
-      <section className="w-full min-h-screen py-24 bg-[#f6f4ef] relative flex flex-col justify-center box-border">
-        <div className="w-full max-w-[1380px] mx-auto px-6 sm:px-10 lg:px-14">
-          <div className="text-[#ba1b23] text-4xl leading-none inline-block mb-6">✳</div>
-
-          <h2 className="font-['Outfit',sans-serif] text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.08] tracking-tight uppercase text-[#1a080c] max-w-[1100px] mb-8">
-            MALHAAR DESIGNS MAKE <br />
-            SOUND SYSTEMS{' '}
-            <span className="inline-flex items-center justify-center align-middle h-11 w-20 bg-gradient-to-br from-[#ba1b23] to-[#e62a34] rounded-full mx-2 shadow-lg overflow-hidden">
-              <span className="flex items-center gap-1">
-                <span className="w-1 bg-white/85 rounded-full h-3.5" />
-                <span className="w-1 bg-white/85 rounded-full h-6" />
-                <span className="w-1 bg-white/85 rounded-full h-4.5" />
-                <span className="w-1 bg-white/85 rounded-full h-3" />
+            {/* Capability Pills */}
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="text-[9px] font-semibold uppercase tracking-wider px-3.5 py-1.5 rounded-full bg-white/5 border border-white/15 text-white/80">
+                DOLBY ATMOS® 7.1.4
               </span>
-            </span>{' '}
-            THAT <br />
-            <span className="text-[#8a857b]">REDEFINE MODERN</span> <br />
-            SONIC CULTURE
-          </h2>
-
-          <p className="text-[#5a554c] text-base sm:text-lg max-w-[760px] leading-relaxed mb-16">
-            Malhaar crafts records and acoustic identities that cut through commercial noise, challenge genres, and awaken deep human emotion. We combine Indian classical soul, analog hardware, and spatial mixing all in one creative sanctuary.
-          </p>
-
-          {/* Projects Layout with Vertical Left Label */}
-          <div className="grid grid-cols-1 lg:grid-cols-[160px_1fr] gap-8 items-start">
-            <div className="flex lg:flex-col gap-2 font-['Outfit',sans-serif] text-xs sm:text-sm font-bold tracking-widest text-[#1a080c] uppercase lg:border-r border-[#1a080c]/10 lg:pr-6">
-              <span>OUR</span>
-              <span>LATEST</span>
-              <span className="text-[#ba1b23]">PROJECTS</span>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {FEATURED_RELEASES.slice(0, 3).map((track, idx) => (
-                <div
-                  key={track.id || idx}
-                  className="group relative h-[380px] rounded-2xl overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_55px_rgba(186,27,35,0.35)] flex flex-col justify-end p-6 text-white no-underline cursor-pointer"
-                  onClick={() => openVideo(track.youtubeId || 'oYmU8Av_e84')}
-                >
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105 brightness-[0.85] contrast-[1.1]"
-                    style={{
-                      backgroundImage: `linear-gradient(180deg, rgba(14,3,6,0.1) 0%, rgba(10,2,4,0.88) 100%), url('${track.coverImage || "/images/album-rain-varanasi.jpg"}')`,
-                    }}
-                  >
-                    <div className="absolute top-4 right-4 bg-[#0a0204]/80 backdrop-blur-md border border-white/25 rounded-full px-3 py-1.5 flex items-center gap-1.5 text-[0.7rem] font-bold text-white tracking-wider">
-                      <Play size={11} fill="#ffffff" />
-                      <span>WATCH REEL</span>
-                    </div>
-                  </div>
-                  <div className="absolute inset-0 [background:linear-gradient(180deg,rgba(12,3,5,0.1)_0%,rgba(12,3,5,0.6)_60%,rgba(8,1,3,0.95)_100%)] pointer-events-none" />
-                  <div className="relative z-[2]">
-                    <div className="text-xs tracking-wider uppercase text-[#e62a34] font-bold mb-1.5">
-                      {track.type || 'Single'} • {track.year}
-                    </div>
-                    <div className="text-xl font-extrabold text-white leading-snug mb-1">
-                      {track.title}
-                    </div>
-                    <div className="text-sm text-white/80">
-                      {track.artist}
-                    </div>
-                  </div>
-                </div>
-              ))}
+              <span className="text-[9px] font-semibold uppercase tracking-wider px-3.5 py-1.5 rounded-full bg-white/5 border border-white/15 text-white/80">
+                SSL 4000E SUMMING
+              </span>
+              <span className="text-[9px] font-semibold uppercase tracking-wider px-3.5 py-1.5 rounded-full bg-white/5 border border-white/15 text-white/80">
+                APPLE DIGITAL MASTERS
+              </span>
             </div>
           </div>
         </div>
       </section>
 
       {/* ====================================================================
-          SECTION 3: "EVERYTHING YOUR RECORD NEEDS TO GROW" (Deck with Popped-out Card)
+          SECTION 2: EDITORIAL STATEMENT & PHOTOGRAPHY WORKS
           ==================================================================== */}
-      <section className="w-full min-h-screen py-24 border-t border-black/5 bg-[#fcfbfa] flex flex-col justify-center box-border">
-        <div className="w-full max-w-[1380px] mx-auto px-6 sm:px-10 lg:px-14">
-          <div className="mb-14 max-w-[800px]">
-            <h2 className="font-['Outfit',sans-serif] text-3xl sm:text-5xl font-extrabold leading-tight tracking-tight uppercase text-[#1a080c] mb-4">
-              <span className="text-[#8a857b]">EVERYTHING YOUR</span> <br />
-              RECORD NEEDS TO GROW
+      <section className="w-full bg-[#fbfbfd] text-[#111111] py-20 sm:py-28">
+        <div className={container}>
+          {/* Statement Header */}
+          <div className="max-w-[1100px] mb-14 sm:mb-18">
+            <div className="text-[#ba1b23] text-2xl font-bold mb-3">✳</div>
+            <h2 className="text-[clamp(2.2rem,5vw,4.8rem)] font-extrabold uppercase tracking-tight leading-[0.98] text-[#111111]">
+              MALHAAR PRODUCTIONS BUILDS{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ba1b23] to-[#e62a34]">
+                SONIC ARCHITECTURES
+              </span>{' '}
+              THAT REDEFINE CONTEMPORARY SOUND CULTURE
             </h2>
-            <p className="text-sm sm:text-base text-[#5a554c] leading-relaxed">
-              Malhaar offers end-to-end music production, analog tracking, spatial audio mixing, and commercial sound design — engineered to cut through noise and deliver undeniable sonic impact.
+
+            <p className="mt-6 text-sm sm:text-base text-neutral-600 max-w-[680px] leading-relaxed">
+              We engineer records that cut through digital saturation, challenge sonic cliches, and command listener devotion. Analog pedigree meets three-dimensional acoustic mastering.
             </p>
           </div>
 
-          {/* 4 Cards Deck with Popped-out Elevated Centerpiece */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-            {/* Card 1: Production Strategy */}
-            <Link
-              to="/services"
-              className="group relative rounded-2xl p-7 flex flex-col justify-between transition-all duration-300 border border-black/5 hover:-translate-y-1.5 hover:shadow-xl no-underline text-[#1a080c] min-h-[380px]"
-              style={{
-                backgroundImage: 'linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(248,245,240,0.96) 100%), url("/images/service-production.jpg")',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-              }}
-            >
-              <div>
-                <div className="text-xs font-bold tracking-widest text-[#ba1b23] uppercase mb-3">01 / PRODUCTION STRATEGY</div>
-                <div className="text-xl font-extrabold text-[#1a080c] leading-snug mb-2">Songwriting & Arrangement</div>
-                <div className="text-sm text-[#5a554c] leading-relaxed">
-                  Harmonic motif mapping, live acoustic instrumentation, and beat architecture.
-                </div>
-              </div>
-              <div className="flex justify-between items-center border-t border-black/10 pt-4 mt-6">
-                <span className="text-xs text-[#ba1b23] font-bold">EXPLORE SUITE</span>
-                <ArrowUpRight size={16} className="text-[#ba1b23] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </div>
-            </Link>
-
-            {/* Card 2: THE STANDOUT ELEVATED POPPED-OUT CENTERPIECE (Dolby Atmos Spatial Mixing) */}
-            <Link
-              to="/services"
-              className="group relative rounded-2xl p-7 flex flex-col justify-between transition-all duration-300 border border-[#ba1b23]/40 shadow-2xl no-underline bg-[#140508] text-white min-h-[400px] lg:-translate-y-4 hover:!translate-y-[-20px]"
-              style={{
-                backgroundImage: 'radial-gradient(ellipse at 50% 25%, rgba(186, 27, 35, 0.78) 0%, rgba(18, 3, 6, 0.95) 85%), url("/images/studio-atmos-suite.jpg")',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-              }}
-            >
-              <div>
-                <div className="text-xs font-bold tracking-widest text-white/90 uppercase mb-3">
-                  02 / SPATIAL AUDIO IMMERSION
-                </div>
-                <div className="text-2xl font-extrabold text-white leading-snug mb-2">
-                  Dolby Atmos® 7.1.4
-                </div>
-                <div className="text-sm text-white/85 leading-relaxed">
-                  Certified immersive mixing environment. Elevating stereo stems into three-dimensional acoustic space with pinpoint object rendering.
-                </div>
-              </div>
-
-              {/* Glowing Centerpiece Orb / Canister Visual */}
-              <div className="my-6 flex justify-center items-center relative">
-                <div className="absolute w-24 h-24 rounded-full bg-[#ba1b23] blur-xl opacity-60" />
-                <div
-                  className="w-[90px] h-[90px] rounded-full [background:radial-gradient(circle_at_35%_35%,#ff4b55_0%,#ba1b23_60%,#4a080d_100%)] border-2 border-white/40 shadow-[0_0_35px_rgba(230,42,52,0.8),inset_0_0_20px_rgba(255,255,255,0.3)] flex items-center justify-center text-white relative z-[2]"
-                >
-                  <Disc size={36} className="animate-[spin_12s_linear_infinite]" />
-                </div>
-              </div>
-
-              <div className="flex justify-between items-center border-t border-white/15 pt-4">
-                <span className="text-xs text-white font-extrabold tracking-wider">
-                  FEATURED SUITE
+          {/* 3-Column Photography Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            {/* Card 1 */}
+            <div className="group relative rounded-2xl overflow-hidden bg-neutral-900 aspect-[3/4] shadow-xl">
+              <img
+                src="/images/heritage-sitar-studio.jpg"
+                alt="Heritage Acoustic Recording Studio"
+                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6 text-white">
+                <span className="text-[10px] font-bold tracking-[0.2em] text-[#ff3b47] uppercase">
+                  SUITE 01 • LIVE ROOM
                 </span>
-                <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#ba1b23] transition-transform group-hover:scale-110">
-                  <ArrowUpRight size={16} />
-                </div>
+                <h3 className="text-lg font-bold uppercase mt-1">Heritage Acoustic Sanctuary</h3>
+                <p className="text-xs text-white/70 mt-1">Sitar, strings & multi-mic ensemble tracking</p>
               </div>
-            </Link>
-
-            {/* Card 3: Creative Direction / Analog Tracking */}
-            <Link
-              to="/services"
-              className="group relative rounded-2xl p-7 flex flex-col justify-between transition-all duration-300 border border-black/5 hover:-translate-y-1.5 hover:shadow-xl no-underline text-[#1a080c] min-h-[380px]"
-              style={{
-                backgroundImage: 'linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(248,245,240,0.96) 100%), url("/images/studio-console-analog.jpg")',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-              }}
-            >
-              <div>
-                <div className="text-xs font-bold tracking-widest text-[#ba1b23] uppercase mb-3">03 / ANALOG TRACKING</div>
-                <div className="text-xl font-extrabold text-[#1a080c] leading-snug mb-2">SSL 4000E Console</div>
-                <div className="text-sm text-[#5a554c] leading-relaxed">
-                  Solid-state British summing, vintage Telefunken microphones, and Tube-Tech optical compression.
-                </div>
-              </div>
-              <div className="flex justify-between items-center border-t border-black/10 pt-4 mt-6">
-                <span className="text-xs text-[#ba1b23] font-bold">EXPLORE SUITE</span>
-                <ArrowUpRight size={16} className="text-[#ba1b23] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </div>
-            </Link>
-
-            {/* Card 4: Art Direction / Master Engineering */}
-            <Link
-              to="/services"
-              className="group relative rounded-2xl p-7 flex flex-col justify-between transition-all duration-300 border border-black/5 hover:-translate-y-1.5 hover:shadow-xl no-underline text-[#1a080c] min-h-[380px]"
-              style={{
-                backgroundImage: 'linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(248,245,240,0.96) 100%), url("/images/service-mastering.jpg")',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-              }}
-            >
-              <div>
-                <div className="text-xs font-bold tracking-widest text-[#ba1b23] uppercase mb-3">04 / AUDIO MASTERING</div>
-                <div className="text-xl font-extrabold text-[#1a080c] leading-snug mb-2">Apple Digital Masters</div>
-                <div className="text-sm text-[#5a554c] leading-relaxed">
-                  MFiT certified loudness optimization, vinyl DMM pre-masters, and 192kHz Prism Sound conversion.
-                </div>
-              </div>
-              <div className="flex justify-between items-center border-t border-black/10 pt-4 mt-6">
-                <span className="text-xs text-[#ba1b23] font-bold">EXPLORE SUITE</span>
-                <ArrowUpRight size={16} className="text-[#ba1b23] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </div>
-            </Link>
-          </div>
-
-          {/* Interactive Web Audio Synthesizer Player */}
-          <div className="mt-20 bg-[#0a0204] rounded-3xl p-6 sm:p-8 text-white shadow-2xl border border-white/10">
-            <div className="text-center mb-6">
-              <span className="text-xs tracking-widest text-[#e62a34] uppercase font-bold">
-                LIVE WEB AUDIO ENGINE
-              </span>
-              <h3 className="text-2xl sm:text-3xl font-extrabold mt-1">
-                Interactive Audio Showreel & Visualizer
-              </h3>
             </div>
-            <AudioPlayer />
+
+            {/* Card 2 */}
+            <div className="group relative rounded-2xl overflow-hidden bg-neutral-900 aspect-[3/4] shadow-xl">
+              <img
+                src="/images/studio-control-room.jpg"
+                alt="Master Control Room & SSL Console"
+                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6 text-white">
+                <span className="text-[10px] font-bold tracking-[0.2em] text-[#ff3b47] uppercase">
+                  SUITE 02 • CONTROL ROOM
+                </span>
+                <h3 className="text-lg font-bold uppercase mt-1">SSL 4000E Analog Summing</h3>
+                <p className="text-xs text-white/70 mt-1">Outboard tube saturation & bus compression</p>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="group relative rounded-2xl overflow-hidden bg-neutral-900 aspect-[3/4] shadow-xl">
+              <img
+                src="/images/studio-atmos-suite.jpg"
+                alt="Dolby Atmos 7.1.4 Spatial Mixing Suite"
+                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6 text-white">
+                <span className="text-[10px] font-bold tracking-[0.2em] text-[#ff3b47] uppercase">
+                  SUITE 03 • IMMERSIVE
+                </span>
+                <h3 className="text-lg font-bold uppercase mt-1">Dolby Atmos® 7.1.4 Suite</h3>
+                <p className="text-xs text-white/70 mt-1">Genelec SAM calibrated spatial monitoring</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ====================================================================
-          SECTION 4: VISION STATEMENT & 3-COLUMN EDITORIAL GRID
+          SECTION 3: "EVERYTHING YOUR RECORD NEEDS TO GROW"
           ==================================================================== */}
-      <section className="w-full min-h-screen py-24 border-t border-black/5 bg-[#f6f4ef] flex flex-col justify-center box-border">
-        <div className="w-full max-w-[1380px] mx-auto px-6 sm:px-10 lg:px-14">
-          <h2 className="font-['Outfit',sans-serif] text-3xl sm:text-5xl font-extrabold leading-tight tracking-tight uppercase text-[#1a080c] max-w-[950px] mx-auto mb-16 text-center">
-            WE TURN IDEAS <br />
-            INTO SONIC{' '}
-            <span className="inline-flex items-center justify-center align-middle h-11 w-20 bg-gradient-to-br from-[#ba1b23] to-[#e62a34] rounded-full mx-2 shadow-lg overflow-hidden">
-              <span className="flex items-center gap-1">
-                <span className="w-1 bg-white/85 rounded-full h-5" />
-                <span className="w-1 bg-white/85 rounded-full h-3" />
-                <span className="w-1 bg-white/85 rounded-full h-4" />
-              </span>
-            </span>{' '}
-            STATEMENTS <br />
-            <span className="text-[#8c867b]">FROM VISION TO DELIVERY —</span> <br />
-            <span className="text-[#8c867b]">IMPACT THAT LASTS</span>
-          </h2>
+      <section className="w-full bg-[#0a0204] text-white py-20 sm:py-28 relative">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-radial from-[#ba1b23]/25 to-transparent blur-[100px] pointer-events-none" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-            {/* Card 1: Artist Portrait in Red Light (Vocal tracking session) */}
-            <div className="flex flex-col">
-              <div className="relative h-[340px] rounded-2xl overflow-hidden mb-4 shadow-xl">
-                <div
-                  className="absolute inset-0 bg-cover bg-center contrast-[1.15]"
-                  style={{
-                    backgroundImage: `linear-gradient(180deg, rgba(186, 27, 35, 0.35) 0%, rgba(12, 3, 5, 0.9) 100%), url('/images/service-tracking.jpg')`,
-                  }}
-                />
+        <div className={`${container} relative z-10`}>
+          <div className="max-w-[850px] mb-14">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#ba1b23]/15 border border-[#ba1b23]/35 text-[#ff3b47] text-xs font-bold tracking-widest uppercase mb-4">
+              <Sliders size={13} />
+              <span>END-TO-END SUITES</span>
+            </div>
+            <h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-extrabold uppercase tracking-tight leading-[0.95] text-white">
+              <span className="text-white/40">EVERYTHING YOUR RECORD</span> <br />
+              NEEDS TO GROW
+            </h2>
+            <p className="mt-5 text-sm sm:text-base text-white/70 max-w-[620px] leading-relaxed">
+              Bespoke sonic treatment designed to cut through noise and deliver international results. From pre-production to release-ready master files.
+            </p>
+          </div>
+
+          {/* 4 Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Card 1 */}
+            <div className="bg-[#121217] border border-white/10 hover:border-[#ba1b23]/50 rounded-2xl p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-lg">
+              <div>
+                <span className="text-xs font-bold text-[#ba1b23] tracking-widest uppercase">01 / HYBRID</span>
+                <h3 className="text-xl font-bold uppercase mt-3 text-white">Analog Summing</h3>
+                <p className="text-xs text-white/65 mt-3 leading-relaxed">
+                  Analog stem balancing through SSL 4000E console & Tube-Tech optical compressors.
+                </p>
               </div>
-              <div className="flex gap-3 text-xs sm:text-sm text-[#5a554c] leading-relaxed">
-                <span className="text-[#ba1b23] font-bold">✳</span>
-                <span>
-                  Acoustic design, stem mixing, and analog mastering engineered to outlast temporary industry trends. From raw acoustic motif to global platform delivery.
-                </span>
+              <Link to="/services" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white hover:text-[#ff3b47] mt-6 transition-colors">
+                <span>Explore Mix</span>
+                <ArrowRight size={14} />
+              </Link>
+            </div>
+
+            {/* Card 2 - Elevated / Popped-out Card */}
+            <div className="bg-gradient-to-br from-[#ba1b23] to-[#730c12] border border-[#ff3b47]/40 rounded-2xl p-7 flex flex-col justify-between transition-all duration-300 -translate-y-2 shadow-2xl shadow-[#ba1b23]/30">
+              <div>
+                <span className="text-xs font-bold text-white/90 tracking-widest uppercase">02 / IMMERSIVE</span>
+                <h3 className="text-xl font-bold uppercase mt-3 text-white">Dolby Atmos® 7.1.4</h3>
+                <p className="text-xs text-white/90 mt-3 leading-relaxed">
+                  Three-dimensional spatial audio mix calibration for Apple Music, Tidal, and Blu-Ray.
+                </p>
+              </div>
+              <Link to="/services" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white mt-6 underline underline-offset-4">
+                <span>Explore Atmos</span>
+                <ArrowUpRight size={14} />
+              </Link>
+            </div>
+
+            {/* Card 3 */}
+            <div className="bg-[#121217] border border-white/10 hover:border-[#ba1b23]/50 rounded-2xl p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-lg">
+              <div>
+                <span className="text-xs font-bold text-[#ba1b23] tracking-widest uppercase">03 / CAPTURE</span>
+                <h3 className="text-xl font-bold uppercase mt-3 text-white">Live Tracking</h3>
+                <p className="text-xs text-white/65 mt-3 leading-relaxed">
+                  Decoupled live rooms with vintage Neumann & Telefunken mics into Neve 1073 preamps.
+                </p>
+              </div>
+              <Link to="/studios" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white hover:text-[#ff3b47] mt-6 transition-colors">
+                <span>Explore Rooms</span>
+                <ArrowRight size={14} />
+              </Link>
+            </div>
+
+            {/* Card 4 */}
+            <div className="bg-[#121217] border border-white/10 hover:border-[#ba1b23]/50 rounded-2xl p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-lg">
+              <div>
+                <span className="text-xs font-bold text-[#ba1b23] tracking-widest uppercase">04 / FINAL</span>
+                <h3 className="text-xl font-bold uppercase mt-3 text-white">Audio Mastering</h3>
+                <p className="text-xs text-white/65 mt-3 leading-relaxed">
+                  Apple Digital Masters certified linear phase EQ, analog harmonic saturation, & DMM vinyl.
+                </p>
+              </div>
+              <Link to="/services" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white hover:text-[#ff3b47] mt-6 transition-colors">
+                <span>Explore Master</span>
+                <ArrowRight size={14} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ====================================================================
+          SECTION 4: VISION STATEMENT & 3-COLUMN SUITE GRID
+          ==================================================================== */}
+      <section className="w-full bg-white text-[#111111] py-20 sm:py-28">
+        <div className={container}>
+          <div className="max-w-[1050px] mb-14">
+            <h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-extrabold uppercase tracking-tight leading-[0.95] text-[#111111]">
+              WE TURN IDEAS <br />
+              INTO{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ba1b23] to-[#e62a34]">
+                SONIC STATEMENTS
+              </span>{' '}
+              — <br />
+              FROM MOTIF TO MASTER
+            </h2>
+            <p className="mt-5 text-sm sm:text-base text-neutral-600 max-w-[620px] leading-relaxed">
+              Every production begins with an unwavering commitment: create something that outlasts temporary trends.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Card 1: Architectural Purity */}
+            <div className="rounded-2xl border border-neutral-200 bg-[#f8f8fa] p-8 flex flex-col justify-between shadow-md">
+              <div>
+                <div className="text-xs tracking-widest uppercase text-[#ba1b23] font-bold mb-4">
+                  01 / ARCHITECTURAL PURITY
+                </div>
+                <h3 className="text-2xl font-extrabold uppercase text-[#111111] leading-tight mb-4">
+                  Floating Concrete & Bass Trapping
+                </h3>
+                <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                  Precision NC-15 acoustic isolation with hardwood diffusers down to 20Hz. We capture clean, authentic waveforms free from standing wave flutter.
+                </p>
+              </div>
+              <div className="mt-8 pt-6 border-t border-neutral-200 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-neutral-800">
+                <span>ACOUSTIC ISOLATION</span>
+                <span className="text-[#ba1b23]">99.8%</span>
               </div>
             </div>
 
-            {/* Card 2: Saturated Red Glow Mesh Card */}
+            {/* Card 2: Red Saturated Sanctuary Card */}
             <Link
               to="/studios"
-              className="group relative rounded-2xl p-8 sm:p-10 flex flex-col justify-between [background:radial-gradient(ellipse_at_80%_20%,#e62a34_0%,#ba1b23_55%,#540910_100%)] text-white shadow-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_45px_rgba(186,27,35,0.4)] no-underline min-h-[340px]"
+              className="group relative rounded-2xl p-8 flex flex-col justify-between bg-gradient-to-br from-[#e62a34] via-[#ba1b23] to-[#540910] text-white shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl no-underline min-h-[320px]"
             >
               <div>
-                <div className="text-xs tracking-widest uppercase text-white/85 font-bold mb-5">
-                  THE PHYSICAL SANCTUARY
+                <div className="text-xs tracking-widest uppercase text-white/90 font-bold mb-4">
+                  02 / PHYSICAL SANCTUARY
                 </div>
-                <h3 className="text-3xl font-extrabold leading-tight uppercase tracking-tight max-w-[280px]">
+                <h3 className="text-2xl font-extrabold uppercase text-white leading-tight">
                   Explore our 4 dedicated studio suites & gear arsenal
                 </h3>
               </div>
@@ -457,20 +431,26 @@ export default function HomePage() {
               </div>
             </Link>
 
-            {/* Card 3: Heritage Classical Fusion Sanctuary */}
-            <div className="relative h-[340px] rounded-2xl overflow-hidden shadow-xl flex items-end p-8">
-              <div
-                className="absolute inset-0 bg-cover bg-center contrast-[1.15] brightness-[0.95]"
-                style={{
-                  backgroundImage: `linear-gradient(180deg, rgba(12, 3, 5, 0.25) 0%, rgba(10, 2, 4, 0.9) 100%), url('/images/heritage-sitar-studio.jpg')`,
-                }}
+            {/* Card 3: Photo Booking Card */}
+            <div className="relative rounded-2xl overflow-hidden shadow-xl flex items-end p-8 min-h-[320px]">
+              <img
+                src="/images/studio-console-analog.jpg"
+                alt="Book session in analog console suite"
+                className="absolute inset-0 w-full h-full object-cover brightness-[0.85] contrast-[1.1]"
               />
-              <div className="relative z-[2]">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+              <div className="relative z-10 w-full">
+                <div className="text-xs font-bold uppercase tracking-wider text-[#ff3b47] mb-2">
+                  03 / RESERVE TIME
+                </div>
+                <h3 className="text-xl font-bold uppercase text-white mb-4">
+                  Ready to book session?
+                </h3>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 bg-[#ba1b23] text-white text-xs font-bold tracking-widest uppercase px-6 py-3.5 rounded-full shadow-lg transition-all duration-200 hover:bg-[#d4222e] hover:scale-105 no-underline"
+                  className="inline-flex items-center gap-2 bg-[#ba1b23] hover:bg-[#d4222e] text-white text-xs font-bold tracking-widest uppercase px-6 py-3.5 rounded-full shadow-lg transition-all duration-200 no-underline"
                 >
-                  <span>BOOK SESSION NOW</span>
+                  <span>RESERVE SUITE</span>
                   <ArrowUpRight size={16} />
                 </Link>
               </div>
@@ -480,7 +460,67 @@ export default function HomePage() {
       </section>
 
       {/* ====================================================================
-          SECTION 5: CLIENT TESTIMONIALS & BOOKING CTA
+          SECTION 5: RED CTA BANNER (STAY IN THE LOOP / STAY CURIOUS)
+          ==================================================================== */}
+      <section id="dispatch" className="w-full bg-[#ba1b23] text-white py-16 sm:py-24 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl pointer-events-none" />
+
+        <div className={container}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* Left Col */}
+            <div className="lg:col-span-7">
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/80">
+                STAY IN THE LOOP / MALHAAR DISPATCH
+              </span>
+
+              <h2 className="mt-3 text-[clamp(2.6rem,6vw,5.5rem)] font-extrabold uppercase tracking-tight leading-[0.9] text-white">
+                Stay curious. <br />
+                <span className="text-white/85">Make records that last.</span>
+              </h2>
+
+              <p className="mt-4 text-xs sm:text-sm text-white/80 max-w-[500px] leading-relaxed">
+                Receive release notifications, acoustic masterclasses, open studio calendar slots, and behind-the-glass stem breakdowns directly to your inbox.
+              </p>
+            </div>
+
+            {/* Right Col: Newsletter Input Form */}
+            <div className="lg:col-span-5">
+              <form onSubmit={handleSubscribe} className="max-w-[460px] lg:ml-auto">
+                <div className="flex items-center border-b-2 border-white/70 pb-3 gap-3">
+                  <input
+                    type="email"
+                    required
+                    value={emailInput}
+                    onChange={(e) => setEmailInput(e.target.value)}
+                    placeholder="ENTER YOUR EMAIL ADDRESS"
+                    className="min-w-0 flex-1 bg-transparent text-sm sm:text-base text-white outline-none placeholder:text-white/60 font-medium tracking-wider"
+                  />
+
+                  <button
+                    type="submit"
+                    className="shrink-0 w-10 h-10 rounded-full bg-white text-[#ba1b23] flex items-center justify-center cursor-pointer hover:bg-neutral-100 transition-all hover:scale-105"
+                    aria-label="Subscribe to newsletter"
+                  >
+                    <ArrowUpRight size={20} strokeWidth={2} />
+                  </button>
+                </div>
+
+                <div className="mt-3 flex items-center justify-between text-[9px] font-semibold uppercase tracking-[0.18em] text-white/75">
+                  <span>SIGN UP FOR NEW RELEASES & UPDATES</span>
+                  {subscribed && (
+                    <span className="text-white bg-white/20 px-2 py-0.5 rounded font-bold">
+                      ✓ SUBSCRIBED!
+                    </span>
+                  )}
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ====================================================================
+          SECTION 6: CLIENT TESTIMONIALS & BOOKING CTA
           ==================================================================== */}
       <Testimonials />
 
@@ -492,7 +532,7 @@ export default function HomePage() {
       {/* Cinema Mode Video Modal */}
       {showVideoModal && (
         <div
-          className="fixed inset-0 bg-[#040102]/95 backdrop-blur-xl z-[9999] flex items-center justify-center p-4 sm:p-8 animate-fade-in"
+          className="fixed inset-0 bg-[#040102]/95 backdrop-blur-xl z-[9999] flex items-center justify-center p-4 sm:p-8"
           onClick={() => setShowVideoModal(false)}
         >
           <div

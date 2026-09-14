@@ -152,4 +152,17 @@
   border: none;
 }
 
+/* Ensure all page content containers maintain safe, balanced margins */
+.container,
+.site-container {
+  width: 100% !important;
+  max-width: 1320px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: clamp(1.5rem, 5vw, 4rem) !important;
+  padding-right: clamp(1.5rem, 5vw, 4rem) !important;
+  box-sizing: border-box !important;
+}
+
+
 
